@@ -1,0 +1,1 @@
+<view><wd-collapse wx:for="{{a}}" wx:for-item="item" u-s="{{['d']}}" u-i="{{item.d}}" bind:__l="__l" bindupdateModelValue="{{b}}" u-p="{{c}}"><wd-collapse-item wx:if="{{item.c}}" u-s="{{['d']}}" u-i="{{item.b}}" bind:__l="__l" u-p="{{item.c}}"><view wx:for="{{item.a}}" wx:for-item="item" wx:key="b" class="list-item">{{item.a}}</view></wd-collapse-item></wd-collapse></view>

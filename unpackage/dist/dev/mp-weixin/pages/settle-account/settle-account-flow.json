@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "",
+  "usingComponents": {
+    "wd-collapse-item": "../../uni_modules/wot-design-uni/components/wd-collapse-item/wd-collapse-item",
+    "wd-collapse": "../../uni_modules/wot-design-uni/components/wd-collapse/wd-collapse"
+  }
+}

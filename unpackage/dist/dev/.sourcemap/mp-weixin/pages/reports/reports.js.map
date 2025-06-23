@@ -1,0 +1,1 @@
+{"version":3,"file":"reports.js","sources":["D:/SoftWare/HBuilderX.4.45.2025010502/HBuilderX/plugins/uniapp-cli-vite/uniPage:/cGFnZXMvcmVwb3J0cy9yZXBvcnRzLnZ1ZQ"],"sourcesContent":["import MiniProgramPage from 'E:/document/LifePartner/lifeparter-app/pages/reports/reports.vue'\nwx.createPage(MiniProgramPage)"],"names":[],"mappings":";;;;;;;AACA,GAAG,WAAW,eAAe;"}

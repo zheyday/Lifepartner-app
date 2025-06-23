@@ -1,0 +1,265 @@
+/* 水平间距 */
+/* 水平间距 */
+/**
+ * 辅助函数
+ */
+/**
+ * SCSS 配置项：命名空间以及BEM
+ */
+/* 转换成字符串 */
+/* 判断是否存在 Modifier */
+/* 判断是否存在伪类 */
+/**
+ * 主题色切换
+ * @params $theme-color 主题色
+ * @params $type 变暗’dark‘ 变亮 'light'
+ * @params $mix-color 自己设置的混色
+ */
+/**
+ * 颜色结果切换， 如果开启线性渐变色 使用渐变色，如果没有开启，那么使用主题色
+ * @params $open-linear 是否开启线性渐变色
+ * @params $deg 渐变色角度
+ * @params $theme-color 当前配色
+ * @params [Array] $set 主题色明暗设置，与 $color-list 数量对应
+ * @params [Array] $color-list 渐变色顺序， $color-list 和 $per-list 数量相同
+ * @params [Array] $per-list 渐变色比例
+ */
+/**
+ * UI规范基础变量
+ */
+/*----------------------------------------- Theme color. start ----------------------------------------*/
+/* 主题颜色 */
+/* 辅助色 */
+/* 文字颜色（默认浅色背景下 */
+/* 暗黑模式 */
+/* 图形颜色 */
+/*----------------------------------------- Theme color. end -------------------------------------------*/
+/*-------------------------------- Theme color application size.  start --------------------------------*/
+/* 文字字号 */
+/* 文字字重 */
+/* 尺寸 */
+/*-------------------------------- Theme color application size.  end --------------------------------*/
+/* component var */
+/* action-sheet */
+/* badge */
+/* button */
+/* cell */
+/* calendar */
+/* checkbox */
+/* collapse */
+/* divider */
+/* drop-menu */
+/* input-number */
+/* input */
+/* textarea */
+/* loadmore */
+/* message-box */
+/* notice-bar */
+/* pagination */
+/* picker */
+/* col-picker */
+/* overlay */
+/* popup */
+/* progress */
+/* radio */
+/* search */
+/* slider */
+/* sort-button */
+/* steps */
+/* switch */
+/* tabs */
+/* tag */
+/* toast */
+/* loading */
+/* tooltip */
+/* popover */
+/* grid-item */
+/* statustip */
+/* card */
+/* upload */
+/* curtain */
+/* notify */
+/* skeleton */
+/* circle */
+/* swiper */
+/* swiper-nav */
+/* segmented */
+/* tabbar */
+/* tabbar-item */
+/* navbar */
+/* navbar-capsule */
+/* table */
+/* sidebar */
+/* sidebar-item */
+/* fab */
+/* count-down */
+/* keyboard */
+/* number-keyboard */
+/* passwod-input */
+/* form-item */
+/* backtop */
+/* index-bar */
+/* text */
+/* video-preview */
+/* img-cropper */
+/* floating-panel */
+/* signature */
+/**
+ * 混合宏
+ */
+/**
+ * SCSS 配置项：命名空间以及BEM
+ */
+/**
+ * 辅助函数
+ */
+/**
+ * SCSS 配置项：命名空间以及BEM
+ */
+/* 转换成字符串 */
+/* 判断是否存在 Modifier */
+/* 判断是否存在伪类 */
+/**
+ * 主题色切换
+ * @params $theme-color 主题色
+ * @params $type 变暗’dark‘ 变亮 'light'
+ * @params $mix-color 自己设置的混色
+ */
+/**
+ * 颜色结果切换， 如果开启线性渐变色 使用渐变色，如果没有开启，那么使用主题色
+ * @params $open-linear 是否开启线性渐变色
+ * @params $deg 渐变色角度
+ * @params $theme-color 当前配色
+ * @params [Array] $set 主题色明暗设置，与 $color-list 数量对应
+ * @params [Array] $color-list 渐变色顺序， $color-list 和 $per-list 数量相同
+ * @params [Array] $per-list 渐变色比例
+ */
+/**
+  * BEM，定义块（b)
+  */
+/* 定义元素（e），对于伪类，会自动将 e 嵌套在 伪类 底下 */
+/* 此方法用于生成穿透样式 */
+/* 定义元素（e），对于伪类，会自动将 e 嵌套在 伪类 底下 */
+/* 定义状态（m） */
+/* 定义状态（m） */
+/* 对于需要需要嵌套在 m 底下的 e，调用这个混合宏，一般在切换整个组件的状态，如切换颜色的时候 */
+/* 状态，生成 is-$state 类名 */
+/**
+  * 常用混合宏
+  */
+/* 单行超出隐藏 */
+/* 多行超出隐藏 */
+/* 清除浮动 */
+/* 0.5px 边框 指定方向*/
+/* 0.5px 边框 环绕 */
+/**
+  * 三角形实现尖角样式，适用于背景透明情况
+  * @param $size 三角形高，底边为 $size * 2
+  * @param $bg 三角形背景颜色
+  */
+/**
+  * 正方形实现尖角样式，适用于背景不透明情况
+  * @param $size 正方形边长
+  * @param $bg 正方形背景颜色
+  * @param $z-index z-index属性值，不得大于外部包裹器
+  * @param $box-shadow 阴影
+*/
+.wot-theme-dark .wd-collapse-item.data-v-9fdfc147 {
+  position: relative;
+}
+.wot-theme-dark .wd-collapse-item.data-v-9fdfc147::after {
+  position: absolute;
+  display: block;
+  content: "";
+  width: 100%;
+  height: 1px;
+  left: 0;
+  top: 0;
+  transform: scaleY(0.5);
+  background: var(--wot-dark-border-color, #3a3a3c);
+}
+.wot-theme-dark .wd-collapse-item__title.data-v-9fdfc147 {
+  color: var(--wot-dark-color, var(--wot-color-white, white));
+}
+.wot-theme-dark .wd-collapse-item__body.data-v-9fdfc147 {
+  color: var(--wot-dark-color3, rgba(232, 230, 227, 0.8));
+}
+.wot-theme-dark .wd-collapse-item.is-disabled .wd-collapse-item__title.data-v-9fdfc147 {
+  color: var(--wot-dark-color-gray, var(--wot-color-secondary, #595959));
+}
+.wot-theme-dark .wd-collapse-item.is-disabled .wd-collapse-item__arrow.data-v-9fdfc147 {
+  color: var(--wot-dark-color-gray, var(--wot-color-secondary, #595959));
+}
+.wd-collapse-item.data-v-9fdfc147 {
+  position: relative;
+  position: relative;
+}
+.wd-collapse-item.data-v-9fdfc147::after {
+  position: absolute;
+  display: block;
+  content: "";
+  width: 100%;
+  height: 1px;
+  left: 0;
+  top: 0;
+  transform: scaleY(0.5);
+  background: var(--wot-color-border-light, #e8e8e8);
+}
+.wd-collapse-item__header.data-v-9fdfc147 {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--wot-collapse-header-padding, 13px var(--wot-size-side-padding, 15px));
+  overflow: hidden;
+  -webkit-user-select: none;
+          user-select: none;
+}
+.wd-collapse-item__header.is-expanded.data-v-9fdfc147 {
+  position: relative;
+}
+.wd-collapse-item__header.is-expanded.data-v-9fdfc147::after {
+  position: absolute;
+  display: block;
+  content: "";
+  width: 100%;
+  height: 1px;
+  left: 0;
+  bottom: 0;
+  transform: scaleY(0.5);
+  background: var(--wot-color-border-light, #e8e8e8);
+}
+.wd-collapse-item__header.is-custom.data-v-9fdfc147 {
+  display: block;
+}
+.wd-collapse-item__title.data-v-9fdfc147 {
+  color: var(--wot-collapse-title-color, rgba(0, 0, 0, 0.85));
+  font-weight: var(--wot-fw-medium, 500);
+  font-size: var(--wot-collapse-title-fs, 16px);
+}
+.data-v-9fdfc147  .wd-collapse-item__arrow {
+  display: block;
+  font-size: var(--wot-collapse-arrow-size, 18px);
+  color: var(--wot-collapse-arrow-color, #d8d8d8);
+  transition: transform 0.3s;
+}
+.data-v-9fdfc147  .wd-collapse-item__arrow.is-retract {
+  transform: rotate(-180deg);
+}
+.wd-collapse-item__wrapper.data-v-9fdfc147 {
+  position: relative;
+  overflow: hidden;
+  will-change: height;
+}
+.wd-collapse-item__body.data-v-9fdfc147 {
+  color: var(--wot-collapse-body-color, rgba(0, 0, 0, 0.65));
+  font-size: var(--wot-collapse-body-fs, 14px);
+  padding: var(--wot-collapse-body-padding, 14px var(--wot-size-side-padding, 15px));
+  line-height: 1.43;
+}
+.wd-collapse-item.is-disabled .wd-collapse-item__title.data-v-9fdfc147 {
+  color: var(--wot-collapse-disabled-color, rgba(0, 0, 0, 0.15));
+}
+.wd-collapse-item.is-disabled .wd-collapse-item__arrow.data-v-9fdfc147 {
+  color: var(--wot-collapse-disabled-color, rgba(0, 0, 0, 0.15));
+}

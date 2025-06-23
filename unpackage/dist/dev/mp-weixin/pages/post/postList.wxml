@@ -1,0 +1,1 @@
+<view class="content"><view class="uni-list"><view wx:for="{{a}}" wx:for-item="item" wx:key="c" class="uni-list-cell" bindtap="{{item.d}}" data-postid="{{item.e}}"><view class="uni-media-list"><view class="uni-media-list-body"><view class="uni-media-list-text-top">{{item.a}}</view><view class="uni-media-list-text-bottom">{{item.b}}</view></view></view></view></view></view>

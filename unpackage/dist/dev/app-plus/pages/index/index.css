@@ -1,0 +1,14 @@
+
+.uni-link[data-v-5db80ddb] {
+		cursor: pointer;
+}
+.uni-link--withline[data-v-5db80ddb] {
+		text-decoration: underline;
+}
+
+
+.container {
+		padding: 20px;
+		font-size: 14px;
+		line-height: 24px;
+}

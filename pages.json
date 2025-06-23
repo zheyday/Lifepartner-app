@@ -1,0 +1,110 @@
+{
+	"pages": [{
+			"path": "pages/settle-account/settle-account",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": true
+			}
+		},
+		{
+			"path": "pages/index/index",
+			"style": {
+				"navigationBarTitleText": "uni-app"
+			}
+		},
+		{
+			"path": "pages/login/login",
+			"style": {
+				"navigationBarTitleText": "登陆",
+				"enablePullDownRefresh": false
+			}
+		},
+		{
+			"path": "pages/post/postList",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false
+			}
+		},
+		{
+			"path": "pages/post/postDetail",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false
+			}
+		},
+		{
+			"path": "pages/user-center/user-center",
+			"style": {
+				"navigationBarTitleText": ""
+			}
+		},
+		{
+			"path": "pages/reports/reports",
+			"style": {
+				"navigationBarTitleText": ""
+			}
+		},
+		{
+			"path": "pages/settle-account/settle-account-flow",
+			"style": {
+				"navigationBarTitleText": ""
+			}
+		},
+		{
+			"path": "pages/reports/account",
+			"style": {
+				"navigationBarTitleText": ""
+			}
+		},
+		{
+			"path": "pages/settle-account/create-account",
+			"style": {
+				"navigationBarTitleText": ""
+			}
+		},
+		{
+			"path": "pages/settle-account/create-flow",
+			"style": {
+				"navigationBarTitleText": ""
+			}
+		}
+	],
+	"globalStyle": {
+		"navigationBarTextStyle": "black",
+		"navigationBarTitleText": "uni-app",
+		"navigationBarBackgroundColor": "#F8F8F8",
+		"backgroundColor": "#F8F8F8",
+		"app-plus": {
+			"background": "#efeff4"
+		}
+	},
+	"condition": {
+		"current": 0,
+		"list": [{
+			"name": "settleccount",
+			"path": "pages/settle-account/settle-account"
+		}]
+	},
+	"tabBar": {
+		"list": [{
+				"text": "首页",
+				"pagePath": "pages/settle-account/settle-account",
+				"iconPath": "/static/home.png",
+				"selectedIconPath": "/static/home-active.png"
+			},
+			{
+				"text": "报表",
+				"pagePath": "pages/reports/reports",
+				"iconPath": "/static/tabbar/report.png",
+				"selectedIconPath": "/static/tabbar/report-active.png"
+			},
+			{
+				"text": "我的",
+				"pagePath": "pages/user-center/user-center",
+				"iconPath": "/static/tabbar/me.png",
+				"selectedIconPath": "/static/tabbar/me-active.png"
+			}
+		]
+	}
+}
