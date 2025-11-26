@@ -1,8 +1,15 @@
 {
 	"pages": [{
-			"path": "pages/settle-account/settle-account",
+			"path": "pages/user-center/user-center",
 			"style": {
-				"navigationBarTitleText": "",
+				"navigationBarTitleText": ""
+			}
+		},
+		{
+			"path": "pages/settle-account/account",
+			"style": {
+				// "navigationBarTitleText": "",
+				"navigationStyle": "custom",
 				"enablePullDownRefresh": true
 			}
 		},
@@ -12,13 +19,7 @@
 				"navigationBarTitleText": "uni-app"
 			}
 		},
-		{
-			"path": "pages/login/login",
-			"style": {
-				"navigationBarTitleText": "登陆",
-				"enablePullDownRefresh": false
-			}
-		},
+
 		{
 			"path": "pages/post/postList",
 			"style": {
@@ -34,37 +35,57 @@
 			}
 		},
 		{
-			"path": "pages/user-center/user-center",
-			"style": {
-				"navigationBarTitleText": ""
-			}
-		},
-		{
 			"path": "pages/reports/reports",
 			"style": {
-				"navigationBarTitleText": ""
+				// "navigationBarTitleText": "",
+				"navigationStyle": "custom",
+				"enablePullDownRefresh": true
 			}
 		},
 		{
-			"path": "pages/settle-account/settle-account-flow",
+			"path": "pages/settle-account/flow",
 			"style": {
 				"navigationBarTitleText": ""
 			}
 		},
 		{
-			"path": "pages/reports/account",
+			"path": "pages/settle-account/account-create",
 			"style": {
 				"navigationBarTitleText": ""
 			}
 		},
 		{
-			"path": "pages/settle-account/create-account",
+			"path": "pages/settle-account/flow-edit",
 			"style": {
 				"navigationBarTitleText": ""
 			}
 		},
 		{
-			"path": "pages/settle-account/create-flow",
+			"path": "pages/user-center/account-settings",
+			"style": {
+				"navigationBarTitleText": ""
+			}
+		},
+		{
+			"path": "pages/user-center/registry",
+			"style": {
+				"navigationBarTitleText": ""
+			}
+		},
+		{
+			"path": "pages/settle-account/flow-create",
+			"style": {
+				"navigationBarTitleText": ""
+			}
+		},
+		{
+			"path": "pages/category/category",
+			"style": {
+				"navigationBarTitleText": ""
+			}
+		},
+		{
+			"path": "pages/category/category-create",
 			"style": {
 				"navigationBarTitleText": ""
 			}
@@ -73,7 +94,7 @@
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
 		"navigationBarTitleText": "uni-app",
-		"navigationBarBackgroundColor": "#F8F8F8",
+		"navigationBarBackgroundColor": "#9bb9ff",
 		"backgroundColor": "#F8F8F8",
 		"app-plus": {
 			"background": "#efeff4"
@@ -89,7 +110,7 @@
 	"tabBar": {
 		"list": [{
 				"text": "首页",
-				"pagePath": "pages/settle-account/settle-account",
+				"pagePath": "pages/settle-account/account",
 				"iconPath": "/static/home.png",
 				"selectedIconPath": "/static/home-active.png"
 			},

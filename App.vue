@@ -5,15 +5,32 @@
 
 	export default {
 		onLaunch: function() {
-			console.warn('当前组件仅支持 uni_modules 目录结构 ，请升级 HBuilderX 到 3.1.0 版本以上！')
-			console.log('App Launch')
+			// console.warn('当前组件仅支持 uni_modules 目录结构 ，请升级 HBuilderX 到 3.1.0 版本以上！')
 			dbService.initDB()
+
+			// 检查登录状态并设置tabBar
+			this.checkLoginStatus()
 		},
 		onShow: function() {
-			console.log('App Show')
+			// 每次显示应用时检查登录状态
+			this.checkLoginStatus()
 		},
 		onHide: function() {
-			console.log('App Hide')
+			// console.log('App Hide')
+		},
+		methods: {
+			// 检查登录状态并设置tabBar
+			checkLoginStatus() {
+				const user_id = uni.getStorageSync('user_id')
+				const tabBarIndex = 2 // "我的"选项卡的索引
+
+				// 无论是否登录，都保持tabBar指向用户中心，在用户中心页面内部处理登录检查
+				uni.setTabBarItem({
+					index: tabBarIndex,
+					pagePath: 'pages/user-center/user-center',
+					text: '我的'
+				})
+			}
 		}
 	}
 </script>

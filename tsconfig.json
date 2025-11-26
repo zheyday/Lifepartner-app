@@ -1,0 +1,29 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "module": "ESNext",
+    "moduleResolution": "Node",
+    "strict": false,
+    "jsx": "preserve",
+    "allowSyntheticDefaultImports": true,
+    "skipLibCheck": true,
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./*"]
+    }
+  },
+  "include": [
+    "*.vue",
+    "*.js",
+    "pages/**/*.vue",
+    "components/**/*.vue",
+    "common/**/*.js",
+    "uni_modules/**/*.vue",
+    "types/**/*.d.ts"
+  ],
+  "exclude": [
+    "node_modules",
+    "unpackage",
+    "temp"
+  ]
+}

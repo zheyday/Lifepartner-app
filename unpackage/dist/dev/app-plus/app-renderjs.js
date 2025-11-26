@@ -7669,8 +7669,52 @@ __renderjsModules.f9cb76fc = (() => {
   };
   var cfu = {
     //demotype为自定义图表类型，一般不需要自定义图表类型，只需要改根节点上对应的类型即可
-    "type": ["pie", "ring", "rose", "word", "funnel", "map", "arcbar", "line", "column", "mount", "bar", "area", "radar", "gauge", "candle", "mix", "tline", "tarea", "scatter", "bubble", "demotype"],
-    "range": ["\u997C\u72B6\u56FE", "\u5706\u73AF\u56FE", "\u73AB\u7470\u56FE", "\u8BCD\u4E91\u56FE", "\u6F0F\u6597\u56FE", "\u5730\u56FE", "\u5706\u5F27\u8FDB\u5EA6\u6761", "\u6298\u7EBF\u56FE", "\u67F1\u72B6\u56FE", "\u5C71\u5CF0\u56FE", "\u6761\u72B6\u56FE", "\u533A\u57DF\u56FE", "\u96F7\u8FBE\u56FE", "\u4EEA\u8868\u76D8", "K\u7EBF\u56FE", "\u6DF7\u5408\u56FE", "\u65F6\u95F4\u8F74\u6298\u7EBF", "\u65F6\u95F4\u8F74\u533A\u57DF", "\u6563\u70B9\u56FE", "\u6C14\u6CE1\u56FE", "\u81EA\u5B9A\u4E49\u7C7B\u578B"],
+    "type": [
+      "pie",
+      "ring",
+      "rose",
+      "word",
+      "funnel",
+      "map",
+      "arcbar",
+      "line",
+      "column",
+      "mount",
+      "bar",
+      "area",
+      "radar",
+      "gauge",
+      "candle",
+      "mix",
+      "tline",
+      "tarea",
+      "scatter",
+      "bubble",
+      "demotype"
+    ],
+    "range": [
+      "\u997C\u72B6\u56FE",
+      "\u5706\u73AF\u56FE",
+      "\u73AB\u7470\u56FE",
+      "\u8BCD\u4E91\u56FE",
+      "\u6F0F\u6597\u56FE",
+      "\u5730\u56FE",
+      "\u5706\u5F27\u8FDB\u5EA6\u6761",
+      "\u6298\u7EBF\u56FE",
+      "\u67F1\u72B6\u56FE",
+      "\u5C71\u5CF0\u56FE",
+      "\u6761\u72B6\u56FE",
+      "\u533A\u57DF\u56FE",
+      "\u96F7\u8FBE\u56FE",
+      "\u4EEA\u8868\u76D8",
+      "K\u7EBF\u56FE",
+      "\u6DF7\u5408\u56FE",
+      "\u65F6\u95F4\u8F74\u6298\u7EBF",
+      "\u65F6\u95F4\u8F74\u533A\u57DF",
+      "\u6563\u70B9\u56FE",
+      "\u6C14\u6CE1\u56FE",
+      "\u81EA\u5B9A\u4E49\u7C7B\u578B"
+    ],
     //增加自定义图表类型，如果需要categories，请在这里加入您的图表类型，例如最后的"demotype"
     //自定义类型时需要注意"tline","tarea","scatter","bubble"等时间轴（矢量x轴）类图表，没有categories，不需要加入categories
     "categories": ["line", "column", "mount", "bar", "area", "radar", "gauge", "candle", "mix", "demotype"],
@@ -7706,6 +7750,26 @@ __renderjsModules.f9cb76fc = (() => {
         if (index !== void 0) {
           return series[index].name + "\uFF1A" + series[index].data + "\u5143";
         }
+      },
+      "pieNamePercent": function(val, index, series, opts) {
+        if (index !== void 0) {
+          const total = series.reduce((sum, cur) => sum + cur.data, 0);
+          const percent = (series[index].data / total * 100).toFixed(2) + "%";
+          if (series[index].name.length > 4) {
+            series[index].name = series[index].name.substring(0, 4) + "..";
+          }
+          return `${series[index].name}${percent}`;
+        }
+      },
+      "yuanToWan": function(val, index, series, opts) {
+        if (Math.abs(val) >= 1e4) {
+          const v = val / 1e4;
+          return Number.isInteger(v) ? `${v}w` : `${v.toFixed(0)}w`;
+        }
+        return val.toFixed(0);
+      },
+      "lineFormatter1": function(item, category, index, opts) {
+        return "\u51C0\u6536\u5165" + item.data;
       }
     },
     //这里演示了自定义您的图表类型的option，可以随意命名，之后在组件上 type="demotype" 后，组件会调用这个花括号里的option，如果组件上还存在opts参数，会将demotype与opts中option合并后渲染图表。
@@ -7721,7 +7785,9 @@ __renderjsModules.f9cb76fc = (() => {
         "gridType": "dash",
         "dashLength": 2
       },
-      "legend": {},
+      "legend": {
+        show: false
+      },
       "extra": {
         "line": {
           "type": "curve",
@@ -7734,6 +7800,9 @@ __renderjsModules.f9cb76fc = (() => {
       "type": "pie",
       "color": color,
       "padding": [5, 5, 5, 5],
+      "legend": {
+        show: false
+      },
       "extra": {
         "pie": {
           "activeOpacity": 0.5,
@@ -7749,31 +7818,37 @@ __renderjsModules.f9cb76fc = (() => {
     "ring": {
       "type": "ring",
       "color": color,
-      "padding": [5, 5, 5, 5],
+      "padding": [5, 15, 5, 25],
       "rotate": false,
       "dataLabel": true,
-      "legend": {
+      "fontSize": 11,
+      "label": {
         "show": true,
+        "lineLength": 10
+        // 限制宽度，长文字会换行，不用横向扩展
+      },
+      "legend": {
+        "show": false,
         "position": "right",
         "lineHeight": 25
       },
       "title": {
-        "name": "\u6536\u76CA\u7387",
+        "name": "",
         "fontSize": 15,
         "color": "#666666"
       },
       "subtitle": {
-        "name": "70%",
+        "name": "",
         "fontSize": 25,
         "color": "#7cb5ec"
       },
       "extra": {
         "ring": {
-          "ringWidth": 30,
+          "ringWidth": 35,
           "activeOpacity": 0.5,
           "activeRadius": 10,
           "offsetAngle": 0,
-          "labelWidth": 15,
+          "labelWidth": 6,
           "border": true,
           "borderWidth": 3,
           "borderColor": "#FFFFFF"
@@ -7873,20 +7948,30 @@ __renderjsModules.f9cb76fc = (() => {
     "line": {
       "type": "line",
       "color": color,
-      "padding": [15, 10, 0, 15],
+      "padding": [15, 10, 0, 5],
+      "dataPointShape": false,
+      "loadingType": 0,
       "xAxis": {
-        "disableGrid": true
+        "disableGrid": true,
+        "fontColor": "#c0c3cf"
       },
       "yAxis": {
         "gridType": "dash",
-        "dashLength": 2
+        "dashLength": 6,
+        // "splitNumber": 3,
+        "format": "yuanToWan"
       },
-      "legend": {},
+      "legend": {
+        "show": false
+      },
       "extra": {
         "line": {
           "type": "straight",
-          "width": 2,
+          "width": 3,
           "activeType": "hollow"
+        },
+        "tooltip": {
+          "legendShow": false
         }
       }
     },
@@ -7901,12 +7986,10 @@ __renderjsModules.f9cb76fc = (() => {
       "yAxis": {
         "gridType": "dash",
         "dashLength": 2,
-        "data": [
-          {
-            "min": 0,
-            "max": 80
-          }
-        ]
+        "data": [{
+          "min": 0,
+          "max": 80
+        }]
       },
       "legend": {},
       "extra": {
@@ -7928,12 +8011,10 @@ __renderjsModules.f9cb76fc = (() => {
       "yAxis": {
         "gridType": "dash",
         "dashLength": 2,
-        "data": [
-          {
-            "min": 0,
-            "max": 80
-          }
-        ]
+        "data": [{
+          "min": 0,
+          "max": 80
+        }]
       },
       "legend": {},
       "extra": {
@@ -7955,7 +8036,9 @@ __renderjsModules.f9cb76fc = (() => {
         "disableGrid": true
       },
       "yAxis": {
-        "data": [{ "min": 0 }]
+        "data": [{
+          "min": 0
+        }]
       },
       "legend": {},
       "extra": {
@@ -7975,7 +8058,9 @@ __renderjsModules.f9cb76fc = (() => {
         "disableGrid": true
       },
       "yAxis": {
-        "data": [{ "min": 0 }]
+        "data": [{
+          "min": 0
+        }]
       },
       "legend": {},
       "extra": {

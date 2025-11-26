@@ -1,15 +1,8 @@
 {
-  "hash": "f9c6e481",
-  "configHash": "b4701028",
+  "hash": "a9aaad06",
+  "configHash": "01acc02a",
   "lockfileHash": "c8770deb",
-  "browserHash": "d26ece76",
-  "optimized": {
-    "bignumber.js": {
-      "src": "../../../../../node_modules/bignumber.js/bignumber.mjs",
-      "file": "bignumber__js.js",
-      "fileHash": "4a5308fc",
-      "needsInterop": false
-    }
-  },
+  "browserHash": "b75566aa",
+  "optimized": {},
   "chunks": {}
 }

@@ -5,10 +5,10 @@
     "iPad"
   ],
   "id": "__UNI__E017681",
-  "name": "lifeparter-app",
+  "name": "生活搭子",
   "version": {
     "name": "1.0.0",
-    "code": "100"
+    "code": 1
   },
   "description": "",
   "developer": {
@@ -17,6 +17,7 @@
     "url": ""
   },
   "permissions": {
+    "SQLite": {},
     "UniNView": {
       "description": "UniNView原生渲染"
     }
@@ -37,10 +38,47 @@
       "id": "1",
       "kernel": "WKWebview"
     },
+    "statusbar": {
+      "immersed": "supportedDevice",
+      "style": "dark",
+      "background": "#9bb9ff"
+    },
     "usingComponents": true,
     "nvueCompiler": "uni-app",
     "nvueStyleCompiler": "uni-app",
     "distribute": {
+      "icons": {
+        "android": {
+          "hdpi": "unpackage/res/icons/72x72.png",
+          "xhdpi": "unpackage/res/icons/96x96.png",
+          "xxhdpi": "unpackage/res/icons/144x144.png",
+          "xxxhdpi": "unpackage/res/icons/192x192.png"
+        },
+        "ios": {
+          "appstore": "unpackage/res/icons/1024x1024.png",
+          "ipad": {
+            "app": "unpackage/res/icons/76x76.png",
+            "app@2x": "unpackage/res/icons/152x152.png",
+            "notification": "unpackage/res/icons/20x20.png",
+            "notification@2x": "unpackage/res/icons/40x40.png",
+            "proapp@2x": "unpackage/res/icons/167x167.png",
+            "settings": "unpackage/res/icons/29x29.png",
+            "settings@2x": "unpackage/res/icons/58x58.png",
+            "spotlight": "unpackage/res/icons/40x40.png",
+            "spotlight@2x": "unpackage/res/icons/80x80.png"
+          },
+          "iphone": {
+            "app@2x": "unpackage/res/icons/120x120.png",
+            "app@3x": "unpackage/res/icons/180x180.png",
+            "notification@2x": "unpackage/res/icons/40x40.png",
+            "notification@3x": "unpackage/res/icons/60x60.png",
+            "settings@2x": "unpackage/res/icons/58x58.png",
+            "settings@3x": "unpackage/res/icons/87x87.png",
+            "spotlight@2x": "unpackage/res/icons/80x80.png",
+            "spotlight@3x": "unpackage/res/icons/120x120.png"
+          }
+        }
+      },
       "google": {
         "permissions": [
           "<uses-permission android:name=\"android.permission.CHANGE_NETWORK_STATE\"/>",
@@ -58,9 +96,15 @@
           "<uses-permission android:name=\"android.permission.FLASHLIGHT\"/>",
           "<uses-feature android:name=\"android.hardware.camera\"/>",
           "<uses-permission android:name=\"android.permission.WRITE_SETTINGS\"/>"
+        ],
+        "abiFilters": [
+          "arm64-v8a",
+          "x86"
         ]
       },
-      "apple": {},
+      "apple": {
+        "dSYMs": false
+      },
       "plugins": {
         "audio": {
           "mp3": {
@@ -68,11 +112,6 @@
           }
         }
       }
-    },
-    "statusbar": {
-      "immersed": "supportedDevice",
-      "style": "dark",
-      "background": "#F8F8F8"
     },
     "allowsInlineMediaPlayback": true,
     "safearea": {
@@ -84,7 +123,7 @@
     "uni-app": {
       "control": "uni-v3",
       "vueVersion": "3",
-      "compilerVersion": "4.57",
+      "compilerVersion": "4.85",
       "nvueCompiler": "uni-app",
       "renderer": "auto",
       "nvue": {
@@ -108,7 +147,7 @@
       "list": [
         {
           "text": "首页",
-          "pagePath": "pages/settle-account/settle-account",
+          "pagePath": "pages/settle-account/account",
           "iconPath": "/static/home.png",
           "selectedIconPath": "/static/home-active.png"
         },
@@ -126,7 +165,11 @@
         }
       ],
       "selectedIndex": 0,
-      "shown": true
+      "shown": true,
+      "child": [
+        "lauchwebview"
+      ],
+      "selected": 2
     }
   },
   "app-harmony": {

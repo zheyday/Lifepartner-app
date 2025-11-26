@@ -1,19 +1,62 @@
 .card {
-  margin-bottom: 10px;
-  background-color: #fff;
-  border-radius: 10px;
-  overflow: hidden;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, .1);
+	margin-bottom: 10px;
+	background-color: #fff;
+	border-radius: 20px;
+	overflow: hidden;
+	/* box-shadow: 0 4px 8px rgba(0, 0, 0, .1); */
 }
 
 .card-header {
-  padding: 10px 10px;
-  font-size: 13px;
-  background-color: #f7f7f7;
+	padding: 10px 10px;
+	font-size: 13px;
+	color: #afafaf;
+	/* background-color: #f7f7f7; */
 }
 
 .list-item {
-  padding: 12px 20px;
-  font-size: 14px;
-  border-bottom: 1px solid #e5e5e5;
+	padding: 12px 20px;
+	font-size: 16px;
+	border-bottom: 1px solid #f7f7f7;
+}
+
+.container {
+	padding: 0rpx;
+	background-color: #f8f8f8;
+	height: 100%;
+	font-family: 'PingFang SC', 'Microsoft YaHei', sans-serif;
+}
+
+.total-money {
+	height: 120rpx;
+	padding: 10rpx 20rpx;
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	color: aliceblue;
+	font-size: 35px;
+	font-weight: 500;
+	/* background-image: url('@/static/gold.jpg'); */
+	/* 拉伸填满 */
+	/* background-size: cover; */
+	/* 不重复 */
+	/* background-repeat: no-repeat; */
+	/* 居中 */
+	/* background-position: center center; */
+	background: #9bb9ff;
+	/* border-radius: 25rpx 25rpx 0 0; */
+}
+
+.total-money-name {
+	margin: 0 20rpx;
+	font-size: 14px;
+}
+
+.status_bar {
+	height: var(--status-bar-height);
+	width: 100%;
+}
+
+.header-section {
+	/* background: linear-gradient(135deg, #FF6B35 0%, #F7931E 50%, #FFB366 100%); */
+	background: #9bb9ff;
 }

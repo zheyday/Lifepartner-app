@@ -1,0 +1,23 @@
+2025-08-23 09:18:42.074 [info] Getting Manifest... ms-ceintl.vscode-language-pack-zh-hans
+2025-08-23 09:18:42.075 [info] Getting Manifest... ms-vscode.cmake-tools
+2025-08-23 09:18:42.123 [info] Installing extension: ms-ceintl.vscode-language-pack-zh-hans {"productVersion":{"version":"1.97.0","date":"2025-02-04T22:41:26.688Z"},"pinned":false,"operation":3,"isApplicationScoped":true,"profileLocation":{"$mid":1,"external":"vscode-userdata:/c%3A/Users/12043/.vscode/extensions/extensions.json","path":"/c:/Users/12043/.vscode/extensions/extensions.json","scheme":"vscode-userdata"},"installOnlyNewlyAddedFromExtensionPack":true}
+2025-08-23 09:18:42.474 [info] Installing extension: ms-vscode.cmake-tools {"productVersion":{"version":"1.97.0","date":"2025-02-04T22:41:26.688Z"},"pinned":false,"operation":3,"isApplicationScoped":false,"profileLocation":{"$mid":1,"external":"vscode-userdata:/c%3A/Users/12043/.vscode/extensions/extensions.json","path":"/c:/Users/12043/.vscode/extensions/extensions.json","scheme":"vscode-userdata"},"installOnlyNewlyAddedFromExtensionPack":true}
+2025-08-23 09:18:46.226 [info] Extension signature verification result for ms-ceintl.vscode-language-pack-zh-hans: Success. Executed: true. Duration: 3621ms.
+2025-08-23 09:18:46.333 [info] Extracted extension to file:///c%3A/Users/12043/.vscode/extensions/ms-ceintl.vscode-language-pack-zh-hans-1.97.2025021209: ms-ceintl.vscode-language-pack-zh-hans
+2025-08-23 09:18:46.338 [info] Renamed to c:\Users\12043\.vscode\extensions\ms-ceintl.vscode-language-pack-zh-hans-1.97.2025021209
+2025-08-23 09:18:46.348 [info] Marked extension as removed ms-ceintl.vscode-language-pack-zh-hans-1.97.2025020509
+2025-08-23 09:18:46.352 [info] Adding language packs from the extension ms-ceintl.vscode-language-pack-zh-hans
+2025-08-23 09:18:46.369 [info] Extension installed successfully: ms-ceintl.vscode-language-pack-zh-hans vscode-userdata:/c%3A/Users/12043/.vscode/extensions/extensions.json
+2025-08-23 09:18:46.687 [info] Extension signature verification result for ms-vscode.cmake-tools: Success. Executed: true. Duration: 783ms.
+2025-08-23 09:18:47.105 [info] Extracted extension to file:///c%3A/Users/12043/.vscode/extensions/ms-vscode.cmake-tools-1.21.36: ms-vscode.cmake-tools
+2025-08-23 09:18:47.118 [info] Renamed to c:\Users\12043\.vscode\extensions\ms-vscode.cmake-tools-1.21.36
+2025-08-23 09:18:47.132 [info] Marked extension as removed ms-vscode.cmake-tools-1.19.52
+2025-08-23 09:18:47.135 [info] Extension installed successfully: ms-vscode.cmake-tools vscode-userdata:/c%3A/Users/12043/.vscode/extensions/extensions.json
+2025-08-23 09:19:18.819 [info] Getting Manifest... ms-ceintl.vscode-language-pack-zh-hans
+2025-08-23 09:19:18.844 [info] Installing extension: ms-ceintl.vscode-language-pack-zh-hans {"productVersion":{"version":"1.103.2","date":"2025-08-20T16:51:49.252Z"},"pinned":false,"operation":3,"isApplicationScoped":true,"profileLocation":{"$mid":1,"external":"vscode-userdata:/c%3A/Users/12043/.vscode/extensions/extensions.json","path":"/c:/Users/12043/.vscode/extensions/extensions.json","scheme":"vscode-userdata"},"installOnlyNewlyAddedFromExtensionPack":true}
+2025-08-23 09:19:19.365 [info] Extension signature verification result for ms-ceintl.vscode-language-pack-zh-hans: Success. Executed: true. Duration: 180ms.
+2025-08-23 09:19:19.485 [info] Extracted extension to file:///c%3A/Users/12043/.vscode/extensions/ms-ceintl.vscode-language-pack-zh-hans-1.103.2025081309: ms-ceintl.vscode-language-pack-zh-hans
+2025-08-23 09:19:19.543 [info] Renamed to c:\Users\12043\.vscode\extensions\ms-ceintl.vscode-language-pack-zh-hans-1.103.2025081309
+2025-08-23 09:19:19.555 [info] Marked extension as removed ms-ceintl.vscode-language-pack-zh-hans-1.97.2025021209
+2025-08-23 09:19:19.558 [info] Adding language packs from the extension ms-ceintl.vscode-language-pack-zh-hans
+2025-08-23 09:19:19.576 [info] Extension installed successfully: ms-ceintl.vscode-language-pack-zh-hans vscode-userdata:/c%3A/Users/12043/.vscode/extensions/extensions.json

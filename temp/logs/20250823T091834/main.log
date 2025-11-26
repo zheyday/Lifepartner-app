@@ -1,0 +1,7 @@
+2025-08-23 09:18:34.384 [info] update#setState idle
+2025-08-23 09:19:04.399 [info] update#setState checking for updates
+2025-08-23 09:19:04.402 [info] update#setState downloading
+2025-08-23 09:19:15.017 [info] update#setState downloaded
+2025-08-23 09:19:15.018 [info] update#setState updating
+2025-08-23 09:19:43.539 [info] update#setState ready
+2025-08-23 14:04:54.760 [info] Extension host with pid 1268 exited with code: 0, signal: unknown.
