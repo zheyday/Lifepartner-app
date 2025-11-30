@@ -273,7 +273,7 @@ const authUtils = {
 		return uni.getStorageSync('user_id')
 	},
 
-		// 登录检测拦截器 - 如果未登录则跳转到登录页
+	// 登录检测拦截器 - 如果未登录则跳转到登录页
 	requireLogin(showToast = true) {
 		if (!this.isLoggedIn()) {
 			if (showToast) {
@@ -283,21 +283,21 @@ const authUtils = {
 					duration: 1000
 				})
 			}
-			
+
 			// 获取当前页面路径
 			const pages = getCurrentPages()
 			const currentPage = pages[pages.length - 1]
 			const currentRoute = '/' + currentPage.route
-			
+
 			// 如果不在用户中心，才跳转
-			if (currentRoute !== '/pages/user-center/user-center') {
+			if (currentRoute !== '/pages/user-center/login') {
 				setTimeout(() => {
-					uni.switchTab({
-						url: '/pages/user-center/user-center'
+					uni.navigateTo({
+						url: '/pages/user-center/login'
 					})
 				}, showToast ? 1000 : 0)
 			}
-			
+
 			return false
 		}
 		return true

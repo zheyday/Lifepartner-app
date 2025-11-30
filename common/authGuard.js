@@ -15,13 +15,15 @@ const authRequiredPages = [
 	'/pages/settle-account/account-create',
 	'/pages/settle-account/flow-create',
 	'/pages/settle-account/flow-edit',
+	'/pages/user-center/user-center',
+	'/pages/user-center/account-setting',
 	'/pages/reports/reports'
 ]
 
 // 不需要登录的页面（白名单）
 const publicPages = [
 	'/pages/user-center/registry',
-	'/pages/user-center/user-center' // 用户中心页面内部处理登录状态
+	'/pages/user-center/login'
 ]
 
 /**

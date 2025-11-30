@@ -1,7 +1,7 @@
 <template>
 	<view class="container">
 		<!-- 已登录状态 -->
-		<view v-if="isLoggedIn" class="logged-in-content">
+		<view class="logged-in-content">
 			<view class="user-info">
 				<image :src="avatarUrl" class="avatar-img" @click="chooseAvatar" mode="aspectFill" />
 				<view class="nickname">{{ nickname }}</view>
@@ -25,9 +25,6 @@
 				<wd-button type="error" @click="logout">退出登录</wd-button>
 			</view>
 		</view>
-
-		<!-- 未登录状态 - 引用登录组件 -->
-		<LoginComponent v-else @loginSuccess="onLoginSuccess" />
 	</view>
 </template>
 
@@ -96,12 +93,6 @@
 		checkLoginStatus()
 	})
 
-	// 登录成功回调
-	function onLoginSuccess(userInfo) {
-		// 更新登录状态
-		checkLoginStatus()
-	}
-
 	function goToAccountSettings() {
 		uni.navigateTo({
 			url: '/pages/user-center/account-settings'
@@ -116,8 +107,12 @@
 				if (res.confirm) {
 					// 清除登录状态
 					uni.removeStorageSync('user_id')
-					// 更新登录状态（这会触发页面重新渲染为登录界面）
-					checkLoginStatus()
+					setTimeout(() => {
+						uni.redirectTo({
+							url: '/pages/user-center/login'
+						})
+					}, 400)
+
 				}
 			}
 		})

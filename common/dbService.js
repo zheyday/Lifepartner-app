@@ -1,4 +1,5 @@
 import bcrypt from 'bcryptjs'
+import logger from './logger.js'
 // 雪花算法生成器类
 class SnowflakeGenerator {
 	constructor(workerId = 1, datacenterId = 1) {
@@ -20,11 +21,11 @@ class SnowflakeGenerator {
 
 		// 验证参数
 		if (workerId > this.maxWorkerId || workerId < 0) {
-			console.warn(`workerId 超出范围，使用默认值。范围: 0-${this.maxWorkerId}`)
+			logger.warn(`workerId 超出范围，使用默认值。范围: 0-${this.maxWorkerId}`)
 			workerId = Math.abs(workerId) % (this.maxWorkerId + 1)
 		}
 		if (datacenterId > this.maxDatacenterId || datacenterId < 0) {
-			console.warn(`datacenterId 超出范围，使用默认值。范围: 0-${this.maxDatacenterId}`)
+			logger.warn(`datacenterId 超出范围，使用默认值。范围: 0-${this.maxDatacenterId}`)
 			datacenterId = Math.abs(datacenterId) % (this.maxDatacenterId + 1)
 		}
 
@@ -40,7 +41,7 @@ class SnowflakeGenerator {
 
 		// 时钟回拨检测
 		if (timestamp < this.lastTimestamp) {
-			console.warn(`时钟回拨detected，等待恢复...`)
+			logger.warn(`时钟回拨detected，等待恢复...`)
 			timestamp = this.lastTimestamp + 1
 		}
 
@@ -101,10 +102,10 @@ export default class DBService {
 					name: 'lifeparterTally',
 					path: '_doc/lifeparterTally.db', // 对于iOS需要设置location为'default'
 					success: function(e) {
-						console.log('数据库打开成功')
+						logger.info('数据库打开成功')
 					},
 					fail: function(e) {
-						console.error('数据库打开失败', e)
+						logger.error('数据库打开失败: ' + JSON.stringify(e))
 					}
 				});
 			}
@@ -175,7 +176,7 @@ export default class DBService {
 						resolve(e);
 					},
 					fail: function(error) {
-						console.error('创建表时出错:', error);
+						logger.error('创建表时出错: ' + JSON.stringify(error));
 						reject(error);
 					}
 				}
@@ -200,7 +201,7 @@ export default class DBService {
 				return
 			}
 		} catch (error) {
-			console.log('检查初始化状态时出错，继续执行初始化:', error)
+			logger.error('检查初始化状态时出错，继续执行初始化: ' + error.message)
 		}
 
 		// 执行初始化
@@ -261,6 +262,26 @@ export default class DBService {
 		return this.executeSql(sql)
 	}
 
+	updateTallyCategory(id, name, icon, parent_id, directory) {
+		const sql = `UPDATE tally_category SET name='${name}', icon='${icon}', parent_id=${parent_id}, directory=${directory} 
+				WHERE id=${id}`;
+		return this.executeSql(sql)
+	}
+
+	deleteTallyCategory(id) {
+		const sql = `DELETE FROM tally_category WHERE id=${id}`;
+		return this.executeSql(sql)
+	}
+
+	deleteTallyCategoryWithChildren(id) {
+		// 先删除所有子分类，parent_id = 该一级分类的id
+		const deleteChildrenSql = `DELETE FROM tally_category WHERE parent_id=${id}`;
+		this.executeSql(deleteChildrenSql)
+		// 再删除一级分类本身
+		const deleteSql = `DELETE FROM tally_category WHERE id=${id}`;
+		return this.executeSql(deleteSql)
+	}
+
 	async insertUser(username, password) {
 		// 生成雪花算法ID
 		const userId = this.generateSnowflakeId()
@@ -282,7 +303,7 @@ export default class DBService {
 			const id = this.snowflakeGenerator.nextId()
 			return id
 		} catch (error) {
-			console.warn('雪花算法生成失败，使用备用方案:', error)
+			logger.warn('雪花算法生成失败，使用备用方案: ' + error.message)
 			// 备用方案：时间戳 + 随机数
 			return this.generateFallbackId()
 		}
@@ -296,7 +317,7 @@ export default class DBService {
 
 		// 格式：时间戳 + 工作机器ID + 随机数
 		const id = `${timestamp}${workerId.toString().padStart(2, '0')}${random.toString().padStart(4, '0')}`
-		console.log('使用备用ID:', id)
+		logger.info('使用备用ID: ' + id)
 		return id
 	}
 
@@ -322,7 +343,7 @@ export default class DBService {
 			}
 			return Math.abs(hash) % 32 // 限制在0-31范围内
 		} catch (error) {
-			console.warn('无法获取设备信息，使用默认workerId:', error)
+			logger.warn('无法获取设备信息，使用默认workerId: ' + error.message)
 			return Math.floor(Math.random() * 32)
 		}
 	}
@@ -439,7 +460,7 @@ export default class DBService {
 					resolve(e);
 				},
 				fail: function(error) {
-					console.error('执行出错:', error);
+					logger.error('SQL执行出错: ' + JSON.stringify(error));
 					reject(error);
 				}
 			})
@@ -459,7 +480,7 @@ export default class DBService {
 					resolve(data);
 				},
 				fail: function(error) {
-					console.error('查询出错:', error);
+					logger.error('SQL查询出错: ' + JSON.stringify(error));
 					reject(error);
 				}
 			})

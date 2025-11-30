@@ -13,7 +13,7 @@
 		</view>
 		<view class="footer-btn" @click="goToCategory">
 			<text class="btn-icon">+</text>
-			<text class="btn-text">新建一级分类</text>
+			<text class="btn-text">管理分类</text>
 		</view>
 	</wd-popup>
 </template>

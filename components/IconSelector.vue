@@ -1,9 +1,12 @@
 <template>
 	<view>
 		<!-- 图标显示区域 -->
-		<wd-cell :title="label" is-link @click="showPicker = true">
+		<wd-cell is-link @click="showPicker = true" center>
+		    <template #title>
+				<text style="font-size: 28rpx;">{{ label }}</text>
+			</template>
 			<template v-if="modelValue">
-				<wd-icon :name="modelValue" :size="iconSize" />
+				<image :src="modelValue" class="selected-icon" mode="aspectFit" />
 			</template>
 			<template v-else>
 				<text>{{ placeholder }}</text>
@@ -43,7 +46,7 @@
 		},
 		iconSize: {
 			type: String,
-			default: '26rpx'
+			default: '36rpx'
 		}
 	})
 
@@ -101,5 +104,12 @@
 	.icon-item-selected {
 		background: #e3f2fd;
 		border: 2px solid #2196F3;
+	}
+
+	.selected-icon {
+		width: 48rpx;
+		height: 48rpx;
+		display: flex;
+		margin-left: auto;
 	}
 </style>

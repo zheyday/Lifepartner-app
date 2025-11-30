@@ -1353,7 +1353,7 @@ uni-radio-group uni-label, uni-checkbox-group uni-label{
 	/* background-repeat: no-repeat; */
 	/* 居中 */
 	/* background-position: center center; */
-	background: #9bb9ff;
+	background: #70aeff;
 	/* border-radius: 25rpx 25rpx 0 0; */
 }
 .total-money-name {
@@ -1366,7 +1366,7 @@ uni-radio-group uni-label, uni-checkbox-group uni-label{
 }
 .header-section {
 	/* background: linear-gradient(135deg, #FF6B35 0%, #F7931E 50%, #FFB366 100%); */
-	background: #9bb9ff;
+	background: #70aeff;
 }
 .uni-border {
   border: 1px #F0F0F0 solid;

@@ -1,11 +1,5 @@
 {
 	"pages": [{
-			"path": "pages/user-center/user-center",
-			"style": {
-				"navigationBarTitleText": ""
-			}
-		},
-		{
 			"path": "pages/settle-account/account",
 			"style": {
 				// "navigationBarTitleText": "",
@@ -14,12 +8,17 @@
 			}
 		},
 		{
-			"path": "pages/index/index",
+			"path": "pages/user-center/login",
 			"style": {
-				"navigationBarTitleText": "uni-app"
+				"navigationStyle": "custom"
 			}
 		},
-
+		{
+			"path": "pages/user-center/user-center",
+			"style": {
+				"navigationBarTitleText": ""
+			}
+		},
 		{
 			"path": "pages/post/postList",
 			"style": {
@@ -69,7 +68,7 @@
 		{
 			"path": "pages/user-center/registry",
 			"style": {
-				"navigationBarTitleText": ""
+				"navigationStyle": "custom"
 			}
 		},
 		{
@@ -94,7 +93,7 @@
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
 		"navigationBarTitleText": "uni-app",
-		"navigationBarBackgroundColor": "#9bb9ff",
+		"navigationBarBackgroundColor": "#70aeff",
 		"backgroundColor": "#F8F8F8",
 		"app-plus": {
 			"background": "#efeff4"

@@ -1917,6 +1917,12 @@
 		background: #e3f2fd;
 		border: 2px solid #2196F3;
 }
+.selected-icon[data-v-7d1eb6ba] {
+		width: 1.5rem;
+		height: 1.5rem;
+		display: flex;
+		margin-left: auto;
+}
 
 
 .container[data-v-d1dcade1] {
@@ -1927,14 +1933,13 @@
 }
 .form-content[data-v-d1dcade1] {
 		flex: 1;
-		padding: 0.625rem 0;
 }
 .form-item[data-v-d1dcade1] {
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
 		background: #fff;
-		padding: 0.9375rem 1.25rem;
+		padding: 0.9375rem;
 		margin-bottom: 0.0625rem;
 }
 .form-item.clickable[data-v-d1dcade1] {

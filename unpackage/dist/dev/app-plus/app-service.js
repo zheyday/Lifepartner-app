@@ -434,7 +434,7 @@ if (uni.restoreGlobal) {
       styleIsolation: "shared"
     }
   };
-  const _sfc_main$P = /* @__PURE__ */ vue.defineComponent({
+  const _sfc_main$O = /* @__PURE__ */ vue.defineComponent({
     ...__default__$i,
     props: iconProps,
     emits: ["click", "touch"],
@@ -474,7 +474,7 @@ if (uni.restoreGlobal) {
     }
     return target;
   };
-  function _sfc_render$O(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$N(_ctx, _cache, $props, $setup, $data, $options) {
     return vue.openBlock(), vue.createElementBlock(
       "view",
       {
@@ -493,452 +493,269 @@ if (uni.restoreGlobal) {
       /* CLASS, STYLE */
     );
   }
-  const __easycom_0$5 = /* @__PURE__ */ _export_sfc(_sfc_main$P, [["render", _sfc_render$O], ["__scopeId", "data-v-24906af6"], ["__file", "E:/document/LifePartner/lifeparter-app/uni_modules/wot-design-uni/components/wd-icon/wd-icon.vue"]]);
-  function useParent(key) {
-    const parent = vue.inject(key, null);
-    if (parent) {
-      const instance = vue.getCurrentInstance();
-      const { link, unlink, internalChildren } = parent;
-      link(instance);
-      vue.onUnmounted(() => unlink(instance));
-      const index = vue.computed(() => internalChildren.indexOf(instance));
+  const __easycom_0$4 = /* @__PURE__ */ _export_sfc(_sfc_main$O, [["render", _sfc_render$N], ["__scopeId", "data-v-24906af6"], ["__file", "E:/document/LifePartner/lifeparter-app/uni_modules/wot-design-uni/components/wd-icon/wd-icon.vue"]]);
+  let mpMixins = {};
+  mpMixins = {
+    data() {
       return {
-        parent,
-        index
+        is_show: "none"
       };
-    }
-    return {
-      parent: null,
-      index: vue.ref(-1)
-    };
-  }
-  const CELL_GROUP_KEY = Symbol("wd-cell-group");
-  const cellGroupProps = {
-    ...baseProps,
-    /**
-     * 分组标题
-     */
-    title: String,
-    /**
-     * 分组右侧内容
-     */
-    value: String,
-    /**
-     * 分组启用插槽
-     */
-    useSlot: makeBooleanProp(false),
-    /**
-     * 是否展示边框线
-     */
-    border: makeBooleanProp(false)
-  };
-  function useCell() {
-    const { parent: cellGroup, index } = useParent(CELL_GROUP_KEY);
-    const border = vue.computed(() => {
-      return cellGroup && cellGroup.props.border && index.value;
-    });
-    return { border };
-  }
-  const FORM_KEY = Symbol("wd-form");
-  const formProps = {
-    ...baseProps,
-    /**
-     * 表单数据对象
-     */
-    model: makeRequiredProp(Object),
-    /**
-     * 表单验证规则
-     */
-    rules: {
-      type: Object,
-      default: () => ({})
     },
-    /**
-     * 是否在输入时重置表单校验信息
-     */
-    resetOnChange: makeBooleanProp(true),
-    /**
-     * 错误提示类型
-     */
-    errorType: {
-      type: String,
-      default: "message"
-    }
-  };
-  const cellProps = {
-    ...baseProps,
-    /**
-     * 标题
-     */
-    title: String,
-    /**
-     * 右侧内容
-     */
-    value: makeNumericProp(""),
-    /**
-     * 图标类名
-     */
-    icon: String,
-    /**
-     * 描述信息
-     */
-    label: String,
-    /**
-     * 是否为跳转链接
-     */
-    isLink: makeBooleanProp(false),
-    /**
-     * 跳转地址
-     */
-    to: String,
-    /**
-     * 跳转时是否替换栈顶页面
-     */
-    replace: makeBooleanProp(false),
-    /**
-     * 开启点击反馈，is-link 默认开启
-     */
-    clickable: makeBooleanProp(false),
-    /**
-     * 设置单元格大小，可选值：large
-     */
-    size: String,
-    /**
-     * 是否展示边框线
-     */
-    border: makeBooleanProp(void 0),
-    /**
-     * 设置左侧标题宽度
-     */
-    titleWidth: String,
-    /**
-     * 是否垂直居中，默认顶部居中
-     */
-    center: makeBooleanProp(false),
-    /**
-     * 是否必填
-     */
-    required: makeBooleanProp(false),
-    /**
-     * 表单属性，上下结构
-     */
-    vertical: makeBooleanProp(false),
-    /**
-     * 表单域 model 字段名，在使用表单校验功能的情况下，该属性是必填的
-     */
-    prop: String,
-    /**
-     * 表单验证规则，结合wd-form组件使用
-     */
-    rules: makeArrayProp(),
-    /**
-     * icon 使用 slot 时的自定义样式
-     */
-    customIconClass: makeStringProp(""),
-    /**
-     * label 使用 slot 时的自定义样式
-     */
-    customLabelClass: makeStringProp(""),
-    /**
-     * value 使用 slot 时的自定义样式
-     */
-    customValueClass: makeStringProp(""),
-    /**
-     * title 使用 slot 时的自定义样式
-     */
-    customTitleClass: makeStringProp("")
-  };
-  const __default__$h = {
-    name: "wd-cell",
-    options: {
-      addGlobalClass: true,
-      virtualHost: true,
-      styleIsolation: "shared"
-    }
-  };
-  const _sfc_main$O = /* @__PURE__ */ vue.defineComponent({
-    ...__default__$h,
-    props: cellProps,
-    emits: ["click"],
-    setup(__props, { expose: __expose, emit: __emit }) {
-      __expose();
-      const props = __props;
-      const emit = __emit;
-      const cell = useCell();
-      const isBorder = vue.computed(() => {
-        return Boolean(isDef(props.border) ? props.border : cell.border.value);
-      });
-      const { parent: form } = useParent(FORM_KEY);
-      const errorMessage = vue.computed(() => {
-        if (form && props.prop && form.errorMessages && form.errorMessages[props.prop]) {
-          return form.errorMessages[props.prop];
-        } else {
-          return "";
-        }
-      });
-      const isRequired = vue.computed(() => {
-        let formRequired = false;
-        if (form && form.props.rules) {
-          const rules = form.props.rules;
-          for (const key in rules) {
-            if (Object.prototype.hasOwnProperty.call(rules, key) && key === props.prop && Array.isArray(rules[key])) {
-              formRequired = rules[key].some((rule) => rule.required);
-            }
-          }
-        }
-        return props.required || props.rules.some((rule) => rule.required) || formRequired;
-      });
-      function onClick() {
-        const url = props.to;
-        if (props.clickable || props.isLink) {
-          emit("click");
-        }
-        if (url && props.isLink) {
-          if (props.replace) {
-            uni.redirectTo({ url });
-          } else {
-            uni.navigateTo({ url });
-          }
-        }
+    watch: {
+      show(newVal) {
+        this.is_show = this.show;
       }
-      const __returned__ = { props, emit, cell, isBorder, form, errorMessage, isRequired, onClick, wdIcon: __easycom_0$5 };
-      Object.defineProperty(__returned__, "__isScriptSetup", { enumerable: false, value: true });
-      return __returned__;
-    }
-  });
-  function _sfc_render$N(_ctx, _cache, $props, $setup, $data, $options) {
-    return vue.openBlock(), vue.createElementBlock("view", {
-      class: vue.normalizeClass(["wd-cell", $setup.isBorder ? "is-border" : "", _ctx.size ? "is-" + _ctx.size : "", _ctx.center ? "is-center" : "", _ctx.customClass]),
-      style: vue.normalizeStyle(_ctx.customStyle),
-      "hover-class": _ctx.isLink || _ctx.clickable ? "is-hover" : "none",
-      "hover-stay-time": 70,
-      onClick: $setup.onClick
-    }, [
-      vue.createElementVNode(
-        "view",
-        {
-          class: vue.normalizeClass(["wd-cell__wrapper", _ctx.vertical ? "is-vertical" : ""])
-        },
-        [
-          vue.createElementVNode(
-            "view",
-            {
-              class: vue.normalizeClass(["wd-cell__left", $setup.isRequired ? "is-required" : ""]),
-              style: vue.normalizeStyle(_ctx.titleWidth ? "min-width:" + _ctx.titleWidth + ";max-width:" + _ctx.titleWidth + ";" : "")
-            },
-            [
-              _ctx.icon ? (vue.openBlock(), vue.createBlock($setup["wdIcon"], {
-                key: 0,
-                name: _ctx.icon,
-                "custom-class": `wd-cell__icon  ${_ctx.customIconClass}`
-              }, null, 8, ["name", "custom-class"])) : vue.renderSlot(_ctx.$slots, "icon", { key: 1 }, void 0, true),
-              vue.createElementVNode("view", { class: "wd-cell__title" }, [
-                _ctx.title ? (vue.openBlock(), vue.createElementBlock(
-                  "view",
-                  {
-                    key: 0,
-                    class: vue.normalizeClass(_ctx.customTitleClass)
-                  },
-                  vue.toDisplayString(_ctx.title),
-                  3
-                  /* TEXT, CLASS */
-                )) : vue.renderSlot(_ctx.$slots, "title", { key: 1 }, void 0, true),
-                _ctx.label ? (vue.openBlock(), vue.createElementBlock(
-                  "view",
-                  {
-                    key: 2,
-                    class: vue.normalizeClass(`wd-cell__label ${_ctx.customLabelClass}`)
-                  },
-                  vue.toDisplayString(_ctx.label),
-                  3
-                  /* TEXT, CLASS */
-                )) : vue.renderSlot(_ctx.$slots, "label", { key: 3 }, void 0, true)
-              ])
-            ],
-            6
-            /* CLASS, STYLE */
-          ),
-          vue.createElementVNode("view", { class: "wd-cell__right" }, [
-            vue.createElementVNode("view", { class: "wd-cell__body" }, [
-              vue.createElementVNode(
-                "view",
-                {
-                  class: vue.normalizeClass(`wd-cell__value ${_ctx.customValueClass}`)
-                },
-                [
-                  vue.renderSlot(_ctx.$slots, "default", {}, () => [
-                    vue.createTextVNode(
-                      vue.toDisplayString(_ctx.value),
-                      1
-                      /* TEXT */
-                    )
-                  ], true)
-                ],
-                2
-                /* CLASS */
-              ),
-              _ctx.isLink ? (vue.openBlock(), vue.createBlock($setup["wdIcon"], {
-                key: 0,
-                "custom-class": "wd-cell__arrow-right",
-                name: "arrow-right"
-              })) : vue.renderSlot(_ctx.$slots, "right-icon", { key: 1 }, void 0, true)
-            ]),
-            $setup.errorMessage ? (vue.openBlock(), vue.createElementBlock(
-              "view",
-              {
-                key: 0,
-                class: "wd-cell__error-message"
-              },
-              vue.toDisplayString($setup.errorMessage),
-              1
-              /* TEXT */
-            )) : vue.createCommentVNode("v-if", true)
-          ])
-        ],
-        2
-        /* CLASS */
-      )
-    ], 14, ["hover-class"]);
-  }
-  const __easycom_0$4 = /* @__PURE__ */ _export_sfc(_sfc_main$O, [["render", _sfc_render$N], ["__scopeId", "data-v-f1c5bbe2"], ["__file", "E:/document/LifePartner/lifeparter-app/uni_modules/wot-design-uni/components/wd-cell/wd-cell.vue"]]);
-  function isVNode(value) {
-    return value ? value.__v_isVNode === true : false;
-  }
-  function flattenVNodes(children) {
-    const result = [];
-    const traverse = (children2) => {
-      if (Array.isArray(children2)) {
-        children2.forEach((child) => {
-          var _a;
-          if (isVNode(child)) {
-            result.push(child);
-            if ((_a = child.component) == null ? void 0 : _a.subTree) {
-              result.push(child.component.subTree);
-              traverse(child.component.subTree.children);
-            }
-            if (child.children) {
-              traverse(child.children);
-            }
-          }
-        });
+    },
+    created() {
+      this.swipeaction = this.getSwipeAction();
+      if (this.swipeaction && Array.isArray(this.swipeaction.children)) {
+        this.swipeaction.children.push(this);
       }
-    };
-    traverse(children);
-    return result;
-  }
-  const findVNodeIndex = (vnodes, vnode) => {
-    const index = vnodes.indexOf(vnode);
-    if (index === -1) {
-      return vnodes.findIndex((item) => vnode.key !== void 0 && vnode.key !== null && item.type === vnode.type && item.key === vnode.key);
-    }
-    return index;
-  };
-  function sortChildren(parent, publicChildren, internalChildren) {
-    const vnodes = parent && parent.subTree && parent.subTree.children ? flattenVNodes(parent.subTree.children) : [];
-    internalChildren.sort((a2, b2) => findVNodeIndex(vnodes, a2.vnode) - findVNodeIndex(vnodes, b2.vnode));
-    const orderedPublicChildren = internalChildren.map((item) => item.proxy);
-    publicChildren.sort((a2, b2) => {
-      const indexA = orderedPublicChildren.indexOf(a2);
-      const indexB = orderedPublicChildren.indexOf(b2);
-      return indexA - indexB;
-    });
-  }
-  function useChildren(key) {
-    const publicChildren = vue.reactive([]);
-    const internalChildren = vue.reactive([]);
-    const parent = vue.getCurrentInstance();
-    const linkChildren = (value) => {
-      const link = (child) => {
-        if (child.proxy) {
-          internalChildren.push(child);
-          publicChildren.push(child.proxy);
-          sortChildren(parent, publicChildren, internalChildren);
+    },
+    mounted() {
+      this.is_show = this.show;
+    },
+    methods: {
+      // wxs 中调用
+      closeSwipe(e2) {
+        if (this.autoClose && this.swipeaction) {
+          this.swipeaction.closeOther(this);
         }
-      };
-      const unlink = (child) => {
-        const index = internalChildren.indexOf(child);
-        publicChildren.splice(index, 1);
-        internalChildren.splice(index, 1);
-      };
-      vue.provide(
-        key,
-        Object.assign(
-          {
-            link,
-            unlink,
-            children: publicChildren,
-            internalChildren
-          },
-          value
-        )
-      );
-    };
-    return {
-      children: publicChildren,
-      linkChildren
-    };
-  }
-  const __default__$g = {
-    name: "wd-cell-group",
-    options: {
-      addGlobalClass: true,
-      virtualHost: true,
-      styleIsolation: "shared"
-    }
-  };
-  const _sfc_main$N = /* @__PURE__ */ vue.defineComponent({
-    ...__default__$g,
-    props: cellGroupProps,
-    setup(__props, { expose: __expose }) {
-      __expose();
-      const props = __props;
-      const { linkChildren } = useChildren(CELL_GROUP_KEY);
-      linkChildren({ props });
-      const __returned__ = { props, linkChildren };
-      Object.defineProperty(__returned__, "__isScriptSetup", { enumerable: false, value: true });
-      return __returned__;
-    }
-  });
-  function _sfc_render$M(_ctx, _cache, $props, $setup, $data, $options) {
-    return vue.openBlock(), vue.createElementBlock(
-      "view",
-      {
-        class: vue.normalizeClass(["wd-cell-group", _ctx.border ? "is-border" : "", _ctx.customClass]),
-        style: vue.normalizeStyle(_ctx.customStyle)
       },
-      [
-        _ctx.title || _ctx.value || _ctx.useSlot ? (vue.openBlock(), vue.createElementBlock("view", {
-          key: 0,
-          class: "wd-cell-group__title"
-        }, [
-          vue.createElementVNode("view", { class: "wd-cell-group__left" }, [
-            _ctx.title ? (vue.openBlock(), vue.createElementBlock(
-              "text",
-              { key: 0 },
-              vue.toDisplayString(_ctx.title),
-              1
-              /* TEXT */
-            )) : vue.renderSlot(_ctx.$slots, "title", { key: 1 }, void 0, true)
-          ]),
-          vue.createElementVNode("view", { class: "wd-cell-group__right" }, [
-            _ctx.value ? (vue.openBlock(), vue.createElementBlock(
-              "text",
-              { key: 0 },
-              vue.toDisplayString(_ctx.value),
-              1
-              /* TEXT */
-            )) : vue.renderSlot(_ctx.$slots, "value", { key: 1 }, void 0, true)
-          ])
-        ])) : vue.createCommentVNode("v-if", true),
-        vue.createElementVNode("view", { class: "wd-cell-group__body" }, [
+      change(e2) {
+        this.$emit("change", e2.open);
+        if (this.is_show !== e2.open) {
+          this.is_show = e2.open;
+        }
+      },
+      appTouchStart(e2) {
+        const {
+          clientX
+        } = e2.changedTouches[0];
+        this.clientX = clientX;
+        this.timestamp = (/* @__PURE__ */ new Date()).getTime();
+      },
+      appTouchEnd(e2, index, item, position) {
+        const {
+          clientX
+        } = e2.changedTouches[0];
+        let diff = Math.abs(this.clientX - clientX);
+        let time = (/* @__PURE__ */ new Date()).getTime() - this.timestamp;
+        if (diff < 40 && time < 300) {
+          this.$emit("click", {
+            content: item,
+            index,
+            position
+          });
+        }
+      },
+      onClickForPC(index, item, position) {
+        return;
+      }
+    }
+  };
+  const mpwxs = mpMixins;
+  let bindIngXMixins = {};
+  let otherMixins = {};
+  const block0$1 = (Comp) => {
+    (Comp.$wxs || (Comp.$wxs = [])).push("wxsswipe");
+    (Comp.$wxsModules || (Comp.$wxsModules = {}))["wxsswipe"] = "afd46426";
+  };
+  const block1 = (Comp) => {
+    (Comp.$renderjs || (Comp.$renderjs = [])).push("renderswipe");
+    (Comp.$renderjsModules || (Comp.$renderjsModules = {}))["renderswipe"] = "5a1e922e";
+  };
+  const _sfc_main$N = {
+    mixins: [mpwxs, bindIngXMixins, otherMixins],
+    emits: ["click", "change"],
+    props: {
+      // 控制开关
+      show: {
+        type: String,
+        default: "none"
+      },
+      // 禁用
+      disabled: {
+        type: Boolean,
+        default: false
+      },
+      // 是否自动关闭
+      autoClose: {
+        type: Boolean,
+        default: true
+      },
+      // 滑动缺省距离
+      threshold: {
+        type: Number,
+        default: 20
+      },
+      // 左侧按钮内容
+      leftOptions: {
+        type: Array,
+        default() {
+          return [];
+        }
+      },
+      // 右侧按钮内容
+      rightOptions: {
+        type: Array,
+        default() {
+          return [];
+        }
+      }
+    },
+    // TODO vue3
+    unmounted() {
+      this.__isUnmounted = true;
+      this.uninstall();
+    },
+    methods: {
+      uninstall() {
+        if (this.swipeaction) {
+          this.swipeaction.children.forEach((item, index) => {
+            if (item === this) {
+              this.swipeaction.children.splice(index, 1);
+            }
+          });
+        }
+      },
+      /**
+       * 获取父元素实例
+       */
+      getSwipeAction(name = "uniSwipeAction") {
+        let parent = this.$parent;
+        let parentName = parent.$options.name;
+        while (parentName !== name) {
+          parent = parent.$parent;
+          if (!parent)
+            return false;
+          parentName = parent.$options.name;
+        }
+        return parent;
+      }
+    }
+  };
+  function _sfc_render$M(_ctx, _cache, $props, $setup, $data, $options) {
+    return vue.openBlock(), vue.createElementBlock("view", { class: "uni-swipe" }, [
+      vue.createElementVNode("view", {
+        class: "uni-swipe_box",
+        "change:prop": _ctx.renderswipe.showWatch,
+        prop: vue.wp(_ctx.is_show),
+        "data-threshold": $props.threshold,
+        "data-disabled": $props.disabled + "",
+        onTouchstart: _cache[2] || (_cache[2] = (...args) => _ctx.renderswipe.touchstart && _ctx.renderswipe.touchstart(...args)),
+        onTouchmove: _cache[3] || (_cache[3] = (...args) => _ctx.renderswipe.touchmove && _ctx.renderswipe.touchmove(...args)),
+        onTouchend: _cache[4] || (_cache[4] = (...args) => _ctx.renderswipe.touchend && _ctx.renderswipe.touchend(...args))
+      }, [
+        vue.createElementVNode("view", { class: "uni-swipe_button-group button-group--left" }, [
+          vue.renderSlot(_ctx.$slots, "left", {}, () => [
+            (vue.openBlock(true), vue.createElementBlock(
+              vue.Fragment,
+              null,
+              vue.renderList($props.leftOptions, (item, index) => {
+                return vue.openBlock(), vue.createElementBlock("view", {
+                  key: index,
+                  style: vue.normalizeStyle({
+                    backgroundColor: item.style && item.style.backgroundColor ? item.style.backgroundColor : "#C7C6CD"
+                  }),
+                  class: "uni-swipe_button button-hock",
+                  onTouchstart: _cache[0] || (_cache[0] = vue.withModifiers((...args) => _ctx.appTouchStart && _ctx.appTouchStart(...args), ["stop"])),
+                  onTouchend: vue.withModifiers(($event) => _ctx.appTouchEnd($event, index, item, "left"), ["stop"]),
+                  onClick: vue.withModifiers(($event) => _ctx.onClickForPC(index, item, "left"), ["stop"])
+                }, [
+                  vue.createElementVNode(
+                    "text",
+                    {
+                      class: "uni-swipe_button-text",
+                      style: vue.normalizeStyle({ color: item.style && item.style.color ? item.style.color : "#FFFFFF", fontSize: item.style && item.style.fontSize ? item.style.fontSize : "16px" })
+                    },
+                    vue.toDisplayString(item.text),
+                    5
+                    /* TEXT, STYLE */
+                  )
+                ], 44, ["onTouchend", "onClick"]);
+              }),
+              128
+              /* KEYED_FRAGMENT */
+            ))
+          ], true)
+        ]),
+        vue.createElementVNode("view", { class: "uni-swipe_text--center" }, [
           vue.renderSlot(_ctx.$slots, "default", {}, void 0, true)
+        ]),
+        vue.createElementVNode("view", { class: "uni-swipe_button-group button-group--right" }, [
+          vue.renderSlot(_ctx.$slots, "right", {}, () => [
+            (vue.openBlock(true), vue.createElementBlock(
+              vue.Fragment,
+              null,
+              vue.renderList($props.rightOptions, (item, index) => {
+                return vue.openBlock(), vue.createElementBlock("view", {
+                  key: index,
+                  style: vue.normalizeStyle({
+                    backgroundColor: item.style && item.style.backgroundColor ? item.style.backgroundColor : "#C7C6CD"
+                  }),
+                  class: "uni-swipe_button button-hock",
+                  onTouchstart: _cache[1] || (_cache[1] = vue.withModifiers((...args) => _ctx.appTouchStart && _ctx.appTouchStart(...args), ["stop"])),
+                  onTouchend: vue.withModifiers(($event) => _ctx.appTouchEnd($event, index, item, "right"), ["stop"]),
+                  onClick: vue.withModifiers(($event) => _ctx.onClickForPC(index, item, "right"), ["stop"])
+                }, [
+                  vue.createElementVNode(
+                    "text",
+                    {
+                      class: "uni-swipe_button-text",
+                      style: vue.normalizeStyle({ color: item.style && item.style.color ? item.style.color : "#FFFFFF", fontSize: item.style && item.style.fontSize ? item.style.fontSize : "16px" })
+                    },
+                    vue.toDisplayString(item.text),
+                    5
+                    /* TEXT, STYLE */
+                  )
+                ], 44, ["onTouchend", "onClick"]);
+              }),
+              128
+              /* KEYED_FRAGMENT */
+            ))
+          ], true)
         ])
-      ],
-      6
-      /* CLASS, STYLE */
-    );
+      ], 40, ["change:prop", "prop", "data-threshold", "data-disabled"])
+    ]);
   }
-  const __easycom_2$5 = /* @__PURE__ */ _export_sfc(_sfc_main$N, [["render", _sfc_render$M], ["__scopeId", "data-v-55e5786b"], ["__file", "E:/document/LifePartner/lifeparter-app/uni_modules/wot-design-uni/components/wd-cell-group/wd-cell-group.vue"]]);
+  if (typeof block0$1 === "function")
+    block0$1(_sfc_main$N);
+  if (typeof block1 === "function")
+    block1(_sfc_main$N);
+  const __easycom_1$5 = /* @__PURE__ */ _export_sfc(_sfc_main$N, [["render", _sfc_render$M], ["__scopeId", "data-v-8ff2a577"], ["__file", "E:/document/LifePartner/lifeparter-app/uni_modules/uni-swipe-action/components/uni-swipe-action-item/uni-swipe-action-item.vue"]]);
+  const _sfc_main$M = {
+    name: "uniSwipeAction",
+    data() {
+      return {};
+    },
+    created() {
+      this.children = [];
+    },
+    methods: {
+      // 公开给用户使用，重制组件样式
+      resize() {
+      },
+      // 公开给用户使用，关闭全部 已经打开的组件
+      closeAll() {
+        this.children.forEach((vm) => {
+          vm.is_show = "none";
+        });
+      },
+      closeOther(vm) {
+        if (this.openItem && this.openItem !== vm) {
+          this.openItem.is_show = "none";
+        }
+        this.openItem = vm;
+      }
+    }
+  };
+  function _sfc_render$L(_ctx, _cache, $props, $setup, $data, $options) {
+    return vue.openBlock(), vue.createElementBlock("view", null, [
+      vue.renderSlot(_ctx.$slots, "default")
+    ]);
+  }
+  const __easycom_2$5 = /* @__PURE__ */ _export_sfc(_sfc_main$M, [["render", _sfc_render$L], ["__file", "E:/document/LifePartner/lifeparter-app/uni_modules/uni-swipe-action/components/uni-swipe-action/uni-swipe-action.vue"]]);
   const _b64chars = [..."ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/"];
   const _mkUriSafe = (src) => src.replace(/[+/]/g, (m0) => m0 === "+" ? "-" : "_").replace(/=+\$/m, "");
   const fromUint8Array = (src, rfc4648 = false) => {
@@ -1056,7 +873,7 @@ if (uni.restoreGlobal) {
      */
     scope: String
   };
-  const __default__$f = {
+  const __default__$h = {
     name: "wd-button",
     options: {
       addGlobalClass: true,
@@ -1064,8 +881,8 @@ if (uni.restoreGlobal) {
       styleIsolation: "shared"
     }
   };
-  const _sfc_main$M = /* @__PURE__ */ vue.defineComponent({
-    ...__default__$f,
+  const _sfc_main$L = /* @__PURE__ */ vue.defineComponent({
+    ...__default__$h,
     props: buttonProps,
     emits: [
       "click",
@@ -1162,12 +979,12 @@ if (uni.restoreGlobal) {
         const svg = loadingIcon(color2, !plain);
         loadingIconSvg.value = `"data:image/svg+xml;base64,${encode(svg)}"`;
       }
-      const __returned__ = { loadingIcon, props, emit, hoverStartTime, hoverStayTime, loadingIconSvg, loadingStyle, handleClick, handleGetAuthorize, handleGetuserinfo, handleConcat, handleGetphonenumber, handleError, handleLaunchapp, handleOpensetting, handleChooseavatar, handleAgreePrivacyAuthorization, buildLoadingSvg, wdIcon: __easycom_0$5 };
+      const __returned__ = { loadingIcon, props, emit, hoverStartTime, hoverStayTime, loadingIconSvg, loadingStyle, handleClick, handleGetAuthorize, handleGetuserinfo, handleConcat, handleGetphonenumber, handleError, handleLaunchapp, handleOpensetting, handleChooseavatar, handleAgreePrivacyAuthorization, buildLoadingSvg, wdIcon: __easycom_0$4 };
       Object.defineProperty(__returned__, "__isScriptSetup", { enumerable: false, value: true });
       return __returned__;
     }
   });
-  function _sfc_render$L(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$K(_ctx, _cache, $props, $setup, $data, $options) {
     return vue.openBlock(), vue.createElementBlock("button", {
       id: _ctx.buttonId,
       "hover-class": `${_ctx.disabled || _ctx.loading ? "" : "wd-button--active"}`,
@@ -1234,7 +1051,629 @@ if (uni.restoreGlobal) {
       ])
     ], 46, ["id", "hover-class", "hover-start-time", "hover-stay-time", "open-type", "send-message-title", "send-message-path", "send-message-img", "app-parameter", "show-message-card", "session-from", "lang", "hover-stop-propagation", "scope"]);
   }
-  const __easycom_3$1 = /* @__PURE__ */ _export_sfc(_sfc_main$M, [["render", _sfc_render$L], ["__scopeId", "data-v-d858c170"], ["__file", "E:/document/LifePartner/lifeparter-app/uni_modules/wot-design-uni/components/wd-button/wd-button.vue"]]);
+  const __easycom_3$1 = /* @__PURE__ */ _export_sfc(_sfc_main$L, [["render", _sfc_render$K], ["__scopeId", "data-v-d858c170"], ["__file", "E:/document/LifePartner/lifeparter-app/uni_modules/wot-design-uni/components/wd-button/wd-button.vue"]]);
+  const transitionProps = {
+    ...baseProps,
+    /**
+     * 是否展示组件
+     * 类型：boolean
+     * 默认值：false
+     */
+    show: makeBooleanProp(false),
+    /**
+     * 动画执行时间
+     * 类型：number | boolean | Record<string, number>
+     * 默认值：300 (毫秒)
+     */
+    duration: {
+      type: [Object, Number, Boolean],
+      default: 300
+    },
+    /**
+     * 弹层内容懒渲染，触发展示时才渲染内容
+     * 类型：boolean
+     * 默认值：false
+     */
+    lazyRender: makeBooleanProp(false),
+    /**
+     * 动画类型
+     * 类型：string
+     * 可选值：fade / fade-up / fade-down / fade-left / fade-right / slide-up / slide-down / slide-left / slide-right / zoom-in
+     * 默认值：'fade'
+     */
+    name: [String, Array],
+    /**
+     * 是否在动画结束时销毁子节点（display: none)
+     * 类型：boolean
+     * 默认值：false
+     */
+    destroy: makeBooleanProp(true),
+    /**
+     * 进入过渡的开始状态
+     * 类型：string
+     */
+    enterClass: makeStringProp(""),
+    /**
+     * 进入过渡的激活状态
+     * 类型：string
+     */
+    enterActiveClass: makeStringProp(""),
+    /**
+     * 进入过渡的结束状态
+     * 类型：string
+     */
+    enterToClass: makeStringProp(""),
+    /**
+     * 离开过渡的开始状态
+     * 类型：string
+     */
+    leaveClass: makeStringProp(""),
+    /**
+     * 离开过渡的激活状态
+     * 类型：string
+     */
+    leaveActiveClass: makeStringProp(""),
+    /**
+     * 离开过渡的结束状态
+     * 类型：string
+     */
+    leaveToClass: makeStringProp("")
+  };
+  const __default__$g = {
+    name: "wd-transition",
+    options: {
+      addGlobalClass: true,
+      virtualHost: true,
+      styleIsolation: "shared"
+    }
+  };
+  const _sfc_main$K = /* @__PURE__ */ vue.defineComponent({
+    ...__default__$g,
+    props: transitionProps,
+    emits: ["click", "before-enter", "enter", "before-leave", "leave", "after-leave", "after-enter"],
+    setup(__props, { expose: __expose, emit: __emit }) {
+      __expose();
+      const getClassNames = (name) => {
+        let enter2 = `${props.enterClass} ${props.enterActiveClass}`;
+        let enterTo = `${props.enterToClass} ${props.enterActiveClass}`;
+        let leave2 = `${props.leaveClass} ${props.leaveActiveClass}`;
+        let leaveTo = `${props.leaveToClass} ${props.leaveActiveClass}`;
+        if (Array.isArray(name)) {
+          for (let index = 0; index < name.length; index++) {
+            enter2 = `wd-${name[index]}-enter wd-${name[index]}-enter-active ${enter2}`;
+            enterTo = `wd-${name[index]}-enter-to wd-${name[index]}-enter-active ${enterTo}`;
+            leave2 = `wd-${name[index]}-leave wd-${name[index]}-leave-active ${leave2}`;
+            leaveTo = `wd-${name[index]}-leave-to wd-${name[index]}-leave-active ${leaveTo}`;
+          }
+        } else if (name) {
+          enter2 = `wd-${name}-enter wd-${name}-enter-active ${enter2}`;
+          enterTo = `wd-${name}-enter-to wd-${name}-enter-active ${enterTo}`;
+          leave2 = `wd-${name}-leave wd-${name}-leave-active ${leave2}`;
+          leaveTo = `wd-${name}-leave-to wd-${name}-leave-active ${leaveTo}`;
+        }
+        return {
+          enter: enter2,
+          "enter-to": enterTo,
+          leave: leave2,
+          "leave-to": leaveTo
+        };
+      };
+      const props = __props;
+      const emit = __emit;
+      const inited = vue.ref(false);
+      const display = vue.ref(false);
+      const status = vue.ref("");
+      const transitionEnded = vue.ref(false);
+      const currentDuration = vue.ref(300);
+      const classes = vue.ref("");
+      const enterPromise = vue.ref(null);
+      const enterLifeCyclePromises = vue.ref(null);
+      const leaveLifeCyclePromises = vue.ref(null);
+      const style = vue.computed(() => {
+        return `-webkit-transition-duration:${currentDuration.value}ms;transition-duration:${currentDuration.value}ms;${display.value || !props.destroy ? "" : "display: none;"}${props.customStyle}`;
+      });
+      const rootClass = vue.computed(() => {
+        return `wd-transition ${props.customClass}  ${classes.value}`;
+      });
+      vue.onBeforeMount(() => {
+        if (props.show) {
+          enter();
+        }
+      });
+      vue.watch(
+        () => props.show,
+        (newVal) => {
+          handleShow(newVal);
+        },
+        { deep: true }
+      );
+      function handleClick() {
+        emit("click");
+      }
+      function handleShow(value) {
+        if (value) {
+          handleAbortPromise();
+          enter();
+        } else {
+          leave();
+        }
+      }
+      function handleAbortPromise() {
+        isPromise(enterPromise.value) && enterPromise.value.abort();
+        isPromise(enterLifeCyclePromises.value) && enterLifeCyclePromises.value.abort();
+        isPromise(leaveLifeCyclePromises.value) && leaveLifeCyclePromises.value.abort();
+        enterPromise.value = null;
+        enterLifeCyclePromises.value = null;
+        leaveLifeCyclePromises.value = null;
+      }
+      function enter() {
+        enterPromise.value = new AbortablePromise(async (resolve) => {
+          try {
+            const classNames = getClassNames(props.name);
+            const duration = isObj(props.duration) ? props.duration.enter : props.duration;
+            status.value = "enter";
+            emit("before-enter");
+            enterLifeCyclePromises.value = pause();
+            await enterLifeCyclePromises.value;
+            emit("enter");
+            classes.value = classNames.enter;
+            currentDuration.value = duration;
+            enterLifeCyclePromises.value = pause();
+            await enterLifeCyclePromises.value;
+            inited.value = true;
+            display.value = true;
+            enterLifeCyclePromises.value = pause();
+            await enterLifeCyclePromises.value;
+            enterLifeCyclePromises.value = null;
+            transitionEnded.value = false;
+            classes.value = classNames["enter-to"];
+            resolve();
+          } catch (error) {
+          }
+        });
+      }
+      async function leave() {
+        if (!enterPromise.value) {
+          transitionEnded.value = false;
+          return onTransitionEnd();
+        }
+        try {
+          await enterPromise.value;
+          if (!display.value)
+            return;
+          const classNames = getClassNames(props.name);
+          const duration = isObj(props.duration) ? props.duration.leave : props.duration;
+          status.value = "leave";
+          emit("before-leave");
+          currentDuration.value = duration;
+          leaveLifeCyclePromises.value = pause();
+          await leaveLifeCyclePromises.value;
+          emit("leave");
+          classes.value = classNames.leave;
+          leaveLifeCyclePromises.value = pause();
+          await leaveLifeCyclePromises.value;
+          transitionEnded.value = false;
+          classes.value = classNames["leave-to"];
+          leaveLifeCyclePromises.value = setPromise(currentDuration.value);
+          await leaveLifeCyclePromises.value;
+          leaveLifeCyclePromises.value = null;
+          onTransitionEnd();
+          enterPromise.value = null;
+        } catch (error) {
+        }
+      }
+      function setPromise(duration) {
+        return new AbortablePromise((resolve) => {
+          const timer = setTimeout(() => {
+            clearTimeout(timer);
+            resolve();
+          }, duration);
+        });
+      }
+      function onTransitionEnd() {
+        if (transitionEnded.value)
+          return;
+        transitionEnded.value = true;
+        if (status.value === "leave") {
+          emit("after-leave");
+        } else if (status.value === "enter") {
+          emit("after-enter");
+        }
+        if (!props.show && display.value) {
+          display.value = false;
+        }
+      }
+      const __returned__ = { getClassNames, props, emit, inited, display, status, transitionEnded, currentDuration, classes, enterPromise, enterLifeCyclePromises, leaveLifeCyclePromises, style, rootClass, handleClick, handleShow, handleAbortPromise, enter, leave, setPromise, onTransitionEnd };
+      Object.defineProperty(__returned__, "__isScriptSetup", { enumerable: false, value: true });
+      return __returned__;
+    }
+  });
+  function _sfc_render$J(_ctx, _cache, $props, $setup, $data, $options) {
+    return !_ctx.lazyRender || $setup.inited ? (vue.openBlock(), vue.createElementBlock(
+      "view",
+      {
+        key: 0,
+        class: vue.normalizeClass($setup.rootClass),
+        style: vue.normalizeStyle($setup.style),
+        onTransitionend: $setup.onTransitionEnd,
+        onClick: $setup.handleClick
+      },
+      [
+        vue.renderSlot(_ctx.$slots, "default", {}, void 0, true)
+      ],
+      38
+      /* CLASS, STYLE, NEED_HYDRATION */
+    )) : vue.createCommentVNode("v-if", true);
+  }
+  const wdTransition = /* @__PURE__ */ _export_sfc(_sfc_main$K, [["render", _sfc_render$J], ["__scopeId", "data-v-af59a128"], ["__file", "E:/document/LifePartner/lifeparter-app/uni_modules/wot-design-uni/components/wd-transition/wd-transition.vue"]]);
+  const queueKey = "__QUEUE_KEY__";
+  let queue = [];
+  function pushToQueue(comp) {
+    queue.push(comp);
+  }
+  function removeFromQueue(comp) {
+    queue = queue.filter((item) => {
+      return item.$.uid !== comp.$.uid;
+    });
+  }
+  function closeOther(comp) {
+    queue.forEach((item) => {
+      if (item.$.uid !== comp.$.uid) {
+        item.$.exposed.close();
+      }
+    });
+  }
+  const fabProps = {
+    ...baseProps,
+    /**
+     * 是否激活
+     */
+    active: makeBooleanProp(false),
+    /**
+     * 类型，可选值为 default primary info success warning error
+     */
+    type: makeStringProp("primary"),
+    /**
+     * 悬浮按钮位置，可选值为 left-top right-top left-bottom right-bottom left-center right-center top-center bottom-center
+     */
+    position: makeStringProp("right-bottom"),
+    /**
+     * 悬浮按钮菜单弹出方向，可选值为 top bottom left right
+     */
+    direction: makeStringProp("top"),
+    /**
+     * 是否禁用
+     */
+    disabled: makeBooleanProp(false),
+    /**
+     * 悬浮按钮未展开时的图标
+     */
+    inactiveIcon: makeStringProp("add"),
+    /**
+     * 悬浮按钮展开时的图标
+     */
+    activeIcon: makeStringProp("close"),
+    /**
+     * 自定义悬浮按钮层级
+     */
+    zIndex: makeNumberProp(99),
+    /**
+     * 是否可拖动
+     */
+    draggable: makeBooleanProp(false),
+    gap: {
+      type: Object,
+      default: () => ({})
+    },
+    /**
+     * 用于控制点击时是否展开菜单
+     */
+    expandable: makeBooleanProp(true)
+  };
+  function useRaf(callback) {
+    const requestRef = vue.ref(null);
+    const start = () => {
+      const handle = (time) => {
+        callback(time);
+      };
+      if (isH5) {
+        requestRef.value = requestAnimationFrame(handle);
+      } else {
+        requestRef.value = setTimeout(() => handle(Date.now()), 1e3 / 30);
+      }
+    };
+    const cancel = () => {
+      if (isH5 && isNumber(requestRef.value)) {
+        cancelAnimationFrame(requestRef.value);
+      } else if (isDef(requestRef.value)) {
+        clearTimeout(requestRef.value);
+      }
+    };
+    vue.onUnmounted(() => {
+      cancel();
+    });
+    return { start, cancel };
+  }
+  const __default__$f = {
+    name: "wd-fab",
+    options: {
+      virtualHost: true,
+      addGlobalClass: true,
+      styleIsolation: "shared"
+    }
+  };
+  const _sfc_main$J = /* @__PURE__ */ vue.defineComponent({
+    ...__default__$f,
+    props: fabProps,
+    emits: ["update:active", "click"],
+    setup(__props, { expose: __expose, emit: __emit }) {
+      const props = __props;
+      const emit = __emit;
+      const inited = vue.ref(false);
+      const isActive = vue.ref(false);
+      const queue2 = vue.inject(queueKey, null);
+      const { proxy } = vue.getCurrentInstance();
+      vue.watch(
+        () => props.active,
+        (newValue) => {
+          isActive.value = newValue;
+        },
+        { immediate: true, deep: true }
+      );
+      vue.watch(
+        () => isActive.value,
+        (newValue) => {
+          if (newValue) {
+            if (queue2 && queue2.closeOther) {
+              queue2.closeOther(proxy);
+            } else {
+              closeOther(proxy);
+            }
+          }
+        }
+      );
+      const fabDirection = vue.ref(props.direction);
+      vue.watch(
+        () => props.direction,
+        (direction) => fabDirection.value = direction
+      );
+      vue.watch(
+        () => props.position,
+        () => initPosition()
+      );
+      const top = vue.ref(0);
+      const left = vue.ref(0);
+      const screen = vue.reactive({ width: 0, height: 0 });
+      const fabSize = vue.reactive({ width: 56, height: 56 });
+      const bounding = vue.reactive({
+        minTop: 0,
+        minLeft: 0,
+        maxTop: 0,
+        maxLeft: 0
+      });
+      async function getBounding() {
+        const sysInfo = uni.getSystemInfoSync();
+        try {
+          const trigerInfo = await getRect("#trigger", false, proxy);
+          fabSize.width = trigerInfo.width || 56;
+          fabSize.height = trigerInfo.height || 56;
+        } catch (error) {
+          formatAppLog("log", "at uni_modules/wot-design-uni/components/wd-fab/wd-fab.vue:112", error);
+        }
+        const { top: top2 = 16, left: left2 = 16, right = 16, bottom = 16 } = props.gap;
+        screen.width = sysInfo.windowWidth;
+        screen.height = isH5 ? sysInfo.windowTop + sysInfo.windowHeight : sysInfo.windowHeight;
+        bounding.minTop = isH5 ? sysInfo.windowTop + top2 : top2;
+        bounding.minLeft = left2;
+        bounding.maxLeft = screen.width - fabSize.width - right;
+        bounding.maxTop = screen.height - fabSize.height - bottom;
+      }
+      function initPosition() {
+        const pos = props.position;
+        const { minLeft, minTop, maxLeft, maxTop } = bounding;
+        const centerY = (maxTop + minTop) / 2;
+        const centerX = (maxLeft + minLeft) / 2;
+        switch (pos) {
+          case "left-top":
+            top.value = minTop;
+            left.value = minLeft;
+            break;
+          case "right-top":
+            top.value = minTop;
+            left.value = maxLeft;
+            break;
+          case "left-bottom":
+            top.value = maxTop;
+            left.value = minLeft;
+            break;
+          case "right-bottom":
+            top.value = maxTop;
+            left.value = maxLeft;
+            break;
+          case "left-center":
+            top.value = centerY;
+            left.value = minLeft;
+            break;
+          case "right-center":
+            top.value = centerY;
+            left.value = maxLeft;
+            break;
+          case "top-center":
+            top.value = minTop;
+            left.value = centerX;
+            break;
+          case "bottom-center":
+            top.value = maxTop;
+            left.value = centerX;
+            break;
+        }
+      }
+      const touchOffset = vue.reactive({ x: 0, y: 0 });
+      const attractTransition = vue.ref(false);
+      function handleTouchStart(e2) {
+        if (props.draggable === false)
+          return;
+        const touch = e2.touches[0];
+        touchOffset.x = touch.clientX - left.value;
+        touchOffset.y = touch.clientY - top.value;
+        attractTransition.value = false;
+      }
+      function handleTouchMove(e2) {
+        if (props.draggable === false)
+          return;
+        const touch = e2.touches[0];
+        const { minLeft, minTop, maxLeft, maxTop } = bounding;
+        let x = touch.clientX - touchOffset.x;
+        let y2 = touch.clientY - touchOffset.y;
+        if (x < minLeft)
+          x = minLeft;
+        else if (x > maxLeft)
+          x = maxLeft;
+        if (y2 < minTop)
+          y2 = minTop;
+        else if (y2 > maxTop)
+          y2 = maxTop;
+        top.value = y2;
+        left.value = x;
+      }
+      function handleTouchEnd() {
+        if (props.draggable === false)
+          return;
+        const screenCenterX = screen.width / 2;
+        const fabCenterX = left.value + fabSize.width / 2;
+        attractTransition.value = true;
+        if (fabCenterX < screenCenterX) {
+          left.value = bounding.minLeft;
+          fabDirection.value = "right";
+        } else {
+          left.value = bounding.maxLeft;
+          fabDirection.value = "left";
+        }
+      }
+      const rootStyle = vue.computed(() => {
+        const style = {
+          top: top.value + "px",
+          left: left.value + "px",
+          transition: attractTransition.value ? "all ease 0.3s" : "none"
+        };
+        if (isDef(props.zIndex)) {
+          style["z-index"] = props.zIndex;
+        }
+        return `${objToStyle(style)};${props.customStyle}`;
+      });
+      vue.onMounted(() => {
+        if (queue2 && queue2.pushToQueue) {
+          queue2.pushToQueue(proxy);
+        } else {
+          pushToQueue(proxy);
+        }
+        const { start } = useRaf(async () => {
+          await getBounding();
+          initPosition();
+          inited.value = true;
+        });
+        start();
+      });
+      vue.onBeforeUnmount(() => {
+        if (queue2 && queue2.removeFromQueue) {
+          queue2.removeFromQueue(proxy);
+        } else {
+          removeFromQueue(proxy);
+        }
+      });
+      function handleClick() {
+        if (props.disabled) {
+          return;
+        }
+        if (!props.expandable) {
+          emit("click");
+          return;
+        }
+        isActive.value = !isActive.value;
+        emit("update:active", isActive.value);
+      }
+      function open() {
+        isActive.value = true;
+        emit("update:active", true);
+      }
+      function close() {
+        isActive.value = false;
+        emit("update:active", false);
+      }
+      __expose({
+        open,
+        close
+      });
+      const __returned__ = { props, emit, inited, isActive, queue: queue2, proxy, fabDirection, top, left, screen, fabSize, bounding, getBounding, initPosition, touchOffset, attractTransition, handleTouchStart, handleTouchMove, handleTouchEnd, rootStyle, handleClick, open, close, wdButton: __easycom_3$1, wdIcon: __easycom_0$4, wdTransition };
+      Object.defineProperty(__returned__, "__isScriptSetup", { enumerable: false, value: true });
+      return __returned__;
+    }
+  });
+  function _sfc_render$I(_ctx, _cache, $props, $setup, $data, $options) {
+    return vue.openBlock(), vue.createElementBlock(
+      "view",
+      {
+        onTouchmove: vue.withModifiers($setup.handleTouchMove, ["stop", "prevent"]),
+        onTouchstart: $setup.handleTouchStart,
+        onTouchend: $setup.handleTouchEnd,
+        class: vue.normalizeClass(`wd-fab ${_ctx.customClass}`),
+        style: vue.normalizeStyle($setup.rootStyle),
+        onClick: _cache[1] || (_cache[1] = vue.withModifiers(() => {
+        }, ["stop"]))
+      },
+      [
+        vue.createElementVNode(
+          "view",
+          {
+            onClick: _cache[0] || (_cache[0] = vue.withModifiers(() => {
+            }, ["stop"])),
+            style: vue.normalizeStyle({ visibility: $setup.inited ? "visible" : "hidden" }),
+            id: "trigger"
+          },
+          [
+            _ctx.$slots.trigger ? vue.renderSlot(_ctx.$slots, "trigger", { key: 0 }, void 0, true) : (vue.openBlock(), vue.createBlock($setup["wdButton"], {
+              key: 1,
+              onClick: $setup.handleClick,
+              "custom-class": "wd-fab__trigger",
+              round: "",
+              type: _ctx.type,
+              disabled: _ctx.disabled
+            }, {
+              default: vue.withCtx(() => [
+                vue.createVNode($setup["wdIcon"], {
+                  "custom-class": "wd-fab__icon",
+                  name: $setup.isActive ? _ctx.activeIcon : _ctx.inactiveIcon
+                }, null, 8, ["name"])
+              ]),
+              _: 1
+              /* STABLE */
+            }, 8, ["type", "disabled"]))
+          ],
+          4
+          /* STYLE */
+        ),
+        _ctx.expandable ? (vue.openBlock(), vue.createBlock($setup["wdTransition"], {
+          key: 0,
+          "enter-class": `wd-fab__transition-enter--${$setup.fabDirection}`,
+          "enter-active-class": "wd-fab__transition-enter-active",
+          "leave-to-class": `wd-fab__transition-leave-to--${$setup.fabDirection}`,
+          "leave-active-class": "wd-fab__transition-leave-active",
+          "custom-class": `wd-fab__actions wd-fab__actions--${$setup.fabDirection}`,
+          show: $setup.isActive,
+          duration: 300
+        }, {
+          default: vue.withCtx(() => [
+            vue.renderSlot(_ctx.$slots, "default", {}, void 0, true)
+          ]),
+          _: 3
+          /* FORWARDED */
+        }, 8, ["enter-class", "leave-to-class", "custom-class", "show"])) : vue.createCommentVNode("v-if", true)
+      ],
+      38
+      /* CLASS, STYLE, NEED_HYDRATION */
+    );
+  }
+  const __easycom_2$4 = /* @__PURE__ */ _export_sfc(_sfc_main$J, [["render", _sfc_render$I], ["__scopeId", "data-v-c5c35da7"], ["__file", "E:/document/LifePartner/lifeparter-app/uni_modules/wot-design-uni/components/wd-fab/wd-fab.vue"]]);
   var lookup = [
     0,
     0,
@@ -3162,6 +3601,162 @@ if (uni.restoreGlobal) {
     encodeBase64,
     decodeBase64
   };
+  class Logger {
+    constructor() {
+      this.logFileName = "life-partner.log";
+      this.maxLogSize = 1024 * 1024 * 50;
+    }
+    /**
+     * 写入日志
+     * @param {string} message - 日志内容
+     * @param {string} level - 日志级别
+     */
+    log(message, level = "INFO") {
+      const now = /* @__PURE__ */ new Date();
+      const year = now.getFullYear();
+      const month = String(now.getMonth() + 1).padStart(2, "0");
+      const day = String(now.getDate()).padStart(2, "0");
+      const hours = String(now.getHours()).padStart(2, "0");
+      const minutes = String(now.getMinutes()).padStart(2, "0");
+      const seconds = String(now.getSeconds()).padStart(2, "0");
+      const milliseconds = String(now.getMilliseconds()).padStart(3, "0");
+      const timestamp = `${year}/${month}/${day} ${hours}:${minutes}:${seconds}:${milliseconds}`;
+      const logEntry = `[${timestamp}] [${level}] ${message}
+`;
+      formatAppLog("log", "at common/logger.js:30", logEntry);
+      try {
+        plus.io.requestFileSystem(plus.io.PRIVATE_DOC, (fs2) => {
+          fs2.root.getFile(this.logFileName, {
+            create: true
+          }, (fileEntry) => {
+            fileEntry.file((file) => {
+              if (file.size > this.maxLogSize) {
+                this.clearAndWrite(fileEntry, logEntry);
+              } else {
+                this.appendToFile(fileEntry, logEntry);
+              }
+            });
+          }, (error) => {
+            formatAppLog("error", "at common/logger.js:49", "获取日志文件失败:", error);
+          });
+        }, (error) => {
+          formatAppLog("error", "at common/logger.js:52", "请求文件系统失败:", error);
+        });
+      } catch (error) {
+        formatAppLog("error", "at common/logger.js:55", "写入日志异常:", error);
+      }
+    }
+    /**
+     * 追加写入文件
+     */
+    appendToFile(fileEntry, content) {
+      fileEntry.createWriter((writer) => {
+        writer.onwrite = () => {
+        };
+        writer.onerror = (error) => {
+          formatAppLog("error", "at common/logger.js:68", "写入日志失败:", error);
+        };
+        writer.seek(writer.length);
+        writer.write(content);
+      }, (error) => {
+        formatAppLog("error", "at common/logger.js:73", "创建写入器失败:", error);
+      });
+    }
+    /**
+     * 清空并写入
+     */
+    clearAndWrite(fileEntry, content) {
+      fileEntry.createWriter((writer) => {
+        writer.onwrite = () => {
+          writer.seek(0);
+          writer.write(`[日志文件已清空]
+${content}`);
+        };
+        writer.onerror = (error) => {
+          formatAppLog("error", "at common/logger.js:88", "清空日志失败:", error);
+        };
+        writer.truncate(0);
+      });
+    }
+    /**
+     * 信息级别日志
+     */
+    info(message) {
+      this.log(message, "INFO");
+    }
+    /**
+     * 错误级别日志
+     */
+    error(message) {
+      this.log(message, "ERROR");
+    }
+    /**
+     * 警告级别日志
+     */
+    warn(message) {
+      this.log(message, "WARN");
+    }
+    /**
+     * 调试级别日志
+     */
+    debug(message) {
+      this.log(message, "DEBUG");
+    }
+    /**
+     * 读取日志文件内容
+     * @param {function} callback - 回调函数，参数为日志内容
+     */
+    readLog(callback) {
+      plus.io.requestFileSystem(plus.io.PRIVATE_DOC, (fs2) => {
+        fs2.root.getFile(this.logFileName, {
+          create: false
+        }, (fileEntry) => {
+          fileEntry.file((file) => {
+            const reader = new plus.io.FileReader();
+            reader.onloadend = (e2) => {
+              callback && callback(e2.target.result);
+            };
+            reader.onerror = (error) => {
+              formatAppLog("error", "at common/logger.js:137", "读取日志失败:", error);
+              callback && callback("");
+            };
+            reader.readAsText(file, "utf-8");
+          });
+        }, (error) => {
+          formatAppLog("log", "at common/logger.js:143", "日志文件不存在");
+          callback && callback("");
+        });
+      });
+    }
+    /**
+     * 清空日志文件
+     */
+    clearLog() {
+      plus.io.requestFileSystem(plus.io.PRIVATE_DOC, (fs2) => {
+        fs2.root.getFile(this.logFileName, {
+          create: true
+        }, (fileEntry) => {
+          fileEntry.createWriter((writer) => {
+            writer.onwrite = () => {
+              formatAppLog("log", "at common/logger.js:159", "日志已清空");
+            };
+            writer.truncate(0);
+          });
+        });
+      });
+    }
+    /**
+     * 获取日志文件路径
+     * @param {function} callback - 回调函数，参数为文件路径
+     */
+    getLogPath(callback) {
+      plus.io.requestFileSystem(plus.io.PRIVATE_DOC, (fs2) => {
+        const path = `${fs2.root.fullPath}${this.logFileName}`;
+        callback && callback(path);
+      });
+    }
+  }
+  const logger = new Logger();
   class SnowflakeGenerator {
     constructor(workerId = 1, datacenterId = 1) {
       this.twepoch = 16409952e5;
@@ -3175,11 +3770,11 @@ if (uni.restoreGlobal) {
       this.datacenterIdShift = this.sequenceBits + this.workerIdBits;
       this.timestampLeftShift = this.sequenceBits + this.workerIdBits + this.datacenterIdBits;
       if (workerId > this.maxWorkerId || workerId < 0) {
-        formatAppLog("warn", "at common/dbService.js:23", `workerId 超出范围，使用默认值。范围: 0-${this.maxWorkerId}`);
+        logger.warn(`workerId 超出范围，使用默认值。范围: 0-${this.maxWorkerId}`);
         workerId = Math.abs(workerId) % (this.maxWorkerId + 1);
       }
       if (datacenterId > this.maxDatacenterId || datacenterId < 0) {
-        formatAppLog("warn", "at common/dbService.js:27", `datacenterId 超出范围，使用默认值。范围: 0-${this.maxDatacenterId}`);
+        logger.warn(`datacenterId 超出范围，使用默认值。范围: 0-${this.maxDatacenterId}`);
         datacenterId = Math.abs(datacenterId) % (this.maxDatacenterId + 1);
       }
       this.workerId = workerId;
@@ -3191,7 +3786,7 @@ if (uni.restoreGlobal) {
     nextId() {
       let timestamp = this.timeGen();
       if (timestamp < this.lastTimestamp) {
-        formatAppLog("warn", "at common/dbService.js:43", `时钟回拨detected，等待恢复...`);
+        logger.warn(`时钟回拨detected，等待恢复...`);
         timestamp = this.lastTimestamp + 1;
       }
       if (this.lastTimestamp === timestamp) {
@@ -3240,10 +3835,10 @@ if (uni.restoreGlobal) {
             path: "_doc/lifeparterTally.db",
             // 对于iOS需要设置location为'default'
             success: function(e2) {
-              formatAppLog("log", "at common/dbService.js:104", "数据库打开成功");
+              logger.info("数据库打开成功");
             },
             fail: function(e2) {
-              formatAppLog("error", "at common/dbService.js:107", "数据库打开失败", e2);
+              logger.error("数据库打开失败: " + JSON.stringify(e2));
             }
           });
         }
@@ -3308,7 +3903,7 @@ if (uni.restoreGlobal) {
               resolve(e2);
             },
             fail: function(error) {
-              formatAppLog("error", "at common/dbService.js:178", "创建表时出错:", error);
+              logger.error("创建表时出错: " + JSON.stringify(error));
               reject(error);
             }
           }
@@ -3327,7 +3922,7 @@ if (uni.restoreGlobal) {
           return;
         }
       } catch (error) {
-        formatAppLog("log", "at common/dbService.js:203", "检查初始化状态时出错，继续执行初始化:", error);
+        logger.error("检查初始化状态时出错，继续执行初始化: " + error.message);
       }
       await this.executeSql(`INSERT OR IGNORE INTO tally_category (id, parent_id, name, directory, user_id, icon) VALUES 
 		(1, 0, '收入', 1, 1,''),
@@ -3378,6 +3973,21 @@ if (uni.restoreGlobal) {
 				VALUES ('${name}', '${icon}', ${parent_id}, ${directory}, ${user_id})`;
       return this.executeSql(sql);
     }
+    updateTallyCategory(id, name, icon, parent_id, directory) {
+      const sql = `UPDATE tally_category SET name='${name}', icon='${icon}', parent_id=${parent_id}, directory=${directory} 
+				WHERE id=${id}`;
+      return this.executeSql(sql);
+    }
+    deleteTallyCategory(id) {
+      const sql = `DELETE FROM tally_category WHERE id=${id}`;
+      return this.executeSql(sql);
+    }
+    deleteTallyCategoryWithChildren(id) {
+      const deleteChildrenSql = `DELETE FROM tally_category WHERE parent_id=${id}`;
+      this.executeSql(deleteChildrenSql);
+      const deleteSql = `DELETE FROM tally_category WHERE id=${id}`;
+      return this.executeSql(deleteSql);
+    }
     async insertUser(username, password) {
       const userId = this.generateSnowflakeId();
       const salt = bcrypt.genSaltSync(10);
@@ -3395,7 +4005,7 @@ if (uni.restoreGlobal) {
         const id = this.snowflakeGenerator.nextId();
         return id;
       } catch (error) {
-        formatAppLog("warn", "at common/dbService.js:285", "雪花算法生成失败，使用备用方案:", error);
+        logger.warn("雪花算法生成失败，使用备用方案: " + error.message);
         return this.generateFallbackId();
       }
     }
@@ -3405,7 +4015,7 @@ if (uni.restoreGlobal) {
       const workerId = this.generateWorkerId();
       const random = Math.floor(Math.random() * 1e4);
       const id = `${timestamp}${workerId.toString().padStart(2, "0")}${random.toString().padStart(4, "0")}`;
-      formatAppLog("log", "at common/dbService.js:299", "使用备用ID:", id);
+      logger.info("使用备用ID: " + id);
       return id;
     }
     // 初始化雪花算法生成器
@@ -3425,7 +4035,7 @@ if (uni.restoreGlobal) {
         }
         return Math.abs(hash2) % 32;
       } catch (error) {
-        formatAppLog("warn", "at common/dbService.js:325", "无法获取设备信息，使用默认workerId:", error);
+        logger.warn("无法获取设备信息，使用默认workerId: " + error.message);
         return Math.floor(Math.random() * 32);
       }
     }
@@ -3526,7 +4136,7 @@ if (uni.restoreGlobal) {
             resolve(e2);
           },
           fail: function(error) {
-            formatAppLog("error", "at common/dbService.js:442", "执行出错:", error);
+            logger.error("SQL执行出错: " + JSON.stringify(error));
             reject(error);
           }
         });
@@ -3544,7 +4154,7 @@ if (uni.restoreGlobal) {
             resolve(data);
           },
           fail: function(error) {
-            formatAppLog("error", "at common/dbService.js:462", "查询出错:", error);
+            logger.error("SQL查询出错: " + JSON.stringify(error));
             reject(error);
           }
         });
@@ -3781,10 +4391,10 @@ if (uni.restoreGlobal) {
         const pages2 = getCurrentPages();
         const currentPage = pages2[pages2.length - 1];
         const currentRoute = "/" + currentPage.route;
-        if (currentRoute !== "/pages/user-center/user-center") {
+        if (currentRoute !== "/pages/user-center/login") {
           setTimeout(() => {
-            uni.switchTab({
-              url: "/pages/user-center/user-center"
+            uni.navigateTo({
+              url: "/pages/user-center/login"
             });
           }, showToast ? 1e3 : 0);
         }
@@ -3822,6 +4432,320 @@ if (uni.restoreGlobal) {
     yuanToFenNumber,
     yuanToFenString
   }, Symbol.toStringTag, { value: "Module" }));
+  const authRequiredPages = [
+    "/pages/settle-account/settle-account",
+    "/pages/settle-account/account",
+    "/pages/settle-account/flow",
+    "/pages/settle-account/account-create",
+    "/pages/settle-account/flow-create",
+    "/pages/settle-account/flow-edit",
+    "/pages/user-center/user-center",
+    "/pages/user-center/account-setting",
+    "/pages/reports/reports"
+  ];
+  const publicPages = [
+    "/pages/user-center/registry",
+    "/pages/user-center/login"
+  ];
+  function checkPageAuth(url, showToast = true) {
+    const pagePath = url.split("?")[0];
+    if (publicPages.includes(pagePath)) {
+      return true;
+    }
+    if (authRequiredPages.includes(pagePath)) {
+      return authUtils.requireLogin(showToast);
+    }
+    return true;
+  }
+  const originalNavigateTo = uni.navigateTo;
+  uni.navigateTo = function(options) {
+    if (checkPageAuth(options.url)) {
+      return originalNavigateTo.call(this, options);
+    }
+    return Promise.reject(new Error("需要登录"));
+  };
+  const originalRedirectTo = uni.redirectTo;
+  uni.redirectTo = function(options) {
+    if (checkPageAuth(options.url)) {
+      return originalRedirectTo.call(this, options);
+    }
+    return Promise.reject(new Error("需要登录"));
+  };
+  const originalSwitchTab = uni.switchTab;
+  uni.switchTab = function(options) {
+    if (checkPageAuth(options.url)) {
+      return originalSwitchTab.call(this, options);
+    }
+    return Promise.reject(new Error("需要登录"));
+  };
+  const originalReLaunch = uni.reLaunch;
+  uni.reLaunch = function(options) {
+    if (checkPageAuth(options.url)) {
+      return originalReLaunch.call(this, options);
+    }
+    return Promise.reject(new Error("需要登录"));
+  };
+  function checkCurrentPageAuth(pagePath) {
+    if (authRequiredPages.includes(pagePath) && !authUtils.isLoggedIn()) {
+      authUtils.requireLogin(true);
+      return false;
+    }
+    return true;
+  }
+  const _sfc_main$I = {
+    __name: "account",
+    setup(__props, { expose: __expose }) {
+      __expose();
+      const dbService2 = new DBService();
+      const handleClick = () => {
+        uni.navigateTo({
+          url: "/pages/settle-account/account-create"
+        });
+      };
+      const navigateToFlow = (accountId) => {
+        uni.navigateTo({
+          url: `/pages/settle-account/flow?account_id=${accountId}`
+        });
+      };
+      const closeAllAndNavigate = (accountId) => {
+        if (swipeAction.value && swipeAction.value.length > 0) {
+          for (let i2 = 0; i2 < swipeAction.value.length; i2++) {
+            if (swipeAction.value[i2] && swipeAction.value[i2].closeAll) {
+              swipeAction.value[i2].closeAll();
+            }
+          }
+        }
+        navigateToFlow(accountId);
+      };
+      const totalAssets = vue.computed(() => {
+        let total = 0;
+        cards.forEach((card) => {
+          card.items.forEach((item) => {
+            total += parseFloat(item.balance) || 0;
+          });
+        });
+        return total.toFixed(2);
+      });
+      var cards = vue.reactive([]);
+      onLoad((options) => {
+        if (!checkCurrentPageAuth("/pages/settle-account/account")) {
+          return;
+        }
+      });
+      async function loadAccounts() {
+        const user_id = authUtils.getCurrentUserId();
+        const accounts = await dbService2.getTallyAccount(user_id);
+        for (var account of accounts) {
+          const tallBill = await dbService2.getTallyBillByAccountId(account.id);
+          account.balance = fenToYuanString(account.balance + tallBill.reduce((balance, item) => {
+            return balance + item.money;
+          }, 0));
+        }
+        const groupData = Array.from(
+          accounts.reduce((map, item) => {
+            const key = item.account_type;
+            if (!map.has(key))
+              map.set(key, []);
+            map.get(key).push(item);
+            return map;
+          }, /* @__PURE__ */ new Map()),
+          ([title, items]) => ({
+            title,
+            items
+          })
+        );
+        cards.splice(0, cards.length, ...groupData);
+      }
+      onShow(loadAccounts);
+      onPullDownRefresh(async () => {
+        if (!checkCurrentPageAuth("/pages/settle-account/settle-account")) {
+          uni.stopPullDownRefresh();
+          return;
+        }
+        await loadAccounts();
+        uni.stopPullDownRefresh();
+      });
+      const swipeAction = vue.ref();
+      const swipeChange = (e2, index) => {
+        if (e2 !== "none" && swipeAction.value && swipeAction.value.length > 0) {
+          for (let i2 = 0; i2 < swipeAction.value.length; i2++) {
+            if (i2 !== index && swipeAction.value[i2] && swipeAction.value[i2].closeAll) {
+              swipeAction.value[i2].closeAll();
+            }
+          }
+        }
+      };
+      const handleSwipeClick = (e2, account, card, index) => {
+        const {
+          index: buttonIndex
+        } = e2;
+        if (buttonIndex === 0) {
+          navigateToEdit(account);
+        } else if (buttonIndex === 1) {
+          handleDelete(account, card, index);
+        }
+      };
+      const navigateToEdit = (account) => {
+        uni.navigateTo({
+          url: `/pages/settle-account/account-create?id=${account.id}&accountName=${encodeURIComponent(account.account_name)}&balance=${account.balance}&accountType=${encodeURIComponent(account.account_type)}&icon=${encodeURIComponent(account.icon || "")}`
+        });
+      };
+      const handleDelete = async (account, card, index) => {
+        try {
+          if (swipeAction.value && swipeAction.value.length > 0) {
+            for (let i2 = 0; i2 < swipeAction.value.length; i2++) {
+              if (swipeAction.value[i2] && swipeAction.value[i2].closeAll) {
+                swipeAction.value[i2].closeAll();
+              }
+            }
+          }
+          await Promise.all([
+            dbService2.deleteById("tally_account", account.id),
+            dbService2.deleteTallyBillByAccount(account.id)
+          ]);
+          card.items.splice(index, 1);
+          const cardIndex = cards.findIndex((c2) => c2.title === card.title);
+          if (card.items.length === 0 && cardIndex !== -1) {
+            cards.splice(cardIndex, 1);
+          }
+        } catch (e2) {
+          formatAppLog("log", "at pages/settle-account/account.vue:196", e2);
+          uni.showToast({
+            title: "删除失败:" + e2,
+            icon: "none"
+          });
+        }
+      };
+      const __returned__ = { dbService: dbService2, handleClick, navigateToFlow, closeAllAndNavigate, totalAssets, get cards() {
+        return cards;
+      }, set cards(v2) {
+        cards = v2;
+      }, loadAccounts, swipeAction, swipeChange, handleSwipeClick, navigateToEdit, handleDelete, onMounted: vue.onMounted, reactive: vue.reactive, computed: vue.computed, ref: vue.ref, get onLoad() {
+        return onLoad;
+      }, get onShow() {
+        return onShow;
+      }, get DBService() {
+        return DBService;
+      }, get authUtils() {
+        return authUtils;
+      }, get checkCurrentPageAuth() {
+        return checkCurrentPageAuth;
+      } };
+      Object.defineProperty(__returned__, "__isScriptSetup", { enumerable: false, value: true });
+      return __returned__;
+    }
+  };
+  function _sfc_render$H(_ctx, _cache, $props, $setup, $data, $options) {
+    const _component_wd_icon = resolveEasycom(vue.resolveDynamicComponent("wd-icon"), __easycom_0$4);
+    const _component_uni_swipe_action_item = resolveEasycom(vue.resolveDynamicComponent("uni-swipe-action-item"), __easycom_1$5);
+    const _component_uni_swipe_action = resolveEasycom(vue.resolveDynamicComponent("uni-swipe-action"), __easycom_2$5);
+    const _component_wd_fab = resolveEasycom(vue.resolveDynamicComponent("wd-fab"), __easycom_2$4);
+    return vue.openBlock(), vue.createElementBlock("view", { class: "container" }, [
+      vue.createElementVNode("view", { class: "header-section" }, [
+        vue.createElementVNode("view", { class: "status_bar" }),
+        vue.createElementVNode("view", { class: "total-money" }, [
+          vue.createElementVNode(
+            "text",
+            null,
+            vue.toDisplayString($setup.totalAssets),
+            1
+            /* TEXT */
+          ),
+          vue.createElementVNode("text", { class: "total-money-name" }, "净资产")
+        ])
+      ]),
+      (vue.openBlock(true), vue.createElementBlock(
+        vue.Fragment,
+        null,
+        vue.renderList($setup.cards, (card, index) => {
+          return vue.openBlock(), vue.createElementBlock("view", {
+            class: "card",
+            key: index
+          }, [
+            vue.createElementVNode(
+              "view",
+              { class: "card-header" },
+              vue.toDisplayString(card.title),
+              1
+              /* TEXT */
+            ),
+            vue.createVNode(
+              _component_uni_swipe_action,
+              {
+                ref_for: true,
+                ref: "swipeAction"
+              },
+              {
+                default: vue.withCtx(() => [
+                  (vue.openBlock(true), vue.createElementBlock(
+                    vue.Fragment,
+                    null,
+                    vue.renderList(card.items, (accountItem, itemIndex) => {
+                      return vue.openBlock(), vue.createBlock(_component_uni_swipe_action_item, {
+                        key: itemIndex,
+                        "right-options": [
+                          { text: "编辑", style: { backgroundColor: "#0b95ff", color: "#fff" } },
+                          { text: "删除", style: { backgroundColor: "red", color: "#fff" } }
+                        ],
+                        onChange: (e2) => $setup.swipeChange(e2, index),
+                        onClick: (e2) => $setup.handleSwipeClick(e2, accountItem, card, itemIndex)
+                      }, {
+                        default: vue.withCtx(() => [
+                          vue.createElementVNode("view", {
+                            class: "account-item",
+                            onClick: ($event) => $setup.closeAllAndNavigate(accountItem.id)
+                          }, [
+                            vue.createElementVNode("view", { class: "account-left" }, [
+                              vue.createVNode(_component_wd_icon, {
+                                name: accountItem.icon
+                              }, null, 8, ["name"]),
+                              vue.createElementVNode(
+                                "text",
+                                { class: "account-name" },
+                                vue.toDisplayString(accountItem.account_name),
+                                1
+                                /* TEXT */
+                              )
+                            ]),
+                            vue.createElementVNode("view", { class: "account-right" }, [
+                              vue.createElementVNode(
+                                "text",
+                                { class: "account-balance" },
+                                vue.toDisplayString(accountItem.balance),
+                                1
+                                /* TEXT */
+                              ),
+                              vue.createElementVNode("text", { class: "arrow" }, ">")
+                            ])
+                          ], 8, ["onClick"])
+                        ]),
+                        _: 2
+                        /* DYNAMIC */
+                      }, 1032, ["onChange", "onClick"]);
+                    }),
+                    128
+                    /* KEYED_FRAGMENT */
+                  ))
+                ]),
+                _: 2
+                /* DYNAMIC */
+              },
+              1536
+              /* NEED_PATCH, DYNAMIC_SLOTS */
+            )
+          ]);
+        }),
+        128
+        /* KEYED_FRAGMENT */
+      )),
+      vue.createVNode(_component_wd_fab, {
+        draggable: true,
+        expandable: false,
+        onClick: $setup.handleClick
+      })
+    ]);
+  }
+  const PagesSettleAccountAccount = /* @__PURE__ */ _export_sfc(_sfc_main$I, [["render", _sfc_render$H], ["__file", "E:/document/LifePartner/lifeparter-app/pages/settle-account/account.vue"]]);
   const fontData = [
     {
       "font_class": "arrow-down",
@@ -4472,7 +5396,7 @@ if (uni.restoreGlobal) {
     const reg = /^[0-9]*$/g;
     return typeof val === "number" || reg.test(val) ? val + "px" : val;
   };
-  const _sfc_main$L = {
+  const _sfc_main$H = {
     name: "UniIcons",
     emits: ["click"],
     props: {
@@ -4526,7 +5450,7 @@ if (uni.restoreGlobal) {
       }
     }
   };
-  function _sfc_render$K(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$G(_ctx, _cache, $props, $setup, $data, $options) {
     return vue.openBlock(), vue.createElementBlock(
       "text",
       {
@@ -4541,16 +5465,21 @@ if (uni.restoreGlobal) {
       /* CLASS, STYLE */
     );
   }
-  const __easycom_1$5 = /* @__PURE__ */ _export_sfc(_sfc_main$L, [["render", _sfc_render$K], ["__scopeId", "data-v-d31e1c47"], ["__file", "E:/document/LifePartner/lifeparter-app/uni_modules/uni-icons/components/uni-icons/uni-icons.vue"]]);
-  const _sfc_main$K = {
-    __name: "LoginComponent",
-    emits: ["loginSuccess"],
-    setup(__props, { expose: __expose, emit: __emit }) {
+  const __easycom_1$4 = /* @__PURE__ */ _export_sfc(_sfc_main$H, [["render", _sfc_render$G], ["__scopeId", "data-v-d31e1c47"], ["__file", "E:/document/LifePartner/lifeparter-app/uni_modules/uni-icons/components/uni-icons/uni-icons.vue"]]);
+  const _sfc_main$G = {
+    __name: "login",
+    setup(__props, { expose: __expose }) {
       __expose();
-      const emit = __emit;
       const dbService2 = new DBService();
       const username = vue.ref("");
       const password = vue.ref("");
+      vue.onMounted(() => {
+        if (authUtils.isLoggedIn()) {
+          uni.reLaunch({
+            url: "/pages/settle-account/account"
+          });
+        }
+      });
       function login() {
         if (!username.value || !password.value) {
           return uni.showToast({
@@ -4564,11 +5493,13 @@ if (uni.restoreGlobal) {
             uni.showToast({
               title: "登录成功",
               icon: "success",
-              duration: 800
+              duration: 600
             });
             setTimeout(() => {
-              emit("loginSuccess", result[0]);
-            }, 800);
+              uni.switchTab({
+                url: "/pages/settle-account/account"
+              });
+            }, 600);
           } else {
             uni.showToast({
               title: "用户名或密码错误",
@@ -4577,7 +5508,7 @@ if (uni.restoreGlobal) {
             });
           }
         }).catch((err) => {
-          formatAppLog("error", "at components/LoginComponent.vue:73", err);
+          formatAppLog("error", "at pages/user-center/login.vue:83", err);
           uni.showToast({
             title: "登录失败，请稍后重试",
             icon: "none",
@@ -4590,14 +5521,16 @@ if (uni.restoreGlobal) {
           url: "/pages/user-center/registry"
         });
       }
-      const __returned__ = { emit, dbService: dbService2, username, password, login, goRegister, ref: vue.ref, get DBService() {
+      const __returned__ = { dbService: dbService2, username, password, login, goRegister, onMounted: vue.onMounted, ref: vue.ref, get DBService() {
         return DBService;
-      }, uniIcons: __easycom_1$5 };
+      }, uniIcons: __easycom_1$4, get authUtils() {
+        return authUtils;
+      } };
       Object.defineProperty(__returned__, "__isScriptSetup", { enumerable: false, value: true });
       return __returned__;
     }
   };
-  function _sfc_render$J(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$F(_ctx, _cache, $props, $setup, $data, $options) {
     return vue.openBlock(), vue.createElementBlock("view", { class: "login-container" }, [
       vue.createElementVNode("view", { class: "login-box" }, [
         vue.createElementVNode("view", { class: "login-header" }, [
@@ -4659,8 +5592,571 @@ if (uni.restoreGlobal) {
       ])
     ]);
   }
-  const LoginComponent = /* @__PURE__ */ _export_sfc(_sfc_main$K, [["render", _sfc_render$J], ["__scopeId", "data-v-dfe0ea0e"], ["__file", "E:/document/LifePartner/lifeparter-app/components/LoginComponent.vue"]]);
-  const _sfc_main$J = {
+  const PagesUserCenterLogin = /* @__PURE__ */ _export_sfc(_sfc_main$G, [["render", _sfc_render$F], ["__scopeId", "data-v-84491e6d"], ["__file", "E:/document/LifePartner/lifeparter-app/pages/user-center/login.vue"]]);
+  function useParent(key) {
+    const parent = vue.inject(key, null);
+    if (parent) {
+      const instance = vue.getCurrentInstance();
+      const { link, unlink, internalChildren } = parent;
+      link(instance);
+      vue.onUnmounted(() => unlink(instance));
+      const index = vue.computed(() => internalChildren.indexOf(instance));
+      return {
+        parent,
+        index
+      };
+    }
+    return {
+      parent: null,
+      index: vue.ref(-1)
+    };
+  }
+  const CELL_GROUP_KEY = Symbol("wd-cell-group");
+  const cellGroupProps = {
+    ...baseProps,
+    /**
+     * 分组标题
+     */
+    title: String,
+    /**
+     * 分组右侧内容
+     */
+    value: String,
+    /**
+     * 分组启用插槽
+     */
+    useSlot: makeBooleanProp(false),
+    /**
+     * 是否展示边框线
+     */
+    border: makeBooleanProp(false)
+  };
+  function useCell() {
+    const { parent: cellGroup, index } = useParent(CELL_GROUP_KEY);
+    const border = vue.computed(() => {
+      return cellGroup && cellGroup.props.border && index.value;
+    });
+    return { border };
+  }
+  const FORM_KEY = Symbol("wd-form");
+  const formProps = {
+    ...baseProps,
+    /**
+     * 表单数据对象
+     */
+    model: makeRequiredProp(Object),
+    /**
+     * 表单验证规则
+     */
+    rules: {
+      type: Object,
+      default: () => ({})
+    },
+    /**
+     * 是否在输入时重置表单校验信息
+     */
+    resetOnChange: makeBooleanProp(true),
+    /**
+     * 错误提示类型
+     */
+    errorType: {
+      type: String,
+      default: "message"
+    }
+  };
+  const cellProps = {
+    ...baseProps,
+    /**
+     * 标题
+     */
+    title: String,
+    /**
+     * 右侧内容
+     */
+    value: makeNumericProp(""),
+    /**
+     * 图标类名
+     */
+    icon: String,
+    /**
+     * 描述信息
+     */
+    label: String,
+    /**
+     * 是否为跳转链接
+     */
+    isLink: makeBooleanProp(false),
+    /**
+     * 跳转地址
+     */
+    to: String,
+    /**
+     * 跳转时是否替换栈顶页面
+     */
+    replace: makeBooleanProp(false),
+    /**
+     * 开启点击反馈，is-link 默认开启
+     */
+    clickable: makeBooleanProp(false),
+    /**
+     * 设置单元格大小，可选值：large
+     */
+    size: String,
+    /**
+     * 是否展示边框线
+     */
+    border: makeBooleanProp(void 0),
+    /**
+     * 设置左侧标题宽度
+     */
+    titleWidth: String,
+    /**
+     * 是否垂直居中，默认顶部居中
+     */
+    center: makeBooleanProp(false),
+    /**
+     * 是否必填
+     */
+    required: makeBooleanProp(false),
+    /**
+     * 表单属性，上下结构
+     */
+    vertical: makeBooleanProp(false),
+    /**
+     * 表单域 model 字段名，在使用表单校验功能的情况下，该属性是必填的
+     */
+    prop: String,
+    /**
+     * 表单验证规则，结合wd-form组件使用
+     */
+    rules: makeArrayProp(),
+    /**
+     * icon 使用 slot 时的自定义样式
+     */
+    customIconClass: makeStringProp(""),
+    /**
+     * label 使用 slot 时的自定义样式
+     */
+    customLabelClass: makeStringProp(""),
+    /**
+     * value 使用 slot 时的自定义样式
+     */
+    customValueClass: makeStringProp(""),
+    /**
+     * title 使用 slot 时的自定义样式
+     */
+    customTitleClass: makeStringProp("")
+  };
+  const __default__$e = {
+    name: "wd-cell",
+    options: {
+      addGlobalClass: true,
+      virtualHost: true,
+      styleIsolation: "shared"
+    }
+  };
+  const _sfc_main$F = /* @__PURE__ */ vue.defineComponent({
+    ...__default__$e,
+    props: cellProps,
+    emits: ["click"],
+    setup(__props, { expose: __expose, emit: __emit }) {
+      __expose();
+      const props = __props;
+      const emit = __emit;
+      const cell = useCell();
+      const isBorder = vue.computed(() => {
+        return Boolean(isDef(props.border) ? props.border : cell.border.value);
+      });
+      const { parent: form } = useParent(FORM_KEY);
+      const errorMessage = vue.computed(() => {
+        if (form && props.prop && form.errorMessages && form.errorMessages[props.prop]) {
+          return form.errorMessages[props.prop];
+        } else {
+          return "";
+        }
+      });
+      const isRequired = vue.computed(() => {
+        let formRequired = false;
+        if (form && form.props.rules) {
+          const rules = form.props.rules;
+          for (const key in rules) {
+            if (Object.prototype.hasOwnProperty.call(rules, key) && key === props.prop && Array.isArray(rules[key])) {
+              formRequired = rules[key].some((rule) => rule.required);
+            }
+          }
+        }
+        return props.required || props.rules.some((rule) => rule.required) || formRequired;
+      });
+      function onClick() {
+        const url = props.to;
+        if (props.clickable || props.isLink) {
+          emit("click");
+        }
+        if (url && props.isLink) {
+          if (props.replace) {
+            uni.redirectTo({ url });
+          } else {
+            uni.navigateTo({ url });
+          }
+        }
+      }
+      const __returned__ = { props, emit, cell, isBorder, form, errorMessage, isRequired, onClick, wdIcon: __easycom_0$4 };
+      Object.defineProperty(__returned__, "__isScriptSetup", { enumerable: false, value: true });
+      return __returned__;
+    }
+  });
+  function _sfc_render$E(_ctx, _cache, $props, $setup, $data, $options) {
+    return vue.openBlock(), vue.createElementBlock("view", {
+      class: vue.normalizeClass(["wd-cell", $setup.isBorder ? "is-border" : "", _ctx.size ? "is-" + _ctx.size : "", _ctx.center ? "is-center" : "", _ctx.customClass]),
+      style: vue.normalizeStyle(_ctx.customStyle),
+      "hover-class": _ctx.isLink || _ctx.clickable ? "is-hover" : "none",
+      "hover-stay-time": 70,
+      onClick: $setup.onClick
+    }, [
+      vue.createElementVNode(
+        "view",
+        {
+          class: vue.normalizeClass(["wd-cell__wrapper", _ctx.vertical ? "is-vertical" : ""])
+        },
+        [
+          vue.createElementVNode(
+            "view",
+            {
+              class: vue.normalizeClass(["wd-cell__left", $setup.isRequired ? "is-required" : ""]),
+              style: vue.normalizeStyle(_ctx.titleWidth ? "min-width:" + _ctx.titleWidth + ";max-width:" + _ctx.titleWidth + ";" : "")
+            },
+            [
+              _ctx.icon ? (vue.openBlock(), vue.createBlock($setup["wdIcon"], {
+                key: 0,
+                name: _ctx.icon,
+                "custom-class": `wd-cell__icon  ${_ctx.customIconClass}`
+              }, null, 8, ["name", "custom-class"])) : vue.renderSlot(_ctx.$slots, "icon", { key: 1 }, void 0, true),
+              vue.createElementVNode("view", { class: "wd-cell__title" }, [
+                _ctx.title ? (vue.openBlock(), vue.createElementBlock(
+                  "view",
+                  {
+                    key: 0,
+                    class: vue.normalizeClass(_ctx.customTitleClass)
+                  },
+                  vue.toDisplayString(_ctx.title),
+                  3
+                  /* TEXT, CLASS */
+                )) : vue.renderSlot(_ctx.$slots, "title", { key: 1 }, void 0, true),
+                _ctx.label ? (vue.openBlock(), vue.createElementBlock(
+                  "view",
+                  {
+                    key: 2,
+                    class: vue.normalizeClass(`wd-cell__label ${_ctx.customLabelClass}`)
+                  },
+                  vue.toDisplayString(_ctx.label),
+                  3
+                  /* TEXT, CLASS */
+                )) : vue.renderSlot(_ctx.$slots, "label", { key: 3 }, void 0, true)
+              ])
+            ],
+            6
+            /* CLASS, STYLE */
+          ),
+          vue.createElementVNode("view", { class: "wd-cell__right" }, [
+            vue.createElementVNode("view", { class: "wd-cell__body" }, [
+              vue.createElementVNode(
+                "view",
+                {
+                  class: vue.normalizeClass(`wd-cell__value ${_ctx.customValueClass}`)
+                },
+                [
+                  vue.renderSlot(_ctx.$slots, "default", {}, () => [
+                    vue.createTextVNode(
+                      vue.toDisplayString(_ctx.value),
+                      1
+                      /* TEXT */
+                    )
+                  ], true)
+                ],
+                2
+                /* CLASS */
+              ),
+              _ctx.isLink ? (vue.openBlock(), vue.createBlock($setup["wdIcon"], {
+                key: 0,
+                "custom-class": "wd-cell__arrow-right",
+                name: "arrow-right"
+              })) : vue.renderSlot(_ctx.$slots, "right-icon", { key: 1 }, void 0, true)
+            ]),
+            $setup.errorMessage ? (vue.openBlock(), vue.createElementBlock(
+              "view",
+              {
+                key: 0,
+                class: "wd-cell__error-message"
+              },
+              vue.toDisplayString($setup.errorMessage),
+              1
+              /* TEXT */
+            )) : vue.createCommentVNode("v-if", true)
+          ])
+        ],
+        2
+        /* CLASS */
+      )
+    ], 14, ["hover-class"]);
+  }
+  const __easycom_0$3 = /* @__PURE__ */ _export_sfc(_sfc_main$F, [["render", _sfc_render$E], ["__scopeId", "data-v-f1c5bbe2"], ["__file", "E:/document/LifePartner/lifeparter-app/uni_modules/wot-design-uni/components/wd-cell/wd-cell.vue"]]);
+  function isVNode(value) {
+    return value ? value.__v_isVNode === true : false;
+  }
+  function flattenVNodes(children) {
+    const result = [];
+    const traverse = (children2) => {
+      if (Array.isArray(children2)) {
+        children2.forEach((child) => {
+          var _a;
+          if (isVNode(child)) {
+            result.push(child);
+            if ((_a = child.component) == null ? void 0 : _a.subTree) {
+              result.push(child.component.subTree);
+              traverse(child.component.subTree.children);
+            }
+            if (child.children) {
+              traverse(child.children);
+            }
+          }
+        });
+      }
+    };
+    traverse(children);
+    return result;
+  }
+  const findVNodeIndex = (vnodes, vnode) => {
+    const index = vnodes.indexOf(vnode);
+    if (index === -1) {
+      return vnodes.findIndex((item) => vnode.key !== void 0 && vnode.key !== null && item.type === vnode.type && item.key === vnode.key);
+    }
+    return index;
+  };
+  function sortChildren(parent, publicChildren, internalChildren) {
+    const vnodes = parent && parent.subTree && parent.subTree.children ? flattenVNodes(parent.subTree.children) : [];
+    internalChildren.sort((a2, b2) => findVNodeIndex(vnodes, a2.vnode) - findVNodeIndex(vnodes, b2.vnode));
+    const orderedPublicChildren = internalChildren.map((item) => item.proxy);
+    publicChildren.sort((a2, b2) => {
+      const indexA = orderedPublicChildren.indexOf(a2);
+      const indexB = orderedPublicChildren.indexOf(b2);
+      return indexA - indexB;
+    });
+  }
+  function useChildren(key) {
+    const publicChildren = vue.reactive([]);
+    const internalChildren = vue.reactive([]);
+    const parent = vue.getCurrentInstance();
+    const linkChildren = (value) => {
+      const link = (child) => {
+        if (child.proxy) {
+          internalChildren.push(child);
+          publicChildren.push(child.proxy);
+          sortChildren(parent, publicChildren, internalChildren);
+        }
+      };
+      const unlink = (child) => {
+        const index = internalChildren.indexOf(child);
+        publicChildren.splice(index, 1);
+        internalChildren.splice(index, 1);
+      };
+      vue.provide(
+        key,
+        Object.assign(
+          {
+            link,
+            unlink,
+            children: publicChildren,
+            internalChildren
+          },
+          value
+        )
+      );
+    };
+    return {
+      children: publicChildren,
+      linkChildren
+    };
+  }
+  const __default__$d = {
+    name: "wd-cell-group",
+    options: {
+      addGlobalClass: true,
+      virtualHost: true,
+      styleIsolation: "shared"
+    }
+  };
+  const _sfc_main$E = /* @__PURE__ */ vue.defineComponent({
+    ...__default__$d,
+    props: cellGroupProps,
+    setup(__props, { expose: __expose }) {
+      __expose();
+      const props = __props;
+      const { linkChildren } = useChildren(CELL_GROUP_KEY);
+      linkChildren({ props });
+      const __returned__ = { props, linkChildren };
+      Object.defineProperty(__returned__, "__isScriptSetup", { enumerable: false, value: true });
+      return __returned__;
+    }
+  });
+  function _sfc_render$D(_ctx, _cache, $props, $setup, $data, $options) {
+    return vue.openBlock(), vue.createElementBlock(
+      "view",
+      {
+        class: vue.normalizeClass(["wd-cell-group", _ctx.border ? "is-border" : "", _ctx.customClass]),
+        style: vue.normalizeStyle(_ctx.customStyle)
+      },
+      [
+        _ctx.title || _ctx.value || _ctx.useSlot ? (vue.openBlock(), vue.createElementBlock("view", {
+          key: 0,
+          class: "wd-cell-group__title"
+        }, [
+          vue.createElementVNode("view", { class: "wd-cell-group__left" }, [
+            _ctx.title ? (vue.openBlock(), vue.createElementBlock(
+              "text",
+              { key: 0 },
+              vue.toDisplayString(_ctx.title),
+              1
+              /* TEXT */
+            )) : vue.renderSlot(_ctx.$slots, "title", { key: 1 }, void 0, true)
+          ]),
+          vue.createElementVNode("view", { class: "wd-cell-group__right" }, [
+            _ctx.value ? (vue.openBlock(), vue.createElementBlock(
+              "text",
+              { key: 0 },
+              vue.toDisplayString(_ctx.value),
+              1
+              /* TEXT */
+            )) : vue.renderSlot(_ctx.$slots, "value", { key: 1 }, void 0, true)
+          ])
+        ])) : vue.createCommentVNode("v-if", true),
+        vue.createElementVNode("view", { class: "wd-cell-group__body" }, [
+          vue.renderSlot(_ctx.$slots, "default", {}, void 0, true)
+        ])
+      ],
+      6
+      /* CLASS, STYLE */
+    );
+  }
+  const __easycom_2$3 = /* @__PURE__ */ _export_sfc(_sfc_main$E, [["render", _sfc_render$D], ["__scopeId", "data-v-55e5786b"], ["__file", "E:/document/LifePartner/lifeparter-app/uni_modules/wot-design-uni/components/wd-cell-group/wd-cell-group.vue"]]);
+  const _sfc_main$D = {
+    __name: "LoginComponent",
+    emits: ["loginSuccess"],
+    setup(__props, { expose: __expose, emit: __emit }) {
+      __expose();
+      const emit = __emit;
+      const dbService2 = new DBService();
+      const username = vue.ref("");
+      const password = vue.ref("");
+      function login() {
+        if (!username.value || !password.value) {
+          return uni.showToast({
+            title: "请输入用户名和密码",
+            icon: "none"
+          });
+        }
+        dbService2.login(username.value, password.value).then((result) => {
+          if (result[0]) {
+            uni.setStorageSync("user_id", result[0].id);
+            uni.showToast({
+              title: "登录成功",
+              icon: "success",
+              duration: 800
+            });
+            setTimeout(() => {
+              emit("loginSuccess", result[0]);
+            }, 800);
+          } else {
+            uni.showToast({
+              title: "用户名或密码错误",
+              icon: "none",
+              duration: 2e3
+            });
+          }
+        }).catch((err) => {
+          formatAppLog("error", "at components/LoginComponent.vue:73", err);
+          uni.showToast({
+            title: "登录失败，请稍后重试",
+            icon: "none",
+            duration: 2e3
+          });
+        });
+      }
+      function goRegister() {
+        uni.navigateTo({
+          url: "/pages/user-center/registry"
+        });
+      }
+      const __returned__ = { emit, dbService: dbService2, username, password, login, goRegister, ref: vue.ref, get DBService() {
+        return DBService;
+      }, uniIcons: __easycom_1$4 };
+      Object.defineProperty(__returned__, "__isScriptSetup", { enumerable: false, value: true });
+      return __returned__;
+    }
+  };
+  function _sfc_render$C(_ctx, _cache, $props, $setup, $data, $options) {
+    return vue.openBlock(), vue.createElementBlock("view", { class: "login-container" }, [
+      vue.createElementVNode("view", { class: "login-box" }, [
+        vue.createElementVNode("view", { class: "login-header" }, [
+          vue.createElementVNode("text", { class: "login-title" }, "GO GO GO"),
+          vue.createElementVNode("text", { class: "login-title" }, "开始记账咯")
+        ]),
+        vue.createElementVNode("view", { class: "login-form" }, [
+          vue.createElementVNode("view", { class: "input-item" }, [
+            vue.createVNode($setup["uniIcons"], {
+              type: "person",
+              size: "20",
+              color: "#999"
+            }),
+            vue.withDirectives(vue.createElementVNode(
+              "input",
+              {
+                class: "login-input",
+                type: "text",
+                "onUpdate:modelValue": _cache[0] || (_cache[0] = ($event) => $setup.username = $event),
+                placeholder: "请输入用户名"
+              },
+              null,
+              512
+              /* NEED_PATCH */
+            ), [
+              [vue.vModelText, $setup.username]
+            ])
+          ]),
+          vue.createElementVNode("view", { class: "input-item" }, [
+            vue.createVNode($setup["uniIcons"], {
+              type: "locked",
+              size: "20",
+              color: "#999"
+            }),
+            vue.withDirectives(vue.createElementVNode(
+              "input",
+              {
+                class: "login-input",
+                type: "password",
+                "onUpdate:modelValue": _cache[1] || (_cache[1] = ($event) => $setup.password = $event),
+                placeholder: "请输入密码"
+              },
+              null,
+              512
+              /* NEED_PATCH */
+            ), [
+              [vue.vModelText, $setup.password]
+            ])
+          ]),
+          vue.createElementVNode("button", {
+            class: "login-btn",
+            onClick: $setup.login
+          }, "登录"),
+          vue.createElementVNode("view", {
+            class: "register-link",
+            onClick: $setup.goRegister
+          }, "还没有账号？去注册")
+        ])
+      ])
+    ]);
+  }
+  const LoginComponent = /* @__PURE__ */ _export_sfc(_sfc_main$D, [["render", _sfc_render$C], ["__scopeId", "data-v-dfe0ea0e"], ["__file", "E:/document/LifePartner/lifeparter-app/components/LoginComponent.vue"]]);
+  const _sfc_main$C = {
     __name: "user-center",
     setup(__props, { expose: __expose }) {
       __expose();
@@ -4687,7 +6183,7 @@ if (uni.restoreGlobal) {
               }
             }
           } catch (error) {
-            formatAppLog("error", "at pages/user-center/user-center.vue:76", "获取用户信息失败:", error);
+            formatAppLog("error", "at pages/user-center/user-center.vue:73", "获取用户信息失败:", error);
             uni.showToast({
               title: "获取用户信息失败",
               icon: "none"
@@ -4704,9 +6200,6 @@ if (uni.restoreGlobal) {
       vue.onMounted(() => {
         checkLoginStatus();
       });
-      function onLoginSuccess(userInfo) {
-        checkLoginStatus();
-      }
       function goToAccountSettings() {
         uni.navigateTo({
           url: "/pages/user-center/account-settings"
@@ -4719,12 +6212,16 @@ if (uni.restoreGlobal) {
           success: function(res) {
             if (res.confirm) {
               uni.removeStorageSync("user_id");
-              checkLoginStatus();
+              setTimeout(() => {
+                uni.redirectTo({
+                  url: "/pages/user-center/login"
+                });
+              }, 400);
             }
           }
         });
       }
-      const __returned__ = { dbService: dbService2, nickname, avatarUrl, isLoggedIn, checkLoginStatus, loadUserInfo, onLoginSuccess, goToAccountSettings, logout, ref: vue.ref, onMounted: vue.onMounted, get onLoad() {
+      const __returned__ = { dbService: dbService2, nickname, avatarUrl, isLoggedIn, checkLoginStatus, loadUserInfo, goToAccountSettings, logout, ref: vue.ref, onMounted: vue.onMounted, get onLoad() {
         return onLoad;
       }, get onShow() {
         return onShow;
@@ -4737,16 +6234,13 @@ if (uni.restoreGlobal) {
       return __returned__;
     }
   };
-  function _sfc_render$I(_ctx, _cache, $props, $setup, $data, $options) {
-    const _component_wd_icon = resolveEasycom(vue.resolveDynamicComponent("wd-icon"), __easycom_0$5);
-    const _component_wd_cell = resolveEasycom(vue.resolveDynamicComponent("wd-cell"), __easycom_0$4);
-    const _component_wd_cell_group = resolveEasycom(vue.resolveDynamicComponent("wd-cell-group"), __easycom_2$5);
+  function _sfc_render$B(_ctx, _cache, $props, $setup, $data, $options) {
+    const _component_wd_icon = resolveEasycom(vue.resolveDynamicComponent("wd-icon"), __easycom_0$4);
+    const _component_wd_cell = resolveEasycom(vue.resolveDynamicComponent("wd-cell"), __easycom_0$3);
+    const _component_wd_cell_group = resolveEasycom(vue.resolveDynamicComponent("wd-cell-group"), __easycom_2$3);
     const _component_wd_button = resolveEasycom(vue.resolveDynamicComponent("wd-button"), __easycom_3$1);
     return vue.openBlock(), vue.createElementBlock("view", { class: "container" }, [
-      $setup.isLoggedIn ? (vue.openBlock(), vue.createElementBlock("view", {
-        key: 0,
-        class: "logged-in-content"
-      }, [
+      vue.createElementVNode("view", { class: "logged-in-content" }, [
         vue.createElementVNode("view", { class: "user-info" }, [
           vue.createElementVNode("image", {
             src: $setup.avatarUrl,
@@ -4807,1328 +6301,10 @@ if (uni.restoreGlobal) {
             /* STABLE */
           })
         ])
-      ])) : (vue.openBlock(), vue.createBlock($setup["LoginComponent"], {
-        key: 1,
-        onLoginSuccess: $setup.onLoginSuccess
-      }))
+      ])
     ]);
   }
-  const PagesUserCenterUserCenter = /* @__PURE__ */ _export_sfc(_sfc_main$J, [["render", _sfc_render$I], ["__file", "E:/document/LifePartner/lifeparter-app/pages/user-center/user-center.vue"]]);
-  let mpMixins = {};
-  mpMixins = {
-    data() {
-      return {
-        is_show: "none"
-      };
-    },
-    watch: {
-      show(newVal) {
-        this.is_show = this.show;
-      }
-    },
-    created() {
-      this.swipeaction = this.getSwipeAction();
-      if (this.swipeaction && Array.isArray(this.swipeaction.children)) {
-        this.swipeaction.children.push(this);
-      }
-    },
-    mounted() {
-      this.is_show = this.show;
-    },
-    methods: {
-      // wxs 中调用
-      closeSwipe(e2) {
-        if (this.autoClose && this.swipeaction) {
-          this.swipeaction.closeOther(this);
-        }
-      },
-      change(e2) {
-        this.$emit("change", e2.open);
-        if (this.is_show !== e2.open) {
-          this.is_show = e2.open;
-        }
-      },
-      appTouchStart(e2) {
-        const {
-          clientX
-        } = e2.changedTouches[0];
-        this.clientX = clientX;
-        this.timestamp = (/* @__PURE__ */ new Date()).getTime();
-      },
-      appTouchEnd(e2, index, item, position) {
-        const {
-          clientX
-        } = e2.changedTouches[0];
-        let diff = Math.abs(this.clientX - clientX);
-        let time = (/* @__PURE__ */ new Date()).getTime() - this.timestamp;
-        if (diff < 40 && time < 300) {
-          this.$emit("click", {
-            content: item,
-            index,
-            position
-          });
-        }
-      },
-      onClickForPC(index, item, position) {
-        return;
-      }
-    }
-  };
-  const mpwxs = mpMixins;
-  let bindIngXMixins = {};
-  let otherMixins = {};
-  const block0$1 = (Comp) => {
-    (Comp.$wxs || (Comp.$wxs = [])).push("wxsswipe");
-    (Comp.$wxsModules || (Comp.$wxsModules = {}))["wxsswipe"] = "afd46426";
-  };
-  const block1 = (Comp) => {
-    (Comp.$renderjs || (Comp.$renderjs = [])).push("renderswipe");
-    (Comp.$renderjsModules || (Comp.$renderjsModules = {}))["renderswipe"] = "5a1e922e";
-  };
-  const _sfc_main$I = {
-    mixins: [mpwxs, bindIngXMixins, otherMixins],
-    emits: ["click", "change"],
-    props: {
-      // 控制开关
-      show: {
-        type: String,
-        default: "none"
-      },
-      // 禁用
-      disabled: {
-        type: Boolean,
-        default: false
-      },
-      // 是否自动关闭
-      autoClose: {
-        type: Boolean,
-        default: true
-      },
-      // 滑动缺省距离
-      threshold: {
-        type: Number,
-        default: 20
-      },
-      // 左侧按钮内容
-      leftOptions: {
-        type: Array,
-        default() {
-          return [];
-        }
-      },
-      // 右侧按钮内容
-      rightOptions: {
-        type: Array,
-        default() {
-          return [];
-        }
-      }
-    },
-    // TODO vue3
-    unmounted() {
-      this.__isUnmounted = true;
-      this.uninstall();
-    },
-    methods: {
-      uninstall() {
-        if (this.swipeaction) {
-          this.swipeaction.children.forEach((item, index) => {
-            if (item === this) {
-              this.swipeaction.children.splice(index, 1);
-            }
-          });
-        }
-      },
-      /**
-       * 获取父元素实例
-       */
-      getSwipeAction(name = "uniSwipeAction") {
-        let parent = this.$parent;
-        let parentName = parent.$options.name;
-        while (parentName !== name) {
-          parent = parent.$parent;
-          if (!parent)
-            return false;
-          parentName = parent.$options.name;
-        }
-        return parent;
-      }
-    }
-  };
-  function _sfc_render$H(_ctx, _cache, $props, $setup, $data, $options) {
-    return vue.openBlock(), vue.createElementBlock("view", { class: "uni-swipe" }, [
-      vue.createElementVNode("view", {
-        class: "uni-swipe_box",
-        "change:prop": _ctx.renderswipe.showWatch,
-        prop: vue.wp(_ctx.is_show),
-        "data-threshold": $props.threshold,
-        "data-disabled": $props.disabled + "",
-        onTouchstart: _cache[2] || (_cache[2] = (...args) => _ctx.renderswipe.touchstart && _ctx.renderswipe.touchstart(...args)),
-        onTouchmove: _cache[3] || (_cache[3] = (...args) => _ctx.renderswipe.touchmove && _ctx.renderswipe.touchmove(...args)),
-        onTouchend: _cache[4] || (_cache[4] = (...args) => _ctx.renderswipe.touchend && _ctx.renderswipe.touchend(...args))
-      }, [
-        vue.createElementVNode("view", { class: "uni-swipe_button-group button-group--left" }, [
-          vue.renderSlot(_ctx.$slots, "left", {}, () => [
-            (vue.openBlock(true), vue.createElementBlock(
-              vue.Fragment,
-              null,
-              vue.renderList($props.leftOptions, (item, index) => {
-                return vue.openBlock(), vue.createElementBlock("view", {
-                  key: index,
-                  style: vue.normalizeStyle({
-                    backgroundColor: item.style && item.style.backgroundColor ? item.style.backgroundColor : "#C7C6CD"
-                  }),
-                  class: "uni-swipe_button button-hock",
-                  onTouchstart: _cache[0] || (_cache[0] = vue.withModifiers((...args) => _ctx.appTouchStart && _ctx.appTouchStart(...args), ["stop"])),
-                  onTouchend: vue.withModifiers(($event) => _ctx.appTouchEnd($event, index, item, "left"), ["stop"]),
-                  onClick: vue.withModifiers(($event) => _ctx.onClickForPC(index, item, "left"), ["stop"])
-                }, [
-                  vue.createElementVNode(
-                    "text",
-                    {
-                      class: "uni-swipe_button-text",
-                      style: vue.normalizeStyle({ color: item.style && item.style.color ? item.style.color : "#FFFFFF", fontSize: item.style && item.style.fontSize ? item.style.fontSize : "16px" })
-                    },
-                    vue.toDisplayString(item.text),
-                    5
-                    /* TEXT, STYLE */
-                  )
-                ], 44, ["onTouchend", "onClick"]);
-              }),
-              128
-              /* KEYED_FRAGMENT */
-            ))
-          ], true)
-        ]),
-        vue.createElementVNode("view", { class: "uni-swipe_text--center" }, [
-          vue.renderSlot(_ctx.$slots, "default", {}, void 0, true)
-        ]),
-        vue.createElementVNode("view", { class: "uni-swipe_button-group button-group--right" }, [
-          vue.renderSlot(_ctx.$slots, "right", {}, () => [
-            (vue.openBlock(true), vue.createElementBlock(
-              vue.Fragment,
-              null,
-              vue.renderList($props.rightOptions, (item, index) => {
-                return vue.openBlock(), vue.createElementBlock("view", {
-                  key: index,
-                  style: vue.normalizeStyle({
-                    backgroundColor: item.style && item.style.backgroundColor ? item.style.backgroundColor : "#C7C6CD"
-                  }),
-                  class: "uni-swipe_button button-hock",
-                  onTouchstart: _cache[1] || (_cache[1] = vue.withModifiers((...args) => _ctx.appTouchStart && _ctx.appTouchStart(...args), ["stop"])),
-                  onTouchend: vue.withModifiers(($event) => _ctx.appTouchEnd($event, index, item, "right"), ["stop"]),
-                  onClick: vue.withModifiers(($event) => _ctx.onClickForPC(index, item, "right"), ["stop"])
-                }, [
-                  vue.createElementVNode(
-                    "text",
-                    {
-                      class: "uni-swipe_button-text",
-                      style: vue.normalizeStyle({ color: item.style && item.style.color ? item.style.color : "#FFFFFF", fontSize: item.style && item.style.fontSize ? item.style.fontSize : "16px" })
-                    },
-                    vue.toDisplayString(item.text),
-                    5
-                    /* TEXT, STYLE */
-                  )
-                ], 44, ["onTouchend", "onClick"]);
-              }),
-              128
-              /* KEYED_FRAGMENT */
-            ))
-          ], true)
-        ])
-      ], 40, ["change:prop", "prop", "data-threshold", "data-disabled"])
-    ]);
-  }
-  if (typeof block0$1 === "function")
-    block0$1(_sfc_main$I);
-  if (typeof block1 === "function")
-    block1(_sfc_main$I);
-  const __easycom_1$4 = /* @__PURE__ */ _export_sfc(_sfc_main$I, [["render", _sfc_render$H], ["__scopeId", "data-v-8ff2a577"], ["__file", "E:/document/LifePartner/lifeparter-app/uni_modules/uni-swipe-action/components/uni-swipe-action-item/uni-swipe-action-item.vue"]]);
-  const _sfc_main$H = {
-    name: "uniSwipeAction",
-    data() {
-      return {};
-    },
-    created() {
-      this.children = [];
-    },
-    methods: {
-      // 公开给用户使用，重制组件样式
-      resize() {
-      },
-      // 公开给用户使用，关闭全部 已经打开的组件
-      closeAll() {
-        this.children.forEach((vm) => {
-          vm.is_show = "none";
-        });
-      },
-      closeOther(vm) {
-        if (this.openItem && this.openItem !== vm) {
-          this.openItem.is_show = "none";
-        }
-        this.openItem = vm;
-      }
-    }
-  };
-  function _sfc_render$G(_ctx, _cache, $props, $setup, $data, $options) {
-    return vue.openBlock(), vue.createElementBlock("view", null, [
-      vue.renderSlot(_ctx.$slots, "default")
-    ]);
-  }
-  const __easycom_2$4 = /* @__PURE__ */ _export_sfc(_sfc_main$H, [["render", _sfc_render$G], ["__file", "E:/document/LifePartner/lifeparter-app/uni_modules/uni-swipe-action/components/uni-swipe-action/uni-swipe-action.vue"]]);
-  const transitionProps = {
-    ...baseProps,
-    /**
-     * 是否展示组件
-     * 类型：boolean
-     * 默认值：false
-     */
-    show: makeBooleanProp(false),
-    /**
-     * 动画执行时间
-     * 类型：number | boolean | Record<string, number>
-     * 默认值：300 (毫秒)
-     */
-    duration: {
-      type: [Object, Number, Boolean],
-      default: 300
-    },
-    /**
-     * 弹层内容懒渲染，触发展示时才渲染内容
-     * 类型：boolean
-     * 默认值：false
-     */
-    lazyRender: makeBooleanProp(false),
-    /**
-     * 动画类型
-     * 类型：string
-     * 可选值：fade / fade-up / fade-down / fade-left / fade-right / slide-up / slide-down / slide-left / slide-right / zoom-in
-     * 默认值：'fade'
-     */
-    name: [String, Array],
-    /**
-     * 是否在动画结束时销毁子节点（display: none)
-     * 类型：boolean
-     * 默认值：false
-     */
-    destroy: makeBooleanProp(true),
-    /**
-     * 进入过渡的开始状态
-     * 类型：string
-     */
-    enterClass: makeStringProp(""),
-    /**
-     * 进入过渡的激活状态
-     * 类型：string
-     */
-    enterActiveClass: makeStringProp(""),
-    /**
-     * 进入过渡的结束状态
-     * 类型：string
-     */
-    enterToClass: makeStringProp(""),
-    /**
-     * 离开过渡的开始状态
-     * 类型：string
-     */
-    leaveClass: makeStringProp(""),
-    /**
-     * 离开过渡的激活状态
-     * 类型：string
-     */
-    leaveActiveClass: makeStringProp(""),
-    /**
-     * 离开过渡的结束状态
-     * 类型：string
-     */
-    leaveToClass: makeStringProp("")
-  };
-  const __default__$e = {
-    name: "wd-transition",
-    options: {
-      addGlobalClass: true,
-      virtualHost: true,
-      styleIsolation: "shared"
-    }
-  };
-  const _sfc_main$G = /* @__PURE__ */ vue.defineComponent({
-    ...__default__$e,
-    props: transitionProps,
-    emits: ["click", "before-enter", "enter", "before-leave", "leave", "after-leave", "after-enter"],
-    setup(__props, { expose: __expose, emit: __emit }) {
-      __expose();
-      const getClassNames = (name) => {
-        let enter2 = `${props.enterClass} ${props.enterActiveClass}`;
-        let enterTo = `${props.enterToClass} ${props.enterActiveClass}`;
-        let leave2 = `${props.leaveClass} ${props.leaveActiveClass}`;
-        let leaveTo = `${props.leaveToClass} ${props.leaveActiveClass}`;
-        if (Array.isArray(name)) {
-          for (let index = 0; index < name.length; index++) {
-            enter2 = `wd-${name[index]}-enter wd-${name[index]}-enter-active ${enter2}`;
-            enterTo = `wd-${name[index]}-enter-to wd-${name[index]}-enter-active ${enterTo}`;
-            leave2 = `wd-${name[index]}-leave wd-${name[index]}-leave-active ${leave2}`;
-            leaveTo = `wd-${name[index]}-leave-to wd-${name[index]}-leave-active ${leaveTo}`;
-          }
-        } else if (name) {
-          enter2 = `wd-${name}-enter wd-${name}-enter-active ${enter2}`;
-          enterTo = `wd-${name}-enter-to wd-${name}-enter-active ${enterTo}`;
-          leave2 = `wd-${name}-leave wd-${name}-leave-active ${leave2}`;
-          leaveTo = `wd-${name}-leave-to wd-${name}-leave-active ${leaveTo}`;
-        }
-        return {
-          enter: enter2,
-          "enter-to": enterTo,
-          leave: leave2,
-          "leave-to": leaveTo
-        };
-      };
-      const props = __props;
-      const emit = __emit;
-      const inited = vue.ref(false);
-      const display = vue.ref(false);
-      const status = vue.ref("");
-      const transitionEnded = vue.ref(false);
-      const currentDuration = vue.ref(300);
-      const classes = vue.ref("");
-      const enterPromise = vue.ref(null);
-      const enterLifeCyclePromises = vue.ref(null);
-      const leaveLifeCyclePromises = vue.ref(null);
-      const style = vue.computed(() => {
-        return `-webkit-transition-duration:${currentDuration.value}ms;transition-duration:${currentDuration.value}ms;${display.value || !props.destroy ? "" : "display: none;"}${props.customStyle}`;
-      });
-      const rootClass = vue.computed(() => {
-        return `wd-transition ${props.customClass}  ${classes.value}`;
-      });
-      vue.onBeforeMount(() => {
-        if (props.show) {
-          enter();
-        }
-      });
-      vue.watch(
-        () => props.show,
-        (newVal) => {
-          handleShow(newVal);
-        },
-        { deep: true }
-      );
-      function handleClick() {
-        emit("click");
-      }
-      function handleShow(value) {
-        if (value) {
-          handleAbortPromise();
-          enter();
-        } else {
-          leave();
-        }
-      }
-      function handleAbortPromise() {
-        isPromise(enterPromise.value) && enterPromise.value.abort();
-        isPromise(enterLifeCyclePromises.value) && enterLifeCyclePromises.value.abort();
-        isPromise(leaveLifeCyclePromises.value) && leaveLifeCyclePromises.value.abort();
-        enterPromise.value = null;
-        enterLifeCyclePromises.value = null;
-        leaveLifeCyclePromises.value = null;
-      }
-      function enter() {
-        enterPromise.value = new AbortablePromise(async (resolve) => {
-          try {
-            const classNames = getClassNames(props.name);
-            const duration = isObj(props.duration) ? props.duration.enter : props.duration;
-            status.value = "enter";
-            emit("before-enter");
-            enterLifeCyclePromises.value = pause();
-            await enterLifeCyclePromises.value;
-            emit("enter");
-            classes.value = classNames.enter;
-            currentDuration.value = duration;
-            enterLifeCyclePromises.value = pause();
-            await enterLifeCyclePromises.value;
-            inited.value = true;
-            display.value = true;
-            enterLifeCyclePromises.value = pause();
-            await enterLifeCyclePromises.value;
-            enterLifeCyclePromises.value = null;
-            transitionEnded.value = false;
-            classes.value = classNames["enter-to"];
-            resolve();
-          } catch (error) {
-          }
-        });
-      }
-      async function leave() {
-        if (!enterPromise.value) {
-          transitionEnded.value = false;
-          return onTransitionEnd();
-        }
-        try {
-          await enterPromise.value;
-          if (!display.value)
-            return;
-          const classNames = getClassNames(props.name);
-          const duration = isObj(props.duration) ? props.duration.leave : props.duration;
-          status.value = "leave";
-          emit("before-leave");
-          currentDuration.value = duration;
-          leaveLifeCyclePromises.value = pause();
-          await leaveLifeCyclePromises.value;
-          emit("leave");
-          classes.value = classNames.leave;
-          leaveLifeCyclePromises.value = pause();
-          await leaveLifeCyclePromises.value;
-          transitionEnded.value = false;
-          classes.value = classNames["leave-to"];
-          leaveLifeCyclePromises.value = setPromise(currentDuration.value);
-          await leaveLifeCyclePromises.value;
-          leaveLifeCyclePromises.value = null;
-          onTransitionEnd();
-          enterPromise.value = null;
-        } catch (error) {
-        }
-      }
-      function setPromise(duration) {
-        return new AbortablePromise((resolve) => {
-          const timer = setTimeout(() => {
-            clearTimeout(timer);
-            resolve();
-          }, duration);
-        });
-      }
-      function onTransitionEnd() {
-        if (transitionEnded.value)
-          return;
-        transitionEnded.value = true;
-        if (status.value === "leave") {
-          emit("after-leave");
-        } else if (status.value === "enter") {
-          emit("after-enter");
-        }
-        if (!props.show && display.value) {
-          display.value = false;
-        }
-      }
-      const __returned__ = { getClassNames, props, emit, inited, display, status, transitionEnded, currentDuration, classes, enterPromise, enterLifeCyclePromises, leaveLifeCyclePromises, style, rootClass, handleClick, handleShow, handleAbortPromise, enter, leave, setPromise, onTransitionEnd };
-      Object.defineProperty(__returned__, "__isScriptSetup", { enumerable: false, value: true });
-      return __returned__;
-    }
-  });
-  function _sfc_render$F(_ctx, _cache, $props, $setup, $data, $options) {
-    return !_ctx.lazyRender || $setup.inited ? (vue.openBlock(), vue.createElementBlock(
-      "view",
-      {
-        key: 0,
-        class: vue.normalizeClass($setup.rootClass),
-        style: vue.normalizeStyle($setup.style),
-        onTransitionend: $setup.onTransitionEnd,
-        onClick: $setup.handleClick
-      },
-      [
-        vue.renderSlot(_ctx.$slots, "default", {}, void 0, true)
-      ],
-      38
-      /* CLASS, STYLE, NEED_HYDRATION */
-    )) : vue.createCommentVNode("v-if", true);
-  }
-  const wdTransition = /* @__PURE__ */ _export_sfc(_sfc_main$G, [["render", _sfc_render$F], ["__scopeId", "data-v-af59a128"], ["__file", "E:/document/LifePartner/lifeparter-app/uni_modules/wot-design-uni/components/wd-transition/wd-transition.vue"]]);
-  const queueKey = "__QUEUE_KEY__";
-  let queue = [];
-  function pushToQueue(comp) {
-    queue.push(comp);
-  }
-  function removeFromQueue(comp) {
-    queue = queue.filter((item) => {
-      return item.$.uid !== comp.$.uid;
-    });
-  }
-  function closeOther(comp) {
-    queue.forEach((item) => {
-      if (item.$.uid !== comp.$.uid) {
-        item.$.exposed.close();
-      }
-    });
-  }
-  const fabProps = {
-    ...baseProps,
-    /**
-     * 是否激活
-     */
-    active: makeBooleanProp(false),
-    /**
-     * 类型，可选值为 default primary info success warning error
-     */
-    type: makeStringProp("primary"),
-    /**
-     * 悬浮按钮位置，可选值为 left-top right-top left-bottom right-bottom left-center right-center top-center bottom-center
-     */
-    position: makeStringProp("right-bottom"),
-    /**
-     * 悬浮按钮菜单弹出方向，可选值为 top bottom left right
-     */
-    direction: makeStringProp("top"),
-    /**
-     * 是否禁用
-     */
-    disabled: makeBooleanProp(false),
-    /**
-     * 悬浮按钮未展开时的图标
-     */
-    inactiveIcon: makeStringProp("add"),
-    /**
-     * 悬浮按钮展开时的图标
-     */
-    activeIcon: makeStringProp("close"),
-    /**
-     * 自定义悬浮按钮层级
-     */
-    zIndex: makeNumberProp(99),
-    /**
-     * 是否可拖动
-     */
-    draggable: makeBooleanProp(false),
-    gap: {
-      type: Object,
-      default: () => ({})
-    },
-    /**
-     * 用于控制点击时是否展开菜单
-     */
-    expandable: makeBooleanProp(true)
-  };
-  function useRaf(callback) {
-    const requestRef = vue.ref(null);
-    const start = () => {
-      const handle = (time) => {
-        callback(time);
-      };
-      if (isH5) {
-        requestRef.value = requestAnimationFrame(handle);
-      } else {
-        requestRef.value = setTimeout(() => handle(Date.now()), 1e3 / 30);
-      }
-    };
-    const cancel = () => {
-      if (isH5 && isNumber(requestRef.value)) {
-        cancelAnimationFrame(requestRef.value);
-      } else if (isDef(requestRef.value)) {
-        clearTimeout(requestRef.value);
-      }
-    };
-    vue.onUnmounted(() => {
-      cancel();
-    });
-    return { start, cancel };
-  }
-  const __default__$d = {
-    name: "wd-fab",
-    options: {
-      virtualHost: true,
-      addGlobalClass: true,
-      styleIsolation: "shared"
-    }
-  };
-  const _sfc_main$F = /* @__PURE__ */ vue.defineComponent({
-    ...__default__$d,
-    props: fabProps,
-    emits: ["update:active", "click"],
-    setup(__props, { expose: __expose, emit: __emit }) {
-      const props = __props;
-      const emit = __emit;
-      const inited = vue.ref(false);
-      const isActive = vue.ref(false);
-      const queue2 = vue.inject(queueKey, null);
-      const { proxy } = vue.getCurrentInstance();
-      vue.watch(
-        () => props.active,
-        (newValue) => {
-          isActive.value = newValue;
-        },
-        { immediate: true, deep: true }
-      );
-      vue.watch(
-        () => isActive.value,
-        (newValue) => {
-          if (newValue) {
-            if (queue2 && queue2.closeOther) {
-              queue2.closeOther(proxy);
-            } else {
-              closeOther(proxy);
-            }
-          }
-        }
-      );
-      const fabDirection = vue.ref(props.direction);
-      vue.watch(
-        () => props.direction,
-        (direction) => fabDirection.value = direction
-      );
-      vue.watch(
-        () => props.position,
-        () => initPosition()
-      );
-      const top = vue.ref(0);
-      const left = vue.ref(0);
-      const screen = vue.reactive({ width: 0, height: 0 });
-      const fabSize = vue.reactive({ width: 56, height: 56 });
-      const bounding = vue.reactive({
-        minTop: 0,
-        minLeft: 0,
-        maxTop: 0,
-        maxLeft: 0
-      });
-      async function getBounding() {
-        const sysInfo = uni.getSystemInfoSync();
-        try {
-          const trigerInfo = await getRect("#trigger", false, proxy);
-          fabSize.width = trigerInfo.width || 56;
-          fabSize.height = trigerInfo.height || 56;
-        } catch (error) {
-          formatAppLog("log", "at uni_modules/wot-design-uni/components/wd-fab/wd-fab.vue:112", error);
-        }
-        const { top: top2 = 16, left: left2 = 16, right = 16, bottom = 16 } = props.gap;
-        screen.width = sysInfo.windowWidth;
-        screen.height = isH5 ? sysInfo.windowTop + sysInfo.windowHeight : sysInfo.windowHeight;
-        bounding.minTop = isH5 ? sysInfo.windowTop + top2 : top2;
-        bounding.minLeft = left2;
-        bounding.maxLeft = screen.width - fabSize.width - right;
-        bounding.maxTop = screen.height - fabSize.height - bottom;
-      }
-      function initPosition() {
-        const pos = props.position;
-        const { minLeft, minTop, maxLeft, maxTop } = bounding;
-        const centerY = (maxTop + minTop) / 2;
-        const centerX = (maxLeft + minLeft) / 2;
-        switch (pos) {
-          case "left-top":
-            top.value = minTop;
-            left.value = minLeft;
-            break;
-          case "right-top":
-            top.value = minTop;
-            left.value = maxLeft;
-            break;
-          case "left-bottom":
-            top.value = maxTop;
-            left.value = minLeft;
-            break;
-          case "right-bottom":
-            top.value = maxTop;
-            left.value = maxLeft;
-            break;
-          case "left-center":
-            top.value = centerY;
-            left.value = minLeft;
-            break;
-          case "right-center":
-            top.value = centerY;
-            left.value = maxLeft;
-            break;
-          case "top-center":
-            top.value = minTop;
-            left.value = centerX;
-            break;
-          case "bottom-center":
-            top.value = maxTop;
-            left.value = centerX;
-            break;
-        }
-      }
-      const touchOffset = vue.reactive({ x: 0, y: 0 });
-      const attractTransition = vue.ref(false);
-      function handleTouchStart(e2) {
-        if (props.draggable === false)
-          return;
-        const touch = e2.touches[0];
-        touchOffset.x = touch.clientX - left.value;
-        touchOffset.y = touch.clientY - top.value;
-        attractTransition.value = false;
-      }
-      function handleTouchMove(e2) {
-        if (props.draggable === false)
-          return;
-        const touch = e2.touches[0];
-        const { minLeft, minTop, maxLeft, maxTop } = bounding;
-        let x = touch.clientX - touchOffset.x;
-        let y2 = touch.clientY - touchOffset.y;
-        if (x < minLeft)
-          x = minLeft;
-        else if (x > maxLeft)
-          x = maxLeft;
-        if (y2 < minTop)
-          y2 = minTop;
-        else if (y2 > maxTop)
-          y2 = maxTop;
-        top.value = y2;
-        left.value = x;
-      }
-      function handleTouchEnd() {
-        if (props.draggable === false)
-          return;
-        const screenCenterX = screen.width / 2;
-        const fabCenterX = left.value + fabSize.width / 2;
-        attractTransition.value = true;
-        if (fabCenterX < screenCenterX) {
-          left.value = bounding.minLeft;
-          fabDirection.value = "right";
-        } else {
-          left.value = bounding.maxLeft;
-          fabDirection.value = "left";
-        }
-      }
-      const rootStyle = vue.computed(() => {
-        const style = {
-          top: top.value + "px",
-          left: left.value + "px",
-          transition: attractTransition.value ? "all ease 0.3s" : "none"
-        };
-        if (isDef(props.zIndex)) {
-          style["z-index"] = props.zIndex;
-        }
-        return `${objToStyle(style)};${props.customStyle}`;
-      });
-      vue.onMounted(() => {
-        if (queue2 && queue2.pushToQueue) {
-          queue2.pushToQueue(proxy);
-        } else {
-          pushToQueue(proxy);
-        }
-        const { start } = useRaf(async () => {
-          await getBounding();
-          initPosition();
-          inited.value = true;
-        });
-        start();
-      });
-      vue.onBeforeUnmount(() => {
-        if (queue2 && queue2.removeFromQueue) {
-          queue2.removeFromQueue(proxy);
-        } else {
-          removeFromQueue(proxy);
-        }
-      });
-      function handleClick() {
-        if (props.disabled) {
-          return;
-        }
-        if (!props.expandable) {
-          emit("click");
-          return;
-        }
-        isActive.value = !isActive.value;
-        emit("update:active", isActive.value);
-      }
-      function open() {
-        isActive.value = true;
-        emit("update:active", true);
-      }
-      function close() {
-        isActive.value = false;
-        emit("update:active", false);
-      }
-      __expose({
-        open,
-        close
-      });
-      const __returned__ = { props, emit, inited, isActive, queue: queue2, proxy, fabDirection, top, left, screen, fabSize, bounding, getBounding, initPosition, touchOffset, attractTransition, handleTouchStart, handleTouchMove, handleTouchEnd, rootStyle, handleClick, open, close, wdButton: __easycom_3$1, wdIcon: __easycom_0$5, wdTransition };
-      Object.defineProperty(__returned__, "__isScriptSetup", { enumerable: false, value: true });
-      return __returned__;
-    }
-  });
-  function _sfc_render$E(_ctx, _cache, $props, $setup, $data, $options) {
-    return vue.openBlock(), vue.createElementBlock(
-      "view",
-      {
-        onTouchmove: vue.withModifiers($setup.handleTouchMove, ["stop", "prevent"]),
-        onTouchstart: $setup.handleTouchStart,
-        onTouchend: $setup.handleTouchEnd,
-        class: vue.normalizeClass(`wd-fab ${_ctx.customClass}`),
-        style: vue.normalizeStyle($setup.rootStyle),
-        onClick: _cache[1] || (_cache[1] = vue.withModifiers(() => {
-        }, ["stop"]))
-      },
-      [
-        vue.createElementVNode(
-          "view",
-          {
-            onClick: _cache[0] || (_cache[0] = vue.withModifiers(() => {
-            }, ["stop"])),
-            style: vue.normalizeStyle({ visibility: $setup.inited ? "visible" : "hidden" }),
-            id: "trigger"
-          },
-          [
-            _ctx.$slots.trigger ? vue.renderSlot(_ctx.$slots, "trigger", { key: 0 }, void 0, true) : (vue.openBlock(), vue.createBlock($setup["wdButton"], {
-              key: 1,
-              onClick: $setup.handleClick,
-              "custom-class": "wd-fab__trigger",
-              round: "",
-              type: _ctx.type,
-              disabled: _ctx.disabled
-            }, {
-              default: vue.withCtx(() => [
-                vue.createVNode($setup["wdIcon"], {
-                  "custom-class": "wd-fab__icon",
-                  name: $setup.isActive ? _ctx.activeIcon : _ctx.inactiveIcon
-                }, null, 8, ["name"])
-              ]),
-              _: 1
-              /* STABLE */
-            }, 8, ["type", "disabled"]))
-          ],
-          4
-          /* STYLE */
-        ),
-        _ctx.expandable ? (vue.openBlock(), vue.createBlock($setup["wdTransition"], {
-          key: 0,
-          "enter-class": `wd-fab__transition-enter--${$setup.fabDirection}`,
-          "enter-active-class": "wd-fab__transition-enter-active",
-          "leave-to-class": `wd-fab__transition-leave-to--${$setup.fabDirection}`,
-          "leave-active-class": "wd-fab__transition-leave-active",
-          "custom-class": `wd-fab__actions wd-fab__actions--${$setup.fabDirection}`,
-          show: $setup.isActive,
-          duration: 300
-        }, {
-          default: vue.withCtx(() => [
-            vue.renderSlot(_ctx.$slots, "default", {}, void 0, true)
-          ]),
-          _: 3
-          /* FORWARDED */
-        }, 8, ["enter-class", "leave-to-class", "custom-class", "show"])) : vue.createCommentVNode("v-if", true)
-      ],
-      38
-      /* CLASS, STYLE, NEED_HYDRATION */
-    );
-  }
-  const __easycom_2$3 = /* @__PURE__ */ _export_sfc(_sfc_main$F, [["render", _sfc_render$E], ["__scopeId", "data-v-c5c35da7"], ["__file", "E:/document/LifePartner/lifeparter-app/uni_modules/wot-design-uni/components/wd-fab/wd-fab.vue"]]);
-  const authRequiredPages = [
-    "/pages/settle-account/settle-account",
-    "/pages/settle-account/account",
-    "/pages/settle-account/flow",
-    "/pages/settle-account/account-create",
-    "/pages/settle-account/flow-create",
-    "/pages/settle-account/flow-edit",
-    "/pages/reports/reports"
-  ];
-  const publicPages = [
-    "/pages/user-center/registry",
-    "/pages/user-center/user-center"
-    // 用户中心页面内部处理登录状态
-  ];
-  function checkPageAuth(url, showToast = true) {
-    const pagePath = url.split("?")[0];
-    if (publicPages.includes(pagePath)) {
-      return true;
-    }
-    if (authRequiredPages.includes(pagePath)) {
-      return authUtils.requireLogin(showToast);
-    }
-    return true;
-  }
-  const originalNavigateTo = uni.navigateTo;
-  uni.navigateTo = function(options) {
-    if (checkPageAuth(options.url)) {
-      return originalNavigateTo.call(this, options);
-    }
-    return Promise.reject(new Error("需要登录"));
-  };
-  const originalRedirectTo = uni.redirectTo;
-  uni.redirectTo = function(options) {
-    if (checkPageAuth(options.url)) {
-      return originalRedirectTo.call(this, options);
-    }
-    return Promise.reject(new Error("需要登录"));
-  };
-  const originalSwitchTab = uni.switchTab;
-  uni.switchTab = function(options) {
-    if (checkPageAuth(options.url)) {
-      return originalSwitchTab.call(this, options);
-    }
-    return Promise.reject(new Error("需要登录"));
-  };
-  const originalReLaunch = uni.reLaunch;
-  uni.reLaunch = function(options) {
-    if (checkPageAuth(options.url)) {
-      return originalReLaunch.call(this, options);
-    }
-    return Promise.reject(new Error("需要登录"));
-  };
-  function checkCurrentPageAuth(pagePath) {
-    if (authRequiredPages.includes(pagePath) && !authUtils.isLoggedIn()) {
-      authUtils.requireLogin(true);
-      return false;
-    }
-    return true;
-  }
-  const _sfc_main$E = {
-    __name: "account",
-    setup(__props, { expose: __expose }) {
-      __expose();
-      const dbService2 = new DBService();
-      const handleClick = () => {
-        uni.navigateTo({
-          url: "/pages/settle-account/account-create"
-        });
-      };
-      const navigateToFlow = (accountId) => {
-        uni.navigateTo({
-          url: `/pages/settle-account/flow?account_id=${accountId}`
-        });
-      };
-      const closeAllAndNavigate = (accountId) => {
-        if (swipeAction.value && swipeAction.value.length > 0) {
-          for (let i2 = 0; i2 < swipeAction.value.length; i2++) {
-            if (swipeAction.value[i2] && swipeAction.value[i2].closeAll) {
-              swipeAction.value[i2].closeAll();
-            }
-          }
-        }
-        navigateToFlow(accountId);
-      };
-      const totalAssets = vue.computed(() => {
-        let total = 0;
-        cards.forEach((card) => {
-          card.items.forEach((item) => {
-            total += parseFloat(item.balance) || 0;
-          });
-        });
-        return total.toFixed(2);
-      });
-      var cards = vue.reactive([]);
-      onLoad((options) => {
-      });
-      async function loadAccounts() {
-        const user_id = authUtils.getCurrentUserId();
-        const accounts = await dbService2.getTallyAccount(user_id);
-        for (var account of accounts) {
-          const tallBill = await dbService2.getTallyBillByAccountId(account.id);
-          account.balance = fenToYuanString(account.balance + tallBill.reduce((balance, item) => {
-            return balance + item.money;
-          }, 0));
-        }
-        const groupData = Array.from(
-          accounts.reduce((map, item) => {
-            const key = item.account_type;
-            if (!map.has(key))
-              map.set(key, []);
-            map.get(key).push(item);
-            return map;
-          }, /* @__PURE__ */ new Map()),
-          ([title, items]) => ({
-            title,
-            items
-          })
-        );
-        cards.splice(0, cards.length, ...groupData);
-      }
-      onShow(loadAccounts);
-      onPullDownRefresh(async () => {
-        if (!checkCurrentPageAuth("/pages/settle-account/settle-account")) {
-          uni.stopPullDownRefresh();
-          return;
-        }
-        await loadAccounts();
-        uni.stopPullDownRefresh();
-      });
-      const swipeAction = vue.ref();
-      const swipeChange = (e2, index) => {
-        if (e2 !== "none" && swipeAction.value && swipeAction.value.length > 0) {
-          for (let i2 = 0; i2 < swipeAction.value.length; i2++) {
-            if (i2 !== index && swipeAction.value[i2] && swipeAction.value[i2].closeAll) {
-              swipeAction.value[i2].closeAll();
-            }
-          }
-        }
-      };
-      const handleSwipeClick = (e2, account, card, index) => {
-        const {
-          index: buttonIndex
-        } = e2;
-        if (buttonIndex === 0) {
-          navigateToEdit(account);
-        } else if (buttonIndex === 1) {
-          handleDelete(account, card, index);
-        }
-      };
-      const navigateToEdit = (account) => {
-        uni.navigateTo({
-          url: `/pages/settle-account/account-create?id=${account.id}&accountName=${encodeURIComponent(account.account_name)}&balance=${account.balance}&accountType=${encodeURIComponent(account.account_type)}&icon=${encodeURIComponent(account.icon || "")}`
-        });
-      };
-      const handleDelete = async (account, card, index) => {
-        try {
-          if (swipeAction.value && swipeAction.value.length > 0) {
-            for (let i2 = 0; i2 < swipeAction.value.length; i2++) {
-              if (swipeAction.value[i2] && swipeAction.value[i2].closeAll) {
-                swipeAction.value[i2].closeAll();
-              }
-            }
-          }
-          await Promise.all([
-            dbService2.deleteById("tally_account", account.id),
-            dbService2.deleteTallyBillByAccount(account.id)
-          ]);
-          card.items.splice(index, 1);
-          const cardIndex = cards.findIndex((c2) => c2.title === card.title);
-          if (card.items.length === 0 && cardIndex !== -1) {
-            cards.splice(cardIndex, 1);
-          }
-        } catch (e2) {
-          formatAppLog("log", "at pages/settle-account/account.vue:197", e2);
-          uni.showToast({
-            title: "删除失败:" + e2,
-            icon: "none"
-          });
-        }
-      };
-      const __returned__ = { dbService: dbService2, handleClick, navigateToFlow, closeAllAndNavigate, totalAssets, get cards() {
-        return cards;
-      }, set cards(v2) {
-        cards = v2;
-      }, loadAccounts, swipeAction, swipeChange, handleSwipeClick, navigateToEdit, handleDelete, onMounted: vue.onMounted, reactive: vue.reactive, computed: vue.computed, ref: vue.ref, get onLoad() {
-        return onLoad;
-      }, get onShow() {
-        return onShow;
-      }, get DBService() {
-        return DBService;
-      }, get authUtils() {
-        return authUtils;
-      }, get checkCurrentPageAuth() {
-        return checkCurrentPageAuth;
-      } };
-      Object.defineProperty(__returned__, "__isScriptSetup", { enumerable: false, value: true });
-      return __returned__;
-    }
-  };
-  function _sfc_render$D(_ctx, _cache, $props, $setup, $data, $options) {
-    const _component_wd_icon = resolveEasycom(vue.resolveDynamicComponent("wd-icon"), __easycom_0$5);
-    const _component_uni_swipe_action_item = resolveEasycom(vue.resolveDynamicComponent("uni-swipe-action-item"), __easycom_1$4);
-    const _component_uni_swipe_action = resolveEasycom(vue.resolveDynamicComponent("uni-swipe-action"), __easycom_2$4);
-    const _component_wd_fab = resolveEasycom(vue.resolveDynamicComponent("wd-fab"), __easycom_2$3);
-    return vue.openBlock(), vue.createElementBlock("view", { class: "container" }, [
-      vue.createElementVNode("view", { class: "header-section" }, [
-        vue.createElementVNode("view", { class: "status_bar" }),
-        vue.createElementVNode("view", { class: "total-money" }, [
-          vue.createElementVNode(
-            "text",
-            null,
-            vue.toDisplayString($setup.totalAssets),
-            1
-            /* TEXT */
-          ),
-          vue.createElementVNode("text", { class: "total-money-name" }, "净资产")
-        ])
-      ]),
-      (vue.openBlock(true), vue.createElementBlock(
-        vue.Fragment,
-        null,
-        vue.renderList($setup.cards, (card, index) => {
-          return vue.openBlock(), vue.createElementBlock("view", {
-            class: "card",
-            key: index
-          }, [
-            vue.createElementVNode(
-              "view",
-              { class: "card-header" },
-              vue.toDisplayString(card.title),
-              1
-              /* TEXT */
-            ),
-            vue.createVNode(
-              _component_uni_swipe_action,
-              {
-                ref_for: true,
-                ref: "swipeAction"
-              },
-              {
-                default: vue.withCtx(() => [
-                  (vue.openBlock(true), vue.createElementBlock(
-                    vue.Fragment,
-                    null,
-                    vue.renderList(card.items, (accountItem, itemIndex) => {
-                      return vue.openBlock(), vue.createBlock(_component_uni_swipe_action_item, {
-                        key: itemIndex,
-                        "right-options": [
-                          { text: "编辑", style: { backgroundColor: "#0b95ff", color: "#fff" } },
-                          { text: "删除", style: { backgroundColor: "red", color: "#fff" } }
-                        ],
-                        onChange: (e2) => $setup.swipeChange(e2, index),
-                        onClick: (e2) => $setup.handleSwipeClick(e2, accountItem, card, itemIndex)
-                      }, {
-                        default: vue.withCtx(() => [
-                          vue.createElementVNode("view", {
-                            class: "account-item",
-                            onClick: ($event) => $setup.closeAllAndNavigate(accountItem.id)
-                          }, [
-                            vue.createElementVNode("view", { class: "account-left" }, [
-                              vue.createVNode(_component_wd_icon, {
-                                name: accountItem.icon
-                              }, null, 8, ["name"]),
-                              vue.createElementVNode(
-                                "text",
-                                { class: "account-name" },
-                                vue.toDisplayString(accountItem.account_name),
-                                1
-                                /* TEXT */
-                              )
-                            ]),
-                            vue.createElementVNode("view", { class: "account-right" }, [
-                              vue.createElementVNode(
-                                "text",
-                                { class: "account-balance" },
-                                vue.toDisplayString(accountItem.balance),
-                                1
-                                /* TEXT */
-                              ),
-                              vue.createElementVNode("text", { class: "arrow" }, ">")
-                            ])
-                          ], 8, ["onClick"])
-                        ]),
-                        _: 2
-                        /* DYNAMIC */
-                      }, 1032, ["onChange", "onClick"]);
-                    }),
-                    128
-                    /* KEYED_FRAGMENT */
-                  ))
-                ]),
-                _: 2
-                /* DYNAMIC */
-              },
-              1536
-              /* NEED_PATCH, DYNAMIC_SLOTS */
-            )
-          ]);
-        }),
-        128
-        /* KEYED_FRAGMENT */
-      )),
-      vue.createVNode(_component_wd_fab, {
-        draggable: true,
-        expandable: false,
-        onClick: $setup.handleClick
-      })
-    ]);
-  }
-  const PagesSettleAccountAccount = /* @__PURE__ */ _export_sfc(_sfc_main$E, [["render", _sfc_render$D], ["__file", "E:/document/LifePartner/lifeparter-app/pages/settle-account/account.vue"]]);
-  const _sfc_main$D = {
-    name: "uniLink",
-    props: {
-      href: {
-        type: String,
-        default: ""
-      },
-      text: {
-        type: String,
-        default: ""
-      },
-      download: {
-        type: String,
-        default: ""
-      },
-      showUnderLine: {
-        type: [Boolean, String],
-        default: true
-      },
-      copyTips: {
-        type: String,
-        default: "已自动复制网址，请在手机浏览器里粘贴该网址"
-      },
-      color: {
-        type: String,
-        default: "#999999"
-      },
-      fontSize: {
-        type: [Number, String],
-        default: 14
-      }
-    },
-    computed: {
-      isShowA() {
-        if ((this.isMail() || this.isTel()) && this._isH5 === true) {
-          return true;
-        }
-        return false;
-      }
-    },
-    created() {
-      this._isH5 = null;
-    },
-    methods: {
-      isMail() {
-        return this.href.startsWith("mailto:");
-      },
-      isTel() {
-        return this.href.startsWith("tel:");
-      },
-      openURL() {
-        if (this.isTel()) {
-          this.makePhoneCall(this.href.replace("tel:", ""));
-        } else {
-          plus.runtime.openURL(this.href);
-        }
-      },
-      makePhoneCall(phoneNumber) {
-        uni.makePhoneCall({
-          phoneNumber
-        });
-      }
-    }
-  };
-  function _sfc_render$C(_ctx, _cache, $props, $setup, $data, $options) {
-    return $options.isShowA ? (vue.openBlock(), vue.createElementBlock("a", {
-      key: 0,
-      class: vue.normalizeClass(["uni-link", { "uni-link--withline": $props.showUnderLine === true || $props.showUnderLine === "true" }]),
-      href: $props.href,
-      style: vue.normalizeStyle({ color: $props.color, fontSize: $props.fontSize + "px" }),
-      download: $props.download
-    }, [
-      vue.renderSlot(_ctx.$slots, "default", {}, () => [
-        vue.createTextVNode(
-          vue.toDisplayString($props.text),
-          1
-          /* TEXT */
-        )
-      ], true)
-    ], 14, ["href", "download"])) : (vue.openBlock(), vue.createElementBlock(
-      "text",
-      {
-        key: 1,
-        class: vue.normalizeClass(["uni-link", { "uni-link--withline": $props.showUnderLine === true || $props.showUnderLine === "true" }]),
-        style: vue.normalizeStyle({ color: $props.color, fontSize: $props.fontSize + "px" }),
-        onClick: _cache[0] || (_cache[0] = (...args) => $options.openURL && $options.openURL(...args))
-      },
-      [
-        vue.renderSlot(_ctx.$slots, "default", {}, () => [
-          vue.createTextVNode(
-            vue.toDisplayString($props.text),
-            1
-            /* TEXT */
-          )
-        ], true)
-      ],
-      6
-      /* CLASS, STYLE */
-    ));
-  }
-  const __easycom_0$3 = /* @__PURE__ */ _export_sfc(_sfc_main$D, [["render", _sfc_render$C], ["__scopeId", "data-v-5db80ddb"], ["__file", "E:/document/LifePartner/lifeparter-app/uni_modules/uni-link/components/uni-link/uni-link.vue"]]);
-  const _sfc_main$C = {
-    data() {
-      return {
-        href: "https://uniapp.dcloud.io/component/README?id=uniui"
-      };
-    },
-    methods: {}
-  };
-  function _sfc_render$B(_ctx, _cache, $props, $setup, $data, $options) {
-    const _component_uni_link = resolveEasycom(vue.resolveDynamicComponent("uni-link"), __easycom_0$3);
-    return vue.openBlock(), vue.createElementBlock("view", { class: "container" }, [
-      vue.createElementVNode("view", { class: "intro" }, "本项目已包含uni ui组件，无需import和注册，可直接使用。在代码区键入字母u，即可通过代码助手列出所有可用组件。光标置于组件名称处按F1，即可查看组件文档。"),
-      vue.createElementVNode("text", { class: "intro" }, "详见："),
-      vue.createVNode(_component_uni_link, {
-        href: $data.href,
-        text: $data.href
-      }, null, 8, ["href", "text"])
-    ]);
-  }
-  const PagesIndexIndex = /* @__PURE__ */ _export_sfc(_sfc_main$C, [["render", _sfc_render$B], ["__file", "E:/document/LifePartner/lifeparter-app/pages/index/index.vue"]]);
+  const PagesUserCenterUserCenter = /* @__PURE__ */ _export_sfc(_sfc_main$C, [["render", _sfc_render$B], ["__file", "E:/document/LifePartner/lifeparter-app/pages/user-center/user-center.vue"]]);
   const _sfc_main$B = {
     data() {
       return {
@@ -6258,12 +6434,6 @@ if (uni.restoreGlobal) {
   const PagesPostPostDetail = /* @__PURE__ */ _export_sfc(_sfc_main$A, [["render", _sfc_render$z], ["__file", "E:/document/LifePartner/lifeparter-app/pages/post/postDetail.vue"]]);
   const pages = [
     {
-      path: "pages/user-center/user-center",
-      style: {
-        navigationBarTitleText: ""
-      }
-    },
-    {
       path: "pages/settle-account/account",
       style: {
         navigationStyle: "custom",
@@ -6271,9 +6441,15 @@ if (uni.restoreGlobal) {
       }
     },
     {
-      path: "pages/index/index",
+      path: "pages/user-center/login",
       style: {
-        navigationBarTitleText: "uni-app"
+        navigationStyle: "custom"
+      }
+    },
+    {
+      path: "pages/user-center/user-center",
+      style: {
+        navigationBarTitleText: ""
       }
     },
     {
@@ -6324,7 +6500,7 @@ if (uni.restoreGlobal) {
     {
       path: "pages/user-center/registry",
       style: {
-        navigationBarTitleText: ""
+        navigationStyle: "custom"
       }
     },
     {
@@ -6349,7 +6525,7 @@ if (uni.restoreGlobal) {
   const globalStyle = {
     navigationBarTextStyle: "black",
     navigationBarTitleText: "uni-app",
-    navigationBarBackgroundColor: "#9bb9ff",
+    navigationBarBackgroundColor: "#70aeff",
     backgroundColor: "#F8F8F8",
     "app-plus": {
       background: "#efeff4"
@@ -11541,10 +11717,10 @@ ${o3}
     }
   };
   function _sfc_render$q(_ctx, _cache, $props, $setup, $data, $options) {
-    const _component_wd_icon = resolveEasycom(vue.resolveDynamicComponent("wd-icon"), __easycom_0$5);
+    const _component_wd_icon = resolveEasycom(vue.resolveDynamicComponent("wd-icon"), __easycom_0$4);
     const _component_qiun_data_charts = resolveEasycom(vue.resolveDynamicComponent("qiun-data-charts"), __easycom_1$2);
-    const _component_wd_cell = resolveEasycom(vue.resolveDynamicComponent("wd-cell"), __easycom_0$4);
-    const _component_wd_cell_group = resolveEasycom(vue.resolveDynamicComponent("wd-cell-group"), __easycom_2$5);
+    const _component_wd_cell = resolveEasycom(vue.resolveDynamicComponent("wd-cell"), __easycom_0$3);
+    const _component_wd_cell_group = resolveEasycom(vue.resolveDynamicComponent("wd-cell-group"), __easycom_2$3);
     return vue.openBlock(), vue.createElementBlock("view", { class: "container" }, [
       vue.createElementVNode("view", { class: "status_bar" }),
       vue.createElementVNode("view", { class: "tab-bar" }, [
@@ -11933,7 +12109,7 @@ ${o3}
     }
   };
   function _sfc_render$p(_ctx, _cache, $props, $setup, $data, $options) {
-    const _component_uni_icons = resolveEasycom(vue.resolveDynamicComponent("uni-icons"), __easycom_1$5);
+    const _component_uni_icons = resolveEasycom(vue.resolveDynamicComponent("uni-icons"), __easycom_1$4);
     return vue.openBlock(), vue.createElementBlock("view", { class: "uni-collapse-item" }, [
       vue.createElementVNode(
         "view",
@@ -12178,9 +12354,9 @@ ${o3}
     }
   };
   function _sfc_render$n(_ctx, _cache, $props, $setup, $data, $options) {
-    const _component_wd_icon = resolveEasycom(vue.resolveDynamicComponent("wd-icon"), __easycom_0$5);
-    const _component_uni_swipe_action_item = resolveEasycom(vue.resolveDynamicComponent("uni-swipe-action-item"), __easycom_1$4);
-    const _component_uni_swipe_action = resolveEasycom(vue.resolveDynamicComponent("uni-swipe-action"), __easycom_2$4);
+    const _component_wd_icon = resolveEasycom(vue.resolveDynamicComponent("wd-icon"), __easycom_0$4);
+    const _component_uni_swipe_action_item = resolveEasycom(vue.resolveDynamicComponent("uni-swipe-action-item"), __easycom_1$5);
+    const _component_uni_swipe_action = resolveEasycom(vue.resolveDynamicComponent("uni-swipe-action"), __easycom_2$5);
     return vue.openBlock(), vue.createBlock(
       _component_uni_swipe_action,
       { ref: "swipeActionRef" },
@@ -12451,7 +12627,7 @@ ${o3}
   function _sfc_render$m(_ctx, _cache, $props, $setup, $data, $options) {
     const _component_uni_collapse_item = resolveEasycom(vue.resolveDynamicComponent("uni-collapse-item"), __easycom_2$2);
     const _component_uni_collapse = resolveEasycom(vue.resolveDynamicComponent("uni-collapse"), __easycom_3);
-    const _component_wd_fab = resolveEasycom(vue.resolveDynamicComponent("wd-fab"), __easycom_2$3);
+    const _component_wd_fab = resolveEasycom(vue.resolveDynamicComponent("wd-fab"), __easycom_2$4);
     return vue.openBlock(), vue.createElementBlock("view", { class: "container" }, [
       $setup.account_id ? (vue.openBlock(), vue.createElementBlock("view", {
         key: 0,
@@ -13073,7 +13249,7 @@ ${o3}
       function isValueEqual(value1, value2) {
         return isEqual(String(value1), String(value2));
       }
-      const __returned__ = { props, emit, slots, translate, isPwdVisible, clearing, focused, focusing, inputValue, cell, form, placeholderValue, showClear, showWordCount, errorMessage, isRequired, rootClass, labelClass, inputPlaceholderClass, labelStyle, getInitValue, formatValue, togglePwdVisible, handleClear, handleBlur, handleFocus, handleInput, handleKeyboardheightchange, handleConfirm, onClickSuffixIcon, onClickPrefixIcon, handleClick, isValueEqual, wdIcon: __easycom_0$5 };
+      const __returned__ = { props, emit, slots, translate, isPwdVisible, clearing, focused, focusing, inputValue, cell, form, placeholderValue, showClear, showWordCount, errorMessage, isRequired, rootClass, labelClass, inputPlaceholderClass, labelStyle, getInitValue, formatValue, togglePwdVisible, handleClear, handleBlur, handleFocus, handleInput, handleKeyboardheightchange, handleConfirm, onClickSuffixIcon, onClickPrefixIcon, handleClick, isValueEqual, wdIcon: __easycom_0$4 };
       Object.defineProperty(__returned__, "__isScriptSetup", { enumerable: false, value: true });
       return __returned__;
     }
@@ -13466,7 +13642,7 @@ ${o3}
       }
       function noop() {
       }
-      const __returned__ = { props, emit, transitionName, safeBottom, style, rootClass, handleClickModal, close, noop, wdIcon: __easycom_0$5, wdOverlay, wdTransition };
+      const __returned__ = { props, emit, transitionName, safeBottom, style, rootClass, handleClickModal, close, noop, wdIcon: __easycom_0$4, wdOverlay, wdTransition };
       Object.defineProperty(__returned__, "__isScriptSetup", { enumerable: false, value: true });
       return __returned__;
     }
@@ -14392,7 +14568,7 @@ ${o3}
         open,
         setLoading
       });
-      const __returned__ = { translate, props, emit, pickerViewWd, cell, innerLoading, popupShow, showValue, pickerValue, displayColumns, resetColumns, isPicking, hasConfirmed, isLoading, form, errorMessage, isRequired, proxy, handleShowValueUpdate, getSelects, open, close, showPopup, onCancel, onConfirm, handleConfirm, pickerViewChange, setShowValue, noop, onPickStart, onPickEnd, setLoading, showClear, handleClear, showArrow, wdIcon: __easycom_0$5, wdPopup: __easycom_2$1, wdPickerView };
+      const __returned__ = { translate, props, emit, pickerViewWd, cell, innerLoading, popupShow, showValue, pickerValue, displayColumns, resetColumns, isPicking, hasConfirmed, isLoading, form, errorMessage, isRequired, proxy, handleShowValueUpdate, getSelects, open, close, showPopup, onCancel, onConfirm, handleConfirm, pickerViewChange, setShowValue, noop, onPickStart, onPickEnd, setLoading, showClear, handleClear, showArrow, wdIcon: __easycom_0$4, wdPopup: __easycom_2$1, wdPickerView };
       Object.defineProperty(__returned__, "__isScriptSetup", { enumerable: false, value: true });
       return __returned__;
     }
@@ -14875,7 +15051,7 @@ ${o3}
         return closed;
       }, set closed(v2) {
         closed = v2;
-      }, toastOptionKey, toastOption, transitionStyle, rootClass, svgStyle, handleAfterEnter, handleAfterLeave, buildSvg, reset, mergeOptionsWithProps, wdIcon: __easycom_0$5, wdLoading, wdOverlay, wdTransition };
+      }, toastOptionKey, toastOption, transitionStyle, rootClass, svgStyle, handleAfterEnter, handleAfterLeave, buildSvg, reset, mergeOptionsWithProps, wdIcon: __easycom_0$4, wdLoading, wdOverlay, wdTransition };
       Object.defineProperty(__returned__, "__isScriptSetup", { enumerable: false, value: true });
       return __returned__;
     }
@@ -15224,7 +15400,7 @@ ${o3}
       },
       iconSize: {
         type: String,
-        default: "26rpx"
+        default: "36rpx"
       }
     },
     emits: ["update:modelValue"],
@@ -15307,21 +15483,31 @@ ${o3}
     }
   };
   function _sfc_render$d(_ctx, _cache, $props, $setup, $data, $options) {
-    const _component_wd_icon = resolveEasycom(vue.resolveDynamicComponent("wd-icon"), __easycom_0$5);
-    const _component_wd_cell = resolveEasycom(vue.resolveDynamicComponent("wd-cell"), __easycom_0$4);
+    const _component_wd_cell = resolveEasycom(vue.resolveDynamicComponent("wd-cell"), __easycom_0$3);
+    const _component_wd_icon = resolveEasycom(vue.resolveDynamicComponent("wd-icon"), __easycom_0$4);
     const _component_wd_popup = resolveEasycom(vue.resolveDynamicComponent("wd-popup"), __easycom_2$1);
     return vue.openBlock(), vue.createElementBlock("view", null, [
       vue.createVNode(_component_wd_cell, {
-        title: $props.label,
         "is-link": "",
-        onClick: _cache[0] || (_cache[0] = ($event) => $setup.showPicker = true)
+        onClick: _cache[0] || (_cache[0] = ($event) => $setup.showPicker = true),
+        center: ""
       }, {
+        title: vue.withCtx(() => [
+          vue.createElementVNode(
+            "text",
+            { style: { "font-size": "28rpx" } },
+            vue.toDisplayString($props.label),
+            1
+            /* TEXT */
+          )
+        ]),
         default: vue.withCtx(() => [
-          $props.modelValue ? (vue.openBlock(), vue.createBlock(_component_wd_icon, {
+          $props.modelValue ? (vue.openBlock(), vue.createElementBlock("image", {
             key: 0,
-            name: $props.modelValue,
-            size: $props.iconSize
-          }, null, 8, ["name", "size"])) : (vue.openBlock(), vue.createElementBlock(
+            src: $props.modelValue,
+            class: "selected-icon",
+            mode: "aspectFit"
+          }, null, 8, ["src"])) : (vue.openBlock(), vue.createElementBlock(
             "text",
             { key: 1 },
             vue.toDisplayString($props.placeholder),
@@ -15331,7 +15517,7 @@ ${o3}
         ]),
         _: 1
         /* STABLE */
-      }, 8, ["title"]),
+      }),
       vue.createVNode(_component_wd_popup, {
         modelValue: $setup.showPicker,
         "onUpdate:modelValue": _cache[1] || (_cache[1] = ($event) => $setup.showPicker = $event),
@@ -15494,7 +15680,7 @@ ${o3}
   function _sfc_render$c(_ctx, _cache, $props, $setup, $data, $options) {
     const _component_wd_input = resolveEasycom(vue.resolveDynamicComponent("wd-input"), __easycom_0$1);
     const _component_wd_picker = resolveEasycom(vue.resolveDynamicComponent("wd-picker"), __easycom_1$1);
-    const _component_wd_cell_group = resolveEasycom(vue.resolveDynamicComponent("wd-cell-group"), __easycom_2$5);
+    const _component_wd_cell_group = resolveEasycom(vue.resolveDynamicComponent("wd-cell-group"), __easycom_2$3);
     const _component_wd_button = resolveEasycom(vue.resolveDynamicComponent("wd-button"), __easycom_3$1);
     const _component_wd_form = resolveEasycom(vue.resolveDynamicComponent("wd-form"), __easycom_4);
     return vue.openBlock(), vue.createBlock(_component_wd_form, {
@@ -16808,7 +16994,7 @@ ${o3}
     }
   });
   function _sfc_render$a(_ctx, _cache, $props, $setup, $data, $options) {
-    const _component_wd_icon = resolveEasycom(vue.resolveDynamicComponent("wd-icon"), __easycom_0$5);
+    const _component_wd_icon = resolveEasycom(vue.resolveDynamicComponent("wd-icon"), __easycom_0$4);
     return vue.openBlock(), vue.createElementBlock(
       "view",
       {
@@ -17442,7 +17628,7 @@ ${o3}
         itemClass,
         init
       });
-      const __returned__ = { props, emit, style, gutterContentStyle, itemClass, gutter, square, border, grid, childCount, customBadgeProps, init, click, setiIemClass, wdIcon: __easycom_0$5, wdBadge };
+      const __returned__ = { props, emit, style, gutterContentStyle, itemClass, gutter, square, border, grid, childCount, customBadgeProps, init, click, setiIemClass, wdIcon: __easycom_0$4, wdBadge };
       Object.defineProperty(__returned__, "__isScriptSetup", { enumerable: false, value: true });
       return __returned__;
     }
@@ -17789,7 +17975,7 @@ ${o3}
           onClick: $setup.goToCategory
         }, [
           vue.createElementVNode("text", { class: "btn-icon" }, "+"),
-          vue.createElementVNode("text", { class: "btn-text" }, "新建一级分类")
+          vue.createElementVNode("text", { class: "btn-text" }, "管理分类")
         ])
       ]),
       _: 1
@@ -18159,9 +18345,9 @@ ${o3}
     }
   };
   function _sfc_render$4(_ctx, _cache, $props, $setup, $data, $options) {
-    const _component_wd_cell = resolveEasycom(vue.resolveDynamicComponent("wd-cell"), __easycom_0$4);
+    const _component_wd_cell = resolveEasycom(vue.resolveDynamicComponent("wd-cell"), __easycom_0$3);
     const _component_wd_input = resolveEasycom(vue.resolveDynamicComponent("wd-input"), __easycom_0$1);
-    const _component_wd_cell_group = resolveEasycom(vue.resolveDynamicComponent("wd-cell-group"), __easycom_2$5);
+    const _component_wd_cell_group = resolveEasycom(vue.resolveDynamicComponent("wd-cell-group"), __easycom_2$3);
     const _component_wd_button = resolveEasycom(vue.resolveDynamicComponent("wd-button"), __easycom_3$1);
     return vue.openBlock(), vue.createElementBlock("view", { class: "account-settings-container" }, [
       vue.createElementVNode("view", { class: "avatar-section" }, [
@@ -18389,7 +18575,7 @@ ${o3}
         return onLoad;
       }, get DBService() {
         return DBService;
-      }, uniIcons: __easycom_1$5 };
+      }, uniIcons: __easycom_1$4 };
       Object.defineProperty(__returned__, "__isScriptSetup", { enumerable: false, value: true });
       return __returned__;
     }
@@ -18840,7 +19026,10 @@ ${o3}
         const data = await dbService2.queryTableName("tally_category");
         const map = {};
         const result = [];
-        data.forEach((item) => map[item.id] = { ...item, children: [] });
+        data.forEach((item) => map[item.id] = {
+          ...item,
+          children: []
+        });
         data.forEach((item) => {
           if (item.parent_id === 0) {
             result.push(map[item.id]);
@@ -18859,10 +19048,13 @@ ${o3}
         displayList.value = root.children.map((sub) => ({
           id: sub.id,
           name: sub.name,
+          parentId: sub.parent_id,
+          icon: sub.icon,
           iconGroup: sub.children.map((child) => ({
             id: child.id,
             name: child.name,
-            icon: child.icon
+            icon: child.icon,
+            parentId: child.parent_id
           }))
         }));
       }
@@ -18873,21 +19065,49 @@ ${o3}
         loadCategoryData();
       });
       function editCategory(category) {
-        uni.showToast({
-          title: "编辑分类：" + category.name,
-          icon: "none"
+        const isFirstLevel = category.parent_id === 1 || category.parent_id === 2;
+        const params = {
+          id: category.id,
+          name: encodeURIComponent(category.name),
+          type: categoryType.value
+        };
+        if (isFirstLevel) {
+          params.isFirstLevel = "true";
+        }
+        params.icon = encodeURIComponent(category.icon);
+        params.parentId = category.parentId;
+        uni.navigateTo({
+          url: `/pages/category/category-create?${Object.keys(params).map((k) => `${k}=${params[k]}`).join("&")}`
         });
       }
-      function deleteCategory(category) {
+      async function deleteCategory(category) {
+        const hasChildren = category.parent_id === 1 || category.parent_id === 2;
+        let content = '确定要删除 "' + category.name + '" 吗？';
+        if (hasChildren) {
+          content = `删除 "${category.name}" 将同时删除其下的 ${category.iconGroup.length} 个子分类，确定要删除吗？`;
+        }
         uni.showModal({
           title: "确认删除",
-          content: '确定要删除 "' + category.name + '" 吗？',
-          success: (res) => {
+          content,
+          success: async (res) => {
             if (res.confirm) {
-              uni.showToast({
-                title: "删除成功",
-                icon: "success"
-              });
+              try {
+                if (hasChildren) {
+                  await dbService2.deleteTallyCategoryWithChildren(category.id);
+                } else {
+                  await dbService2.deleteTallyCategory(category.id);
+                }
+                uni.showToast({
+                  title: "删除成功",
+                  icon: "success"
+                });
+                await loadCategoryData();
+              } catch (error) {
+                uni.showToast({
+                  title: "删除失败：" + error.message,
+                  icon: "none"
+                });
+              }
             }
           }
         });
@@ -18898,9 +19118,8 @@ ${o3}
         });
       }
       function addFirstCategory() {
-        uni.showToast({
-          title: "新建一级分类",
-          icon: "none"
+        uni.navigateTo({
+          url: `/pages/category/category-create?type=${categoryType.value}&isFirstLevel=true`
         });
       }
       const __returned__ = { dbService: dbService2, categoryType, displayList, getCategoryTree, loadCategoryData, editCategory, deleteCategory, addSecondCategory, addFirstCategory, ref: vue.ref, onMounted: vue.onMounted, get DBService() {
@@ -18911,8 +19130,8 @@ ${o3}
     }
   };
   function _sfc_render$1(_ctx, _cache, $props, $setup, $data, $options) {
-    const _component_wd_icon = resolveEasycom(vue.resolveDynamicComponent("wd-icon"), __easycom_0$5);
-    const _component_uni_icons = resolveEasycom(vue.resolveDynamicComponent("uni-icons"), __easycom_1$5);
+    const _component_wd_icon = resolveEasycom(vue.resolveDynamicComponent("wd-icon"), __easycom_0$4);
+    const _component_uni_icons = resolveEasycom(vue.resolveDynamicComponent("uni-icons"), __easycom_1$4);
     const _component_uni_collapse_item = resolveEasycom(vue.resolveDynamicComponent("uni-collapse-item"), __easycom_2$2);
     const _component_uni_collapse = resolveEasycom(vue.resolveDynamicComponent("uni-collapse"), __easycom_3);
     return vue.openBlock(), vue.createElementBlock("view", { class: "container" }, [
@@ -18932,6 +19151,45 @@ ${o3}
                     title: firstLevel.name,
                     open: true
                   }, {
+                    title: vue.withCtx(() => [
+                      vue.createElementVNode("view", { class: "first-category-header" }, [
+                        vue.createElementVNode("view", { class: "category-info" }, [
+                          vue.createVNode(_component_wd_icon, {
+                            name: firstLevel.icon,
+                            size: "20px"
+                          }, null, 8, ["name"]),
+                          vue.createElementVNode(
+                            "text",
+                            { class: "first-category-name" },
+                            vue.toDisplayString(firstLevel.name),
+                            1
+                            /* TEXT */
+                          )
+                        ]),
+                        vue.createElementVNode("view", { class: "category-actions" }, [
+                          vue.createElementVNode("view", {
+                            class: "action-btn",
+                            onClick: vue.withModifiers(($event) => $setup.editCategory(firstLevel), ["stop"])
+                          }, [
+                            vue.createVNode(_component_uni_icons, {
+                              type: "compose",
+                              size: "20",
+                              color: "#999"
+                            })
+                          ], 8, ["onClick"]),
+                          vue.createElementVNode("view", {
+                            class: "action-btn",
+                            onClick: vue.withModifiers(($event) => $setup.deleteCategory(firstLevel), ["stop"])
+                          }, [
+                            vue.createVNode(_component_uni_icons, {
+                              type: "trash",
+                              size: "20",
+                              color: "#999"
+                            })
+                          ], 8, ["onClick"])
+                        ])
+                      ])
+                    ]),
                     default: vue.withCtx(() => [
                       vue.createElementVNode("view", { class: "second-category-list" }, [
                         (vue.openBlock(true), vue.createElementBlock(
@@ -18971,7 +19229,7 @@ ${o3}
                                   onClick: ($event) => $setup.deleteCategory(secondLevel)
                                 }, [
                                   vue.createVNode(_component_uni_icons, {
-                                    type: "bars",
+                                    type: "trash",
                                     size: "20",
                                     color: "#999"
                                   })
@@ -19023,14 +19281,34 @@ ${o3}
       const dbService2 = new DBService();
       const categoryType = vue.ref("expense");
       const firstLevelId = vue.ref(0);
+      const isFirstLevel = vue.ref(false);
       const categoryName = vue.ref("");
       const selectedIcon = vue.ref("");
+      const isEdit = vue.ref(false);
+      const categoryId = vue.ref(0);
       onLoad((options) => {
         categoryType.value = options.type || "expense";
-        firstLevelId.value = parseInt(options.firstLevelId);
-        uni.setNavigationBarTitle({
-          title: `新建二级${categoryType.value === "income" ? "收入" : "支出"}分类`
-        });
+        isFirstLevel.value = options.isFirstLevel === "true";
+        isEdit.value = !!options.id;
+        if (isEdit.value) {
+          categoryId.value = parseInt(options.id);
+          categoryName.value = decodeURIComponent(options.name || "");
+          selectedIcon.value = decodeURIComponent(options.icon || "");
+          firstLevelId.value = parseInt(options.parentId);
+          uni.setNavigationBarTitle({
+            title: "编辑分类"
+          });
+        } else if (isFirstLevel.value) {
+          firstLevelId.value = categoryType.value === "income" ? 1 : 2;
+          uni.setNavigationBarTitle({
+            title: `新建一级分类`
+          });
+        } else {
+          firstLevelId.value = parseInt(options.firstLevelId);
+          uni.setNavigationBarTitle({
+            title: `新建二级分类`
+          });
+        }
       });
       async function handleSave() {
         if (!categoryName.value.trim()) {
@@ -19048,15 +19326,26 @@ ${o3}
           return;
         }
         try {
-          const user_id = authUtils.getCurrentUserId();
           const directory = categoryType.value === "income" ? 1 : -1;
-          await dbService2.insertTallyCategory(
-            categoryName.value,
-            selectedIcon.value,
-            firstLevelId.value,
-            directory,
-            user_id
-          );
+          const icon = selectedIcon.value;
+          if (isEdit.value) {
+            await dbService2.updateTallyCategory(
+              categoryId.value,
+              categoryName.value,
+              icon,
+              firstLevelId.value,
+              directory
+            );
+          } else {
+            const user_id = authUtils.getCurrentUserId();
+            await dbService2.insertTallyCategory(
+              categoryName.value,
+              icon,
+              firstLevelId.value,
+              directory,
+              user_id
+            );
+          }
           uni.showToast({
             title: "保存成功",
             icon: "success"
@@ -19071,7 +19360,7 @@ ${o3}
           });
         }
       }
-      const __returned__ = { dbService: dbService2, categoryType, firstLevelId, categoryName, selectedIcon, handleSave, ref: vue.ref, get DBService() {
+      const __returned__ = { dbService: dbService2, categoryType, firstLevelId, isFirstLevel, categoryName, selectedIcon, isEdit, categoryId, handleSave, ref: vue.ref, get DBService() {
         return DBService;
       }, IconSelector, get authUtils() {
         return authUtils;
@@ -19123,9 +19412,9 @@ ${o3}
     ]);
   }
   const PagesCategoryCategoryCreate = /* @__PURE__ */ _export_sfc(_sfc_main$1, [["render", _sfc_render], ["__scopeId", "data-v-d1dcade1"], ["__file", "E:/document/LifePartner/lifeparter-app/pages/category/category-create.vue"]]);
-  __definePage("pages/user-center/user-center", PagesUserCenterUserCenter);
   __definePage("pages/settle-account/account", PagesSettleAccountAccount);
-  __definePage("pages/index/index", PagesIndexIndex);
+  __definePage("pages/user-center/login", PagesUserCenterLogin);
+  __definePage("pages/user-center/user-center", PagesUserCenterUserCenter);
   __definePage("pages/post/postList", PagesPostPostList);
   __definePage("pages/post/postDetail", PagesPostPostDetail);
   __definePage("pages/reports/reports", PagesReportsReports);

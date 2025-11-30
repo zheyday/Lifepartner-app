@@ -4364,6 +4364,12 @@ to {
 		background: #e3f2fd;
 		border: 2px solid #2196F3;
 }
+.selected-icon[data-v-7d1eb6ba] {
+		width: 1.5rem;
+		height: 1.5rem;
+		display: flex;
+		margin-left: auto;
+}
 
 
 .footer[data-v-fb877f2a] {

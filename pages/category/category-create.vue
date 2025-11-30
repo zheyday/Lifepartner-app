@@ -32,16 +32,38 @@
 
 	const categoryType = ref('expense')
 	const firstLevelId = ref(0)
+	const isFirstLevel = ref(false)
 	const categoryName = ref('')
 	const selectedIcon = ref('')
+	const isEdit = ref(false)
+	const categoryId = ref(0)
 
 	onLoad((options) => {
 		categoryType.value = options.type || 'expense'
-		firstLevelId.value = parseInt(options.firstLevelId)
+		isFirstLevel.value = options.isFirstLevel === 'true'
+		isEdit.value = !!options.id
+		if (isEdit.value) {
+			// 编辑模式
+			categoryId.value = parseInt(options.id)
+			categoryName.value = decodeURIComponent(options.name || '')
+			selectedIcon.value = decodeURIComponent(options.icon || '')
+			firstLevelId.value = parseInt(options.parentId)
 
-		uni.setNavigationBarTitle({
-			title: `新建二级${categoryType.value === 'income' ? '收入' : '支出'}分类`
-		})
+			uni.setNavigationBarTitle({
+				title: '编辑分类'
+			})
+		} else if (isFirstLevel.value) {
+			// 一级分类的 parent_id 是对应的根分类 ID (1=收入, 2=支出)
+			firstLevelId.value = categoryType.value === 'income' ? 1 : 2
+			uni.setNavigationBarTitle({
+				title: `新建一级分类`
+			})
+		} else {
+			firstLevelId.value = parseInt(options.firstLevelId)
+			uni.setNavigationBarTitle({
+				title: `新建二级分类`
+			})
+		}
 	})
 
 	async function handleSave() {
@@ -62,16 +84,29 @@
 		}
 
 		try {
-			const user_id = authUtils.getCurrentUserId()
 			const directory = categoryType.value === 'income' ? 1 : -1
+			const icon = selectedIcon.value
 
-			await dbService.insertTallyCategory(
-				categoryName.value,
-				selectedIcon.value,
-				firstLevelId.value,
-				directory,
-				user_id
-			)
+			if (isEdit.value) {
+				// 编辑模式：更新分类
+				await dbService.updateTallyCategory(
+					categoryId.value,
+					categoryName.value,
+					icon,
+					firstLevelId.value,
+					directory
+				)
+			} else {
+				// 新建模式：插入分类
+				const user_id = authUtils.getCurrentUserId()
+				await dbService.insertTallyCategory(
+					categoryName.value,
+					icon,
+					firstLevelId.value,
+					directory,
+					user_id
+				)
+			}
 
 			uni.showToast({
 				title: '保存成功',
@@ -100,7 +135,6 @@
 
 	.form-content {
 		flex: 1;
-		padding: 20rpx 0;
 	}
 
 	.form-item {
@@ -108,7 +142,7 @@
 		align-items: center;
 		justify-content: space-between;
 		background: #fff;
-		padding: 30rpx 40rpx;
+		padding: 30rpx;
 		margin-bottom: 2rpx;
 	}
 

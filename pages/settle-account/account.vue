@@ -100,11 +100,10 @@
 
 	var cards = reactive([])
 
-	// 页面加载时检查登录状态
 	onLoad((options) => {
-		// if (!checkCurrentPageAuth('/pages/settle-account/settle-account')) {
-		// 	return
-		// }
+		if (!checkCurrentPageAuth('/pages/settle-account/account')) {
+			return
+		}
 	})
 
 	async function loadAccounts() {

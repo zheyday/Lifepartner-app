@@ -42,7 +42,7 @@
 	/* background-repeat: no-repeat; */
 	/* 居中 */
 	/* background-position: center center; */
-	background: #9bb9ff;
+	background: #70aeff;
 	/* border-radius: 25rpx 25rpx 0 0; */
 }
 
@@ -58,5 +58,5 @@
 
 .header-section {
 	/* background: linear-gradient(135deg, #FF6B35 0%, #F7931E 50%, #FFB366 100%); */
-	background: #9bb9ff;
+	background: #70aeff;
 }
